@@ -86,8 +86,6 @@ export default function HeroSection() {
                         <EventCard
                             key={index}
                             category={event.category}
-                            bgColor="" // This will be ignored as we now use category-based colors
-                            textColor="text-white"
                             title={event.title}
                             author={event.author}
                             authorImage={event.authorImage}

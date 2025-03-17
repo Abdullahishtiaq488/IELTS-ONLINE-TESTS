@@ -34,7 +34,7 @@ export default function Carousel() {
     useEffect(() => {
         const timer = setInterval(nextSlide, 8000);
         return () => clearInterval(timer);
-    }, []);
+    }, [nextSlide]);
 
     // Reset animation state after transition
     useEffect(() => {

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Home, ChevronDown, ChevronRight, Menu, X } from 'lucide-react';
 import { navigationItems } from '@/data/navigation';
-import type { NavItem, NavItemArray } from '@/types/navigation';
+import type { NavItemArray } from '@/types/navigation';
 
 export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -33,8 +33,11 @@ export default function Navbar() {
     };
 
     useEffect(() => {
+        // Store the reference to prevent issues with cleanup
+        const timers = dropdownTimersRef.current;
+
         return () => {
-            Object.values(dropdownTimersRef.current).forEach(timer => {
+            Object.values(timers).forEach(timer => {
                 clearTimeout(timer);
             });
         };
