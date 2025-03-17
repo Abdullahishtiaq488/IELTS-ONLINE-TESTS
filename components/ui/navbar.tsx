@@ -13,12 +13,10 @@ export default function Navbar() {
     const dropdownTimersRef = useRef<Record<string, NodeJS.Timeout>>({});
 
     const handleDropdownEnter = (key: string) => {
-        // Clear any existing timer for this dropdown
         if (dropdownTimersRef.current[key]) {
             clearTimeout(dropdownTimersRef.current[key]);
         }
 
-        // Update active dropdowns
         setActiveDropdowns(prev => ({
             ...prev,
             [key]: true
@@ -26,16 +24,14 @@ export default function Navbar() {
     };
 
     const handleDropdownLeave = (key: string) => {
-        // Set a timer to close the dropdown
         dropdownTimersRef.current[key] = setTimeout(() => {
             setActiveDropdowns(prev => ({
                 ...prev,
                 [key]: false
             }));
-        }, 150); // Small delay to help with moving to the dropdown
+        }, 150);
     };
 
-    // Cleanup timers on unmount
     useEffect(() => {
         return () => {
             Object.values(dropdownTimersRef.current).forEach(timer => {
@@ -59,7 +55,7 @@ export default function Navbar() {
                 >
                     <Link
                         href={item.href || '#'}
-                        className={`flex items-center gap-0.5 px-3 py-2 text-sm font-medium text-white hover:bg-blue-600 ${isNested ? 'pl-5' : ''
+                        className={`flex items-center gap-0.5 px-3 py-2 text-sm font-medium text-white hover:bg-blue-800 ${isNested ? 'pl-5' : ''
                             }`}
                     >
                         <span>{item.label}</span>
@@ -72,8 +68,8 @@ export default function Navbar() {
                     </Link>
                     {hasItems && isActive && item.items && (
                         <div
-                            className={`absolute ${isNested ? 'left-full top-0 -ml-1' : 'left-0 top-full'
-                                } bg-blue-800 rounded-md shadow-lg border border-blue-700 min-w-[200px] z-50`}
+                            className={`absolute ${isNested ? 'left-full top-0 -ml-1' : 'left-0 top-[calc(100%+1px)]'
+                                } bg-blue-900/95 backdrop-blur-sm shadow-lg border border-blue-800 min-w-[200px] z-50`}
                             onMouseEnter={() => handleDropdownEnter(itemKey)}
                             onMouseLeave={() => handleDropdownLeave(itemKey)}
                         >
@@ -128,15 +124,15 @@ export default function Navbar() {
             {/* Top Section with Logo and Horizontal Image */}
             <div className="hidden sm:block bg-white border-b">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-between items-center h-20">
+                    <div className="flex justify-between items-center h-24">
                         <div className="flex-shrink-0">
                             <Link href="/" className="flex items-center">
                                 <Image
                                     src="/images/logo.svg"
                                     alt="IELTS Online"
-                                    width={220}
-                                    height={80}
-                                    className="h-8 w-auto"
+                                    width={180}
+                                    height={180}
+                                    className="h-16 w-auto"
                                 />
                             </Link>
                         </div>
@@ -144,9 +140,9 @@ export default function Navbar() {
                             <Image
                                 src="/images/top-nav-horizontal.png"
                                 alt="IELTS Online Banner"
-                                width={400}
-                                height={60}
-                                className="h-12 w-auto"
+                                width={600}
+                                height={80}
+                                className="h-16 w-auto"
                             />
                         </div>
                     </div>
@@ -154,7 +150,7 @@ export default function Navbar() {
             </div>
 
             {/* Main Navigation */}
-            <div className="hidden sm:block bg-blue-900">
+            <div className="hidden sm:block bg-blue-950">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-12">
                         <div className="flex items-center space-x-4">
@@ -189,9 +185,9 @@ export default function Navbar() {
                         <Image
                             src="/images/logo.svg"
                             alt="IELTS Online"
-                            width={100}
-                            height={32}
-                            className="h-8 w-auto"
+                            width={120}
+                            height={120}
+                            className="h-10 w-auto"
                         />
                     </Link>
                     <button
@@ -228,7 +224,7 @@ export default function Navbar() {
                         </button>
                     </div>
 
-                    <div className="px-2 py-3 h-full overflow-y-auto">
+                    <div className="px-2 py-3 h-[calc(100%-4rem)] overflow-y-auto scrollbar-hide">
                         <div className="space-y-1">
                             {Object.entries(navigationItems).map(([key, item]) => (
                                 <div key={`mobile-${key}`}>
