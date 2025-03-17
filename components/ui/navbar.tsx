@@ -55,21 +55,21 @@ export default function Navbar() {
                 >
                     <Link
                         href={item.href || '#'}
-                        className={`flex items-center gap-0.5 px-3 py-2 text-sm font-medium text-white hover:bg-blue-800 ${isNested ? 'pl-5' : ''
+                        className={`flex items-center gap-0.5 px-3 h-10 text-xs md:text-xs lg:text-sm font-bold text-white hover:bg-blue-800/40 ${isNested ? 'pl-4 h-8' : ''
                             }`}
                     >
                         <span>{item.label}</span>
                         {hasItems && (
                             <ChevronDown
-                                className={`w-3.5 h-3.5 ml-0.5 transition-transform ${isActive ? 'rotate-180' : ''
+                                className={`w-3 h-3 md:w-3.5 md:h-3.5 ml-0.5 transition-transform ${isActive ? 'rotate-180' : ''
                                     }`}
                             />
                         )}
                     </Link>
                     {hasItems && isActive && item.items && (
                         <div
-                            className={`absolute ${isNested ? 'left-full top-0 -ml-1' : 'left-0 top-[calc(100%+1px)]'
-                                } bg-blue-900/95 backdrop-blur-sm shadow-lg border border-blue-800 min-w-[200px] z-50`}
+                            className={`absolute ${isNested ? 'left-full top-0 -ml-1' : 'left-0 top-full'
+                                } bg-blue-950/95 backdrop-blur-sm shadow-lg border border-blue-900 min-w-[200px] md:min-w-[220px] lg:min-w-[240px] z-50`}
                             onMouseEnter={() => handleDropdownEnter(itemKey)}
                             onMouseLeave={() => handleDropdownLeave(itemKey)}
                         >
@@ -90,7 +90,7 @@ export default function Navbar() {
             return (
                 <div key={itemKey}>
                     <div
-                        className={`flex items-center justify-between px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 ${isNested ? 'pl-8' : ''
+                        className={`flex items-center justify-between px-3 py-2 text-sm font-bold text-gray-700 hover:bg-gray-50 ${isNested ? 'pl-6' : ''
                             }`}
                         onClick={() => {
                             if (hasItems) {
@@ -122,9 +122,9 @@ export default function Navbar() {
     return (
         <nav>
             {/* Top Section with Logo and Horizontal Image */}
-            <div className="hidden sm:block bg-white border-b">
+            <div className="hidden md:block bg-white border-b">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-between items-center h-24">
+                    <div className="flex justify-between items-center h-24 md:h-28 lg:h-32">
                         <div className="flex-shrink-0">
                             <Link href="/" className="flex items-center">
                                 <Image
@@ -132,7 +132,7 @@ export default function Navbar() {
                                     alt="IELTS Online"
                                     width={180}
                                     height={180}
-                                    className="h-16 w-auto"
+                                    className="h-16 md:h-20 lg:h-24 w-auto"
                                 />
                             </Link>
                         </div>
@@ -142,7 +142,7 @@ export default function Navbar() {
                                 alt="IELTS Online Banner"
                                 width={600}
                                 height={80}
-                                className="h-16 w-auto"
+                                className="h-16 md:h-20 lg:h-24 w-auto"
                             />
                         </div>
                     </div>
@@ -150,26 +150,28 @@ export default function Navbar() {
             </div>
 
             {/* Main Navigation */}
-            <div className="hidden sm:block bg-blue-950">
+            <div className="hidden md:block bg-blue-950">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex items-center justify-between h-12">
-                        <div className="flex items-center space-x-4">
-                            <Link href="/" className="text-white hover:text-blue-200 p-2">
-                                <Home className="w-5 h-5" />
+                    <div className="flex items-center justify-between h-10 md:h-12 lg:h-14">
+                        <div className="flex items-center">
+                            <Link href="/" className="text-white hover:bg-blue-800/40 px-3 h-10 md:h-12 lg:h-14 flex items-center">
+                                <Home className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" />
                             </Link>
-                            {Object.entries(navigationItems).map(([key, item], index) => (
-                                <div key={key} className="relative">
-                                    {renderNavItems([item], false, `main-${index}`)}
-                                </div>
-                            ))}
+                            <div className="flex items-center space-x-2 md:space-x-3 lg:space-x-4">
+                                {Object.entries(navigationItems).map(([key, item], index) => (
+                                    <div key={key}>
+                                        {renderNavItems([item], false, `main-${index}`)}
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                        <div className="flex items-center space-x-6">
-                            <Link href="/login" className="text-white hover:text-blue-200 text-sm font-medium">
+                        <div className="flex items-center space-x-4 md:space-x-6 lg:space-x-8">
+                            <Link href="/login" className="text-white hover:bg-blue-800/40 text-xs md:text-sm lg:text-base font-bold h-10 md:h-12 lg:h-14 px-3 flex items-center">
                                 Log In
                             </Link>
                             <Link
                                 href="/signup"
-                                className="text-white hover:text-blue-200 text-sm font-medium"
+                                className="text-white hover:bg-blue-800/40 text-xs md:text-sm lg:text-base font-bold h-10 md:h-12 lg:h-14 px-3 flex items-center"
                             >
                                 Sign Up
                             </Link>
@@ -179,7 +181,7 @@ export default function Navbar() {
             </div>
 
             {/* Mobile Navigation */}
-            <div className="sm:hidden bg-white border-b">
+            <div className="md:hidden bg-white border-b">
                 <div className="flex justify-between items-center h-16 px-4">
                     <Link href="/" className="flex-shrink-0">
                         <Image
@@ -212,34 +214,36 @@ export default function Navbar() {
 
                 {/* Sidebar */}
                 <div className={`absolute inset-y-0 right-0 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-                    }`}>
+                    } no-scrollbar`}>
                     <div className="flex items-center justify-between p-4 border-b">
-                        <h2 className="text-lg font-medium text-blue-900">Menu</h2>
+                        <h2 className="text-base font-bold text-blue-900">Menu</h2>
                         <button
                             type="button"
                             className="text-gray-500 hover:text-gray-700"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
-                            <X className="h-6 w-6" />
+                            <X className="h-5 w-5" />
                         </button>
                     </div>
 
-                    <div className="px-2 py-3 h-[calc(100%-4rem)] overflow-y-auto scrollbar-hide">
-                        <div className="space-y-1">
-                            {Object.entries(navigationItems).map(([key, item]) => (
-                                <div key={`mobile-${key}`}>
-                                    {renderMobileNavItems([item])}
-                                </div>
-                            ))}
-                        </div>
+                    <div className="h-[calc(100%-4rem)] overflow-y-auto no-scrollbar">
+                        <div className="px-2 py-3">
+                            <div className="space-y-0.5">
+                                {Object.entries(navigationItems).map(([key, item]) => (
+                                    <div key={`mobile-${key}`}>
+                                        {renderMobileNavItems([item])}
+                                    </div>
+                                ))}
+                            </div>
 
-                        <div className="mt-auto pt-4 border-t mt-4">
-                            <Link href="/login" className="block px-4 py-2 text-sm font-medium text-blue-900 hover:bg-gray-50">
-                                Log In
-                            </Link>
-                            <Link href="/signup" className="block px-4 py-2 text-sm font-medium text-blue-900 hover:bg-gray-50">
-                                Sign Up
-                            </Link>
+                            <div className="mt-4 pt-4 border-t">
+                                <Link href="/login" className="block px-3 py-2 text-sm font-bold text-blue-900 hover:bg-gray-50">
+                                    Log In
+                                </Link>
+                                <Link href="/signup" className="block px-3 py-2 text-sm font-bold text-blue-900 hover:bg-gray-50">
+                                    Sign Up
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>
