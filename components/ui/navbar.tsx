@@ -55,7 +55,7 @@ export default function Navbar() {
                 >
                     <Link
                         href={item.href || '#'}
-                        className={`flex items-center gap-0.5 px-3 h-10 text-xs md:text-xs lg:text-sm font-bold text-white hover:bg-blue-800/40 ${isNested ? 'pl-4 h-8' : ''
+                        className={`flex items-center gap-0.5 px-3 h-10 text-xs md:text-xs lg:text-sm font-bold text-white hover:bg-slate-600 ${isNested ? 'pl-4 h-8' : ''
                             }`}
                     >
                         <span>{item.label}</span>
@@ -69,7 +69,7 @@ export default function Navbar() {
                     {hasItems && isActive && item.items && (
                         <div
                             className={`absolute ${isNested ? 'left-full top-0 -ml-1' : 'left-0 top-full'
-                                } bg-blue-950/95 backdrop-blur-sm shadow-lg border border-blue-900 min-w-[200px] md:min-w-[220px] lg:min-w-[240px] z-50`}
+                                } bg-blue-950/95 backdrop-blur-sm shadow-lg min-w-[200px] md:min-w-[220px] lg:min-w-[240px] z-50`}
                             onMouseEnter={() => handleDropdownEnter(itemKey)}
                             onMouseLeave={() => handleDropdownLeave(itemKey)}
                         >
@@ -154,10 +154,10 @@ export default function Navbar() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex items-center justify-between h-10 md:h-12 lg:h-14">
                         <div className="flex items-center">
-                            <Link href="/" className="text-white hover:bg-blue-800/40 px-3 h-10 md:h-12 lg:h-14 flex items-center">
+                            <Link href="/" className="text-white hover:bg-slate-600 px-3 h-10 md:h-12 lg:h-14 flex items-center">
                                 <Home className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" />
                             </Link>
-                            <div className="flex items-center space-x-2 md:space-x-3 lg:space-x-4">
+                            <div className="flex items-center space-x-2 md:space-x-0 md:text-xs">
                                 {Object.entries(navigationItems).map(([key, item], index) => (
                                     <div key={key}>
                                         {renderNavItems([item], false, `main-${index}`)}
@@ -165,13 +165,13 @@ export default function Navbar() {
                                 ))}
                             </div>
                         </div>
-                        <div className="flex items-center space-x-4 md:space-x-6 lg:space-x-8">
-                            <Link href="/login" className="text-white hover:bg-blue-800/40 text-xs md:text-sm lg:text-base font-bold h-10 md:h-12 lg:h-14 px-3 flex items-center">
+                        <div className="flex items-center space-x-2 md:space-x-1 lg:space-x-4">
+                            <Link href="/login" className="text-white hover:underline text-xs md:text-xs lg:text-sm font-bold h-10 md:h-12 lg:h-14 px-3 flex items-center">
                                 Log In
                             </Link>
                             <Link
                                 href="/signup"
-                                className="text-white hover:bg-blue-800/40 text-xs md:text-sm lg:text-base font-bold h-10 md:h-12 lg:h-14 px-3 flex items-center"
+                                className="text-white hover:underline text-xs md:text-xs lg:text-sm font-bold h-10 md:h-12 lg:h-14 px-3 flex items-center"
                             >
                                 Sign Up
                             </Link>
