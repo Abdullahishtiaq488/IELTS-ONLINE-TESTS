@@ -43,7 +43,7 @@ export default function MockTestSection() {
     ];
 
     // Get category color based on name
-    const getCategoryColor = (category) => {
+    const getCategoryColor = (category: string): string => {
         return category === "Academic" ? "#c86478" : "#faaa5a";
     };
 
