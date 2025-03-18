@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { Home, ChevronDown, ChevronRight, Menu, X } from 'lucide-react';
 import { navigationItems } from '@/data/navigation';
 import type { NavItemArray } from '@/types/navigation';
+import { Container } from './container';
 
 export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -126,7 +127,7 @@ export default function Navbar() {
         <nav>
             {/* Top Section with Logo and Horizontal Image */}
             <div className="hidden md:block bg-white border-b">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <Container>
                     <div className="flex justify-between items-center h-24 md:h-28 lg:h-32">
                         <div className="flex-shrink-0">
                             <Link href="/" className="flex items-center">
@@ -149,12 +150,12 @@ export default function Navbar() {
                             />
                         </div>
                     </div>
-                </div>
+                </Container>
             </div>
 
             {/* Main Navigation */}
             <div className="hidden md:block bg-blue-950">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <Container>
                     <div className="flex items-center justify-between h-10 md:h-12 lg:h-14">
                         <div className="flex items-center">
                             <Link href="/" className="text-white hover:bg-slate-600 px-3 h-10 md:h-12 lg:h-14 flex items-center">
@@ -180,7 +181,7 @@ export default function Navbar() {
                             </Link>
                         </div>
                     </div>
-                </div>
+                </Container>
             </div>
 
             {/* Mobile Navigation */}

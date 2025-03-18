@@ -58,32 +58,4 @@ export const navigationItems: NavigationItems = {
             { label: 'IELTS AI Checker', href: '/ai-checker' },
         ],
     },
-    liveLessons: {
-        label: 'Live Lessons',
-        items: [
-            { label: 'Reading', href: '/live/reading' },
-            { label: 'Speaking', href: '/live/speaking' },
-            { label: 'Listening', href: '/live/listening' },
-            { label: 'Writing', href: '/live/writing' },
-            { label: 'Study Abroad', href: '/live/study-abroad' },
-            { label: 'Vocabulary', href: '/live/vocabulary' },
-        ],
-    },
-    ieltsCourse: {
-        label: 'IELTS Course',
-        items: [
-            { label: 'IELTS Master Class v6', href: '/course/master-class' },
-            { label: 'IELTS 1V1', href: '/course/1v1' },
-        ],
-    },
-    studyAbroad: {
-        label: 'Intergreat Study Abroad',
-        items: [
-            { label: 'UK Study Abroad', href: '/study-abroad/uk' },
-            { label: 'US Study Abroad', href: '/study-abroad/us' },
-            { label: 'Australia Study Abroad', href: '/study-abroad/australia' },
-            { label: 'Canada Study Abroad', href: '/study-abroad/canada' },
-            { label: 'Schools Lists', href: '/study-abroad/schools' },
-        ],
-    },
 }; 

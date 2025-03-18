@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Container } from './container';
 
 export default function Carousel() {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -140,7 +141,7 @@ export default function Carousel() {
                     </div>
 
                     <div className="absolute inset-0 bg-blue-950/30 backdrop-blur-sm">
-                        <div className="container mx-auto h-full px-6 py-8 flex flex-col md:flex-row">
+                        <Container className="h-full py-8 flex flex-col md:flex-row">
                             <div className="w-full md:w-1/2 flex flex-col justify-center items-start space-y-6 md:pr-8">
                                 <div className="flex items-center gap-6">
                                     <div className="bg-white/10 backdrop-blur-md p-3 rounded-lg shadow-lg transition-transform hover:scale-105">
@@ -209,7 +210,7 @@ export default function Carousel() {
                                     <div className="absolute -inset-2 bg-blue-400/20 rounded-xl -z-10 blur-xl"></div>
                                 </div>
                             </div>
-                        </div>
+                        </Container>
                     </div>
                 </div>
 
@@ -234,7 +235,7 @@ export default function Carousel() {
                     </div>
 
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-950/80 to-blue-950/60 backdrop-blur-[2px]">
-                        <div className="container mx-auto h-full px-6 py-8 flex flex-col md:flex-row">
+                        <Container className="h-full py-8 flex flex-col md:flex-row">
                             <div className="w-full md:w-1/2 flex flex-col justify-center items-start space-y-6">
                                 <div className="space-y-4">
                                     <h2 className="text-white text-4xl md:text-5xl font-light tracking-wide">
@@ -412,7 +413,7 @@ export default function Carousel() {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </Container>
                     </div>
                 </div>
             </div>
