@@ -258,7 +258,7 @@ export default function Carousel() {
                                         {[1, 2, 3].map((i) => (
                                             <div key={i} className="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-lg">
                                                 <Image
-                                                    src={`/images/student${i}.jpg`}
+                                                    src={`/images/testimon-f${i}.jpg`}
                                                     alt={`Student ${i}`}
                                                     width={40}
                                                     height={40}

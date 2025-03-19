@@ -56,7 +56,7 @@ export default function Footer() {
                             <h3 className="text-xl font-bold mb-4">About us</h3>
                             <p className="text-gray-300">
                                 IELTS Online Tests (IOT) belongs to InterGreat Education Group, founded in 2008, with branch offices located in 12
-                                countries around the world. InterGreat's head office is situated on Threadneedle Street in London, the iconic home
+                                countries around the world. InterGreat&apos;s head office is situated on Threadneedle Street in London, the iconic home
                                 of the Bank of England.
                             </p>
                         </div>
