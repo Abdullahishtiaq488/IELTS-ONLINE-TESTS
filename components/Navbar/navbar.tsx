@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { Home, ChevronDown, ChevronRight, Menu, X } from 'lucide-react';
 import { navigationItems } from '@/data/navigation';
 import type { NavItemArray } from '@/types/navigation';
-import { Container } from './container';
+import { Container } from '@/components/ui/container';
 
 export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
