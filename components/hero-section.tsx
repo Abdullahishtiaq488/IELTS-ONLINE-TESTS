@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { EventCard } from '@/components/ui/card';
 import { Section } from '@/components/ui/section';
 
