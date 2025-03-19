@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Container } from './container';
@@ -15,21 +15,21 @@ export default function Carousel() {
     const linesContainerRef = useRef<HTMLDivElement>(null);
     const personRef = useRef<HTMLDivElement>(null);
 
-    const nextSlide = () => {
+    const nextSlide = useCallback(() => {
         if (!isAnimating) {
             setIsAnimating(true);
             setSlideDirection('next');
             setCurrentSlide((prev) => (prev + 1) % 2);
         }
-    };
+    }, [isAnimating]);
 
-    const prevSlide = () => {
+    const prevSlide = useCallback(() => {
         if (!isAnimating) {
             setIsAnimating(true);
             setSlideDirection('prev');
             setCurrentSlide((prev) => (prev - 1 + 2) % 2);
         }
-    };
+    }, [isAnimating]);
 
     // Auto slide effect
     useEffect(() => {
@@ -256,10 +256,14 @@ export default function Carousel() {
                                 <div className="flex items-center space-x-4 mt-4">
                                     <div className="flex -space-x-2">
                                         {[1, 2, 3].map((i) => (
-                                            <div key={i} className="w-10 h-10 rounded-full bg-gradient-to-br from-blue-200 to-blue-400 border-2 border-white shadow-lg">
-                                                <div className="w-full h-full rounded-full bg-blue-300/80 backdrop-blur-sm flex items-center justify-center text-xs font-bold text-blue-950">
-                                                    {i}
-                                                </div>
+                                            <div key={i} className="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-lg">
+                                                <Image
+                                                    src={`/images/student${i}.jpg`}
+                                                    alt={`Student ${i}`}
+                                                    width={40}
+                                                    height={40}
+                                                    className="w-full h-full object-cover"
+                                                />
                                             </div>
                                         ))}
                                     </div>

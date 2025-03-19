@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Container } from './container';
 
 export default function Footer() {
@@ -105,7 +104,7 @@ export default function Footer() {
                     </p>
 
                     <p className="mb-3">
-                        "IELTS Online" is the name of the online version of the official IELTS test and is in no way affiliated with this website. To find out more about the official IELTS
+                        &quot;IELTS Online&quot; is the name of the online version of the official IELTS test and is in no way affiliated with this website. To find out more about the official IELTS
                         Online please visit https://www.ielts.org/.
                     </p>
 

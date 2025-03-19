@@ -191,7 +191,7 @@ export default function LoginForm({ showHeader = true }: LoginFormProps) {
             {showHeader && (
                 <div className="text-center mt-8">
                     <p className="text-gray-600">
-                        Don't have an account? <Link href="/signup" className="text-blue-600 font-medium">Create one now!</Link>
+                        Don&apos;t have an account? <Link href="/signup" className="text-blue-600 font-medium">Create one now!</Link>
                     </p>
                 </div>
             )}
