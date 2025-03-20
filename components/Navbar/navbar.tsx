@@ -7,11 +7,26 @@ import { Home, ChevronDown, ChevronRight, Menu, X } from 'lucide-react';
 import { navigationItems } from '@/data/navigation';
 import type { NavItemArray } from '@/types/navigation';
 import { Container } from '@/components/ui/container';
+import { useRouter } from 'next/navigation';
 
 export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeDropdowns, setActiveDropdowns] = useState<Record<string, boolean>>({});
     const dropdownTimersRef = useRef<Record<string, NodeJS.Timeout>>({});
+    const router = useRouter();
+
+    // Close dropdowns when navigating
+    useEffect(() => {
+        const handleRouteChange = () => {
+            setActiveDropdowns({});
+            setIsMobileMenuOpen(false);
+        };
+
+        window.addEventListener('popstate', handleRouteChange);
+        return () => {
+            window.removeEventListener('popstate', handleRouteChange);
+        };
+    }, []);
 
     const handleDropdownEnter = (key: string) => {
         if (dropdownTimersRef.current[key]) {
@@ -61,6 +76,11 @@ export default function Navbar() {
                         href={item.href || '#'}
                         className={`flex items-center gap-0.5 px-6 h-12 text-xs md:text-xs lg:text-sm font-bold text-white hover:bg-slate-600 ${isNested ? 'pl-4 h-8' : ''
                             }`}
+                        onClick={() => {
+                            if (!hasItems) {
+                                setActiveDropdowns({});
+                            }
+                        }}
                     >
                         <span>{item.label}</span>
                         {hasItems && (
@@ -93,26 +113,43 @@ export default function Navbar() {
 
             return (
                 <div key={itemKey}>
-                    <div
-                        className={`flex items-center justify-between px-3 py-3 text-sm font-bold text-gray-700 hover:bg-gray-50 ${isNested ? 'pl-6' : ''
-                            }`}
-                        onClick={() => {
-                            if (hasItems) {
-                                setActiveDropdowns(prev => ({
-                                    ...prev,
-                                    [itemKey]: !prev[itemKey]
-                                }));
-                            }
-                        }}
-                    >
-                        <span>{item.label}</span>
-                        {hasItems && (
+                    {hasItems ? (
+                        <div
+                            className={`flex items-center justify-between px-3 py-3 text-sm font-bold text-gray-700 hover:bg-gray-50 ${isNested ? 'pl-6' : ''
+                                }`}
+                            onClick={() => {
+                                // Close other dropdowns at the same level
+                                const newDropdowns = { ...activeDropdowns };
+                                
+                                // Find and close siblings
+                                Object.keys(newDropdowns).forEach(key => {
+                                    if (key.startsWith('mobile-') && key !== itemKey && 
+                                        key.split('-').length === itemKey.split('-').length) {
+                                        newDropdowns[key] = false;
+                                    }
+                                });
+                                
+                                // Toggle current dropdown
+                                newDropdowns[itemKey] = !newDropdowns[itemKey];
+                                setActiveDropdowns(newDropdowns);
+                            }}
+                        >
+                            <span>{item.label}</span>
                             <ChevronRight
                                 className={`w-4 h-4 transition-transform ${isActive ? 'transform rotate-90' : ''
                                     }`}
                             />
-                        )}
-                    </div>
+                        </div>
+                    ) : (
+                        <Link
+                            href={item.href || '#'}
+                            className={`block px-3 py-3 text-sm font-bold text-gray-700 hover:bg-gray-50 ${isNested ? 'pl-6' : ''}`}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                            {item.label}
+                        </Link>
+                    )}
+                    
                     {hasItems && isActive && item.items && (
                         <div className="bg-gray-50">
                             {renderMobileNavItems(item.items, true)}
@@ -254,4 +291,4 @@ export default function Navbar() {
             </div>
         </nav>
     );
-} 
+}

@@ -11,7 +11,7 @@ interface TipsListProps {
 }
 
 export function TipsList({ tips }: TipsListProps) {
-    const ITEMS_PER_PAGE = 10;
+    const ITEMS_PER_PAGE = 4;
     const [currentPage, setCurrentPage] = useState(1);
 
     const totalPages = Math.ceil(tips.length / ITEMS_PER_PAGE);
