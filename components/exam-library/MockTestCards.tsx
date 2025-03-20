@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Zap, ChevronDown } from 'lucide-react';
+import { Zap, ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState } from 'react';
 
 interface MockTestCardsProps {
     currentSkill: string;
@@ -64,7 +65,11 @@ const mockTests = [
             { name: 'May', totalTests: 270195, practiceTests: generatePracticeTests(270195) },
             { name: 'June', totalTests: 467784, practiceTests: generatePracticeTests(467784) },
             { name: 'July', totalTests: 174474, practiceTests: generatePracticeTests(174474) },
-            { name: 'August', totalTests: 102703, practiceTests: generatePracticeTests(102703) }
+            { name: 'August', totalTests: 102703, practiceTests: generatePracticeTests(102703) },
+            { name: 'September', totalTests: 98765, practiceTests: generatePracticeTests(98765) },
+            { name: 'October', totalTests: 87654, practiceTests: generatePracticeTests(87654) },
+            { name: 'November', totalTests: 76543, practiceTests: generatePracticeTests(76543) },
+            { name: 'December', totalTests: 65432, practiceTests: generatePracticeTests(65432) }
         ]
     },
     {
@@ -74,17 +79,77 @@ const mockTests = [
         months: [
             { name: 'January', totalTests: 899831, practiceTests: generatePracticeTests(899831) },
             { name: 'February', totalTests: 469707, practiceTests: generatePracticeTests(469707) },
-            { name: 'March', totalTests: 324814, practiceTests: generatePracticeTests(324814) }
+            { name: 'March', totalTests: 324814, practiceTests: generatePracticeTests(324814) },
+            { name: 'April', totalTests: 289654, practiceTests: generatePracticeTests(289654) },
+            { name: 'May', totalTests: 245678, practiceTests: generatePracticeTests(245678) },
+            { name: 'June', totalTests: 234567, practiceTests: generatePracticeTests(234567) },
+            { name: 'July', totalTests: 198765, practiceTests: generatePracticeTests(198765) },
+            { name: 'August', totalTests: 187654, practiceTests: generatePracticeTests(187654) },
+            { name: 'September', totalTests: 176543, practiceTests: generatePracticeTests(176543) },
+            { name: 'October', totalTests: 165432, practiceTests: generatePracticeTests(165432) },
+            { name: 'November', totalTests: 154321, practiceTests: generatePracticeTests(154321) },
+            { name: 'December', totalTests: 143210, practiceTests: generatePracticeTests(143210) }
+        ]
+    },
+    {
+        id: '2022',
+        image: '/images/mock-test-2022.png',
+        title: 'IELTS Mock Test 2022',
+        months: [
+            { name: 'January', totalTests: 132109, practiceTests: generatePracticeTests(132109) },
+            { name: 'February', totalTests: 121098, practiceTests: generatePracticeTests(121098) },
+            { name: 'March', totalTests: 110987, practiceTests: generatePracticeTests(110987) },
+            { name: 'April', totalTests: 109876, practiceTests: generatePracticeTests(109876) },
+            { name: 'May', totalTests: 98765, practiceTests: generatePracticeTests(98765) },
+            { name: 'June', totalTests: 87654, practiceTests: generatePracticeTests(87654) },
+            { name: 'July', totalTests: 76543, practiceTests: generatePracticeTests(76543) },
+            { name: 'August', totalTests: 65432, practiceTests: generatePracticeTests(65432) },
+            { name: 'September', totalTests: 54321, practiceTests: generatePracticeTests(54321) },
+            { name: 'October', totalTests: 43210, practiceTests: generatePracticeTests(43210) },
+            { name: 'November', totalTests: 32109, practiceTests: generatePracticeTests(32109) },
+            { name: 'December', totalTests: 21098, practiceTests: generatePracticeTests(21098) }
         ]
     }
 ];
 
 export function MockTestCards({ currentSkill }: MockTestCardsProps) {
     const VISIBLE_ITEMS = 4; // Number of items to show before the gradient overlay
+    const CARDS_PER_PAGE = 2; // Number of test cards to show per page
+    const [expandedMonths, setExpandedMonths] = useState<{ [key: string]: boolean }>({});
+    const [currentPage, setCurrentPage] = useState(1);
+
+    const toggleExpand = (testId: string) => {
+        setExpandedMonths(prev => ({
+            ...prev,
+            [testId]: !prev[testId]
+        }));
+    };
+
+    const getVisibleMonths = (months: Month[], testId: string) => {
+        return expandedMonths[testId] ? months : months.slice(0, VISIBLE_ITEMS);
+    };
+
+    const getRemainingTests = (months: Month[], testId: string) => {
+        if (expandedMonths[testId]) return 0;
+        return currentSkill === 'all'
+            ? months.length - VISIBLE_ITEMS
+            : (months.length - VISIBLE_ITEMS) * 4;
+    };
+
+    // Pagination logic
+    const totalPages = Math.ceil(mockTests.length / CARDS_PER_PAGE);
+    const startIndex = (currentPage - 1) * CARDS_PER_PAGE;
+    const visibleTests = mockTests.slice(startIndex, startIndex + CARDS_PER_PAGE);
+
+    const handlePageChange = (page: number) => {
+        setCurrentPage(page);
+        // Reset expanded state when changing pages
+        setExpandedMonths({});
+    };
 
     return (
         <div className="space-y-8">
-            {mockTests.map((mockTest) => (
+            {visibleTests.map((mockTest) => (
                 <div key={mockTest.id} className="bg-white rounded-xl p-6">
                     <div className="flex flex-col md:flex-row gap-6">
                         {/* Book Image */}
@@ -105,7 +170,7 @@ export function MockTestCards({ currentSkill }: MockTestCardsProps) {
 
                             <div className="relative">
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                    {mockTest.months.slice(0, VISIBLE_ITEMS).map((month) => (
+                                    {getVisibleMonths(mockTest.months, mockTest.id).map((month) => (
                                         currentSkill === 'all' ? (
                                             // All Skills View - Show month summary
                                             <Link
@@ -140,16 +205,19 @@ export function MockTestCards({ currentSkill }: MockTestCardsProps) {
                                     ))}
                                 </div>
 
-                                {/* Gradient Overlay */}
-                                <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+                                {/* Gradient Overlay - Only show when not expanded */}
+                                {!expandedMonths[mockTest.id] && (
+                                    <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+                                )}
 
-                                {mockTest.months.length > VISIBLE_ITEMS && (
+                                {getRemainingTests(mockTest.months, mockTest.id) > 0 && (
                                     <div className="mt-2 text-center relative">
-                                        <button className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-700 font-medium">
-                                            View more {currentSkill === 'all' ?
-                                                mockTest.months.length - VISIBLE_ITEMS :
-                                                (mockTest.months.length - VISIBLE_ITEMS) * 4} tests
-                                            <ChevronDown className="h-4 w-4" />
+                                        <button
+                                            onClick={() => toggleExpand(mockTest.id)}
+                                            className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-700 font-medium"
+                                        >
+                                            {expandedMonths[mockTest.id] ? 'Show less' : `View more ${getRemainingTests(mockTest.months, mockTest.id)} tests`}
+                                            <ChevronDown className={`h-4 w-4 transition-transform ${expandedMonths[mockTest.id] ? 'rotate-180' : ''}`} />
                                         </button>
                                     </div>
                                 )}
@@ -158,6 +226,42 @@ export function MockTestCards({ currentSkill }: MockTestCardsProps) {
                     </div>
                 </div>
             ))}
+
+            {/* Pagination Controls */}
+            {totalPages > 1 && (
+                <div className="flex items-center justify-center gap-2 mt-8">
+                    <button
+                        onClick={() => handlePageChange(currentPage - 1)}
+                        disabled={currentPage === 1}
+                        className="p-2 rounded-lg border border-gray-200 hover:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    >
+                        <ChevronLeft className="h-5 w-5" />
+                    </button>
+
+                    <div className="flex items-center gap-2">
+                        {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                            <button
+                                key={page}
+                                onClick={() => handlePageChange(page)}
+                                className={`px-4 py-2 rounded-lg border transition-colors ${currentPage === page
+                                    ? 'bg-blue-600 text-white border-blue-600'
+                                    : 'border-gray-200 hover:border-blue-500'
+                                    }`}
+                            >
+                                {page}
+                            </button>
+                        ))}
+                    </div>
+
+                    <button
+                        onClick={() => handlePageChange(currentPage + 1)}
+                        disabled={currentPage === totalPages}
+                        className="p-2 rounded-lg border border-gray-200 hover:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                    >
+                        <ChevronRight className="h-5 w-5" />
+                    </button>
+                </div>
+            )}
         </div>
     );
 }

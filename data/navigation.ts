@@ -14,12 +14,12 @@ export const navigationItems: NavigationItems = {
     tips: {
         label: 'IELTS Tips',
         items: [
-            { label: 'Listening Tips', href: '/tips/listening' },
-            { label: 'Reading Tips', href: '/tips/reading' },
-            { label: 'Writing Tips', href: '/tips/writing' },
-            { label: 'Speaking Tips', href: '/tips/speaking' },
-            { label: 'IELTS Grammar', href: '/tips/grammar' },
-            { label: 'Announcements', href: '/tips/announcements' },
+            { label: 'Listening Tips', href: '/listening-tips' },
+            { label: 'Reading Tips', href: '/reading-tips' },
+            { label: 'Writing Tips', href: '/writing-tips' },
+            { label: 'Speaking Tips', href: '/speaking-tips' },
+            { label: 'IELTS Grammar', href: '/ielts-grammar' },
+            { label: 'Announcements', href: '/announcements' },
         ],
     },
     prep: {
