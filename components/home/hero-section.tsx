@@ -1,6 +1,6 @@
 'use client';
 
-import { EventCard } from '@/components/ui/card';
+import { EventCard } from '@/components/ui/lesson-card';
 import { Section } from '@/components/ui/section';
 import { upcomingLiveEvents } from '@/data/events';
 

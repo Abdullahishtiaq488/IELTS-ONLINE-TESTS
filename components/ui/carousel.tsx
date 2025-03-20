@@ -154,6 +154,7 @@ export default function Carousel() {
                                         />
                                     </div>
                                     <div className="bg-white/10 backdrop-blur-md p-3 rounded-lg shadow-lg transition-transform hover:scale-105">
+                                        
                                         <Image
                                             src="/images/iot-logo-en.svg"
                                             alt="IOT Logo"

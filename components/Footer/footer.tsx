@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Container } from './container';
+import { Container } from '@/components/ui/container';
 
 export default function Footer() {
     return (

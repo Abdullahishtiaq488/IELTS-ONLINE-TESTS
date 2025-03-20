@@ -4,11 +4,11 @@ export const navigationItems: NavigationItems = {
     examLibrary: {
         label: 'IELTS Exam Library',
         items: [
-            { label: 'IELTS Listening Tests', href: '/listening-tests' },
-            { label: 'IELTS Reading Tests', href: '/reading-tests' },
-            { label: 'IELTS Writing Tests', href: '/writing-tests' },
-            { label: 'IELTS Speaking Tests', href: '/speaking-tests' },
-            { label: 'IELTS Test Collection', href: '/test-collection' },
+            { label: 'IELTS Listening Tests', href: '/ielts-exam-library?skill=listening' },
+            { label: 'IELTS Reading Tests', href: '/ielts-exam-library?skill=reading' },
+            { label: 'IELTS Writing Tests', href: '/ielts-exam-library?skill=writing' },
+            { label: 'IELTS Speaking Tests', href: '/ielts-exam-library?skill=speaking' },
+            { label: 'IELTS Test Collection', href: '/ielts-exam-library?skill=speaking' },
         ],
     },
     tips: {

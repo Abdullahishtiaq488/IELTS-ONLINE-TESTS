@@ -1,6 +1,6 @@
 import React from 'react';
 import { Section } from '@/components/ui/section';
-import { TipCard } from '@/components/ui/tip-card';
+import { TipCard } from '@/components/ui/tips-card';
 import { ieltsTips } from '@/data/tips';
 
 export default function TipsSection() {

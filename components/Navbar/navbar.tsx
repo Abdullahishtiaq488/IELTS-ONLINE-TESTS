@@ -59,7 +59,7 @@ export default function Navbar() {
                 >
                     <Link
                         href={item.href || '#'}
-                        className={`flex items-center gap-0.5 px-3 h-10 text-xs md:text-xs lg:text-sm font-bold text-white hover:bg-slate-600 ${isNested ? 'pl-4 h-8' : ''
+                        className={`flex items-center gap-0.5 px-6 h-12 text-xs md:text-xs lg:text-sm font-bold text-white hover:bg-slate-600 ${isNested ? 'pl-4 h-8' : ''
                             }`}
                     >
                         <span>{item.label}</span>
@@ -94,7 +94,7 @@ export default function Navbar() {
             return (
                 <div key={itemKey}>
                     <div
-                        className={`flex items-center justify-between px-3 py-2 text-sm font-bold text-gray-700 hover:bg-gray-50 ${isNested ? 'pl-6' : ''
+                        className={`flex items-center justify-between px-3 py-3 text-sm font-bold text-gray-700 hover:bg-gray-50 ${isNested ? 'pl-6' : ''
                             }`}
                         onClick={() => {
                             if (hasItems) {
