@@ -1,7 +1,7 @@
 import { TipsPageLayout } from '@/components/tips/TipsPageLayout';
 import { TipsList } from '@/components/tips/TipsList';
-import { popularTips, featuredTips, mainTips } from '@/data/tips-data';
 import { Container } from '@/components/ui/container';
+import { popularTips, featuredTips, mainTips } from '@/data/tips';
 
 export default function SpeakingTipsPage() {
     return (

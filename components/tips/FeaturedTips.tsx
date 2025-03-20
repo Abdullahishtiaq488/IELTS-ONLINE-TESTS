@@ -4,27 +4,16 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Eye } from 'lucide-react';
-
-interface FeaturedTip {
-    id: string;
-    title: string;
-    description: string;
-    image: string;
-    category: string;
-    date: string;
-    views: number;
-    rating: number;
-    votes: number;
-}
+import { FeaturedTip } from '@/types/tips';
 
 interface FeaturedTipsProps {
-    tips: FeaturedTip[];
+    tips?: FeaturedTip[];
 }
 
-export function FeaturedTips({ tips }: FeaturedTipsProps) {
+export function FeaturedTips({ tips = [] }: FeaturedTipsProps) {
     const [currentSlide, setCurrentSlide] = useState(0);
     const TIPS_PER_SLIDE = 4;
-    const totalSlides = Math.ceil(tips.length / TIPS_PER_SLIDE);
+    const totalSlides = Math.ceil((tips?.length || 0) / TIPS_PER_SLIDE);
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -43,7 +32,7 @@ export function FeaturedTips({ tips }: FeaturedTipsProps) {
                     ? 'text-yellow-400'
                     : 'text-gray-300';
             stars.push(
-                <svg key={i} className={`h-4 w-4 ${starClass}`} fill="currentColor" viewBox="0 0 20 20">
+                <svg key={i} className={`h-3 w-3 sm:h-4 sm:w-4 ${starClass}`} fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
             );
@@ -51,45 +40,49 @@ export function FeaturedTips({ tips }: FeaturedTipsProps) {
         return stars;
     };
 
+    if (!tips || tips.length === 0) {
+        return null;
+    }
+
     const startIndex = currentSlide * TIPS_PER_SLIDE;
     const visibleTips = tips.slice(startIndex, startIndex + TIPS_PER_SLIDE);
 
     return (
-        <div>
-            <h2 className="text-2xl font-bold text-white text-center mb-6">FEATURED IELTS TIPS:</h2>
+        <div className="space-y-4">
+            <h2 className="text-xl sm:text-2xl font-bold text-white mb-4 sm:mb-6">FEATURED IELTS TIPS:</h2>
             <div>
                 {visibleTips.map((tip) => (
                     <Link key={tip.id} href={`/tips/${tip.id}`}>
-                        <div className=" p-2 hover:shadow-lg space transition-shadow">
-                            <div className="flex gap-4 bg-white p-4">
-                                <div className="w-32 h-24 flex-shrink-0">
+                        <div className="bg-white rounded-lg my-3 sm:my-4 p-3 sm:p-4 hover:shadow-lg transition-shadow overflow-hidden">
+                            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                                <div className="w-full sm:w-32 h-48 sm:h-24 flex-shrink-0">
                                     <Image
                                         src={tip.image}
                                         alt={tip.title}
                                         width={128}
                                         height={96}
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-full object-cover rounded"
                                     />
                                 </div>
                                 <div className="flex-1 min-w-0">
-                                    <h3 className="text-lg font-semibold text-gray-900 mb-1 line-clamp-1">
+                                    <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-1 line-clamp-2 sm:line-clamp-1">
                                         {tip.title}
                                     </h3>
-                                    <div className="flex items-center gap-2 mb-1">
+                                    <div className="flex items-center gap-1 sm:gap-2 mb-1">
                                         <div className="flex">{renderStars(tip.rating)}</div>
-                                        <span className="text-gray-600">({tip.votes} votes)</span>
+                                        <span className="text-sm text-gray-600">({tip.votes} votes)</span>
                                     </div>
-                                    <div className="flex items-center text-sm text-gray-500 mb-2">
+                                    <div className="flex flex-wrap items-center text-xs sm:text-sm text-gray-500 mb-2">
                                         <span className="text-blue-600">{tip.category}</span>
-                                        <span className="mx-2">•</span>
+                                        <span className="mx-1 sm:mx-2">•</span>
                                         <div className="flex items-center">
-                                            <Eye className="h-4 w-4 mr-1" />
+                                            <Eye className="h-3 w-3 sm:h-4 sm:w-4 mr-1" />
                                             {tip.views.toLocaleString()}
                                         </div>
-                                        <span className="mx-2">•</span>
+                                        <span className="mx-1 sm:mx-2">•</span>
                                         <span>{tip.date}</span>
                                     </div>
-                                    <p className="text-sm text-gray-600 line-clamp-3">
+                                    <p className="text-xs sm:text-sm text-gray-600 line-clamp-2 sm:line-clamp-3">
                                         {tip.description}
                                     </p>
                                 </div>
@@ -98,16 +91,18 @@ export function FeaturedTips({ tips }: FeaturedTipsProps) {
                     </Link>
                 ))}
             </div>
-            <div className="flex justify-center gap-2 mt-4">
-                {Array.from({ length: totalSlides }).map((_, index) => (
-                    <button
-                        key={index}
-                        className={`w-2 h-2 rounded-full transition-colors ${index === currentSlide ? 'bg-white' : 'bg-gray-400'
-                            }`}
-                        onClick={() => setCurrentSlide(index)}
-                    />
-                ))}
-            </div>
+            {totalSlides > 1 && (
+                <div className="flex justify-center gap-1 sm:gap-2 mt-3 sm:mt-4">
+                    {Array.from({ length: totalSlides }).map((_, index) => (
+                        <button
+                            key={index}
+                            className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-colors ${index === currentSlide ? 'bg-white' : 'bg-gray-400'
+                                }`}
+                            onClick={() => setCurrentSlide(index)}
+                        />
+                    ))}
+                </div>
+            )}
         </div>
     );
 }

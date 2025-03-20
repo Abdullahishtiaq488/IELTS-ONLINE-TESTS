@@ -4,35 +4,15 @@ import Link from 'next/link';
 import { Eye, RefreshCw } from 'lucide-react';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { FeaturedTips } from '@/components/tips/FeaturedTips';
+import { FeaturedTip, PopularTip } from '@/types/tips';
 
 interface TipsPageLayoutProps {
     pageTitle: string;
     pageDescription: string;
     breadcrumbItems: { label: string; href: string }[];
     popularTips: PopularTip[];
-    featuredTips?: FeaturedTip[];
+    featuredTips: FeaturedTip[];
     children: ReactNode;
-}
-
-interface PopularTip {
-    id: string;
-    title: string;
-    description: string;
-    image: string;
-    category: string;
-    views: number;
-}
-
-interface FeaturedTip {
-    id: string;
-    title: string;
-    description: string;
-    image: string;
-    date: string;
-    category: string;
-    views: number;
-    rating: number;
-    votes: number;
 }
 
 export function TipsPageLayout({
