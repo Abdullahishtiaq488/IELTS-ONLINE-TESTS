@@ -43,29 +43,95 @@ export default function Carousel() {
         return () => clearTimeout(timer);
     }, [currentSlide]);
 
-    // Trigger animations for slide 2 when it becomes active
+    // Setup continuous animations for slide 2
     useEffect(() => {
         if (currentSlide === 1 && arrowsContainerRef.current && linesContainerRef.current && personRef.current) {
-            // Reset animations first to allow them to trigger again
             const arrowsContainer = arrowsContainerRef.current;
             const linesContainer = linesContainerRef.current;
             const person = personRef.current;
 
+            // Setup continuous animations for arrows (bottom-left to top-right)
             arrowsContainer.querySelectorAll('.arrow-element').forEach(arrow => {
-                arrow.classList.remove('animate-arrow-rise');
-                // Use a type assertion to avoid the error
-                void (arrow as HTMLElement).offsetWidth; // Force reflow
-                setTimeout(() => {
-                    arrow.classList.add('animate-arrow-rise');
-                }, Math.random() * 500); // Staggered timing
+                const element = arrow as HTMLElement;
+                
+                // Set initial position
+                element.style.opacity = '0';
+                element.style.transform = 'translate(0, 0)';
+                
+                // Create animation function for continuous movement
+                const animateArrow = () => {
+                    // Random start delay
+                    const delay = Math.random() * 5000;
+                    
+                    setTimeout(() => {
+                        // Start visible
+                        element.style.opacity = '1';
+                        element.style.transition = 'transform 15s linear, opacity 2s ease-in-out';
+                        
+                        // Move diagonally from bottom-left to top-right
+                        // Reduced movement range to keep arrows closer to the person
+                        element.style.transform = 'translate(80%, -80%)';
+                        
+                        // Fade out near the end
+                        setTimeout(() => {
+                            element.style.opacity = '0';
+                        }, 13000);
+                        
+                        // Reset after animation completes
+                        setTimeout(() => {
+                            element.style.transition = 'none';
+                            element.style.transform = 'translate(0, 0)';
+                            
+                            // Restart animation
+                            animateArrow();
+                        }, 15000);
+                    }, delay);
+                };
+                
+                // Start the animation cycle
+                animateArrow();
             });
 
+            // Setup continuous animations for lines (top-right to bottom-left)
             linesContainer.querySelectorAll('.line-element').forEach(line => {
-                line.classList.remove('animate-line-fall');
-                void (line as HTMLElement).offsetWidth; // Force reflow
-                setTimeout(() => {
-                    line.classList.add('animate-line-fall');
-                }, Math.random() * 500); // Staggered timing
+                const element = line as HTMLElement;
+                
+                // Set initial position
+                element.style.opacity = '0';
+                element.style.transform = 'translate(0, 0)';
+                
+                // Create animation function for continuous movement
+                const animateLine = () => {
+                    // Random start delay
+                    const delay = Math.random() * 5000;
+                    
+                    setTimeout(() => {
+                        // Start visible
+                        element.style.opacity = '1';
+                        element.style.transition = 'transform 15s linear, opacity 2s ease-in-out';
+                        
+                        // Move diagonally from top-right to bottom-left
+                        // Reduced movement range to keep lines closer to the person
+                        element.style.transform = 'translate(-80%, 80%)';
+                        
+                        // Fade out near the end
+                        setTimeout(() => {
+                            element.style.opacity = '0';
+                        }, 13000);
+                        
+                        // Reset after animation completes
+                        setTimeout(() => {
+                            element.style.transition = 'none';
+                            element.style.transform = 'translate(0, 0)';
+                            
+                            // Restart animation
+                            animateLine();
+                        }, 15000);
+                    }, delay);
+                };
+                
+                // Start the animation cycle
+                animateLine();
             });
 
             // Reset and restart person animation
@@ -75,6 +141,23 @@ export default function Carousel() {
                 person.classList.add('animate-slide-up');
             }, 500);
         }
+        
+        // Cleanup animations when slide changes
+        return () => {
+            if (arrowsContainerRef.current && linesContainerRef.current) {
+                arrowsContainerRef.current.querySelectorAll('.arrow-element').forEach(arrow => {
+                    const element = arrow as HTMLElement;
+                    element.style.transition = 'none';
+                    element.style.opacity = '0';
+                });
+                
+                linesContainerRef.current.querySelectorAll('.line-element').forEach(line => {
+                    const element = line as HTMLElement;
+                    element.style.transition = 'none';
+                    element.style.opacity = '0';
+                });
+            }
+        };
     }, [currentSlide]);
 
     return (
@@ -103,6 +186,9 @@ export default function Carousel() {
                             className="object-cover opacity-60"
                             priority
                             quality={90}
+                            sizes="100vw"
+                            placeholder="blur"
+                            blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiMwYjJjNjAiLz48L3N2Zz4="
                         />
 
                         {/* Animated background elements */}
@@ -112,6 +198,7 @@ export default function Carousel() {
                                 alt=""
                                 width={40}
                                 height={40}
+                                aria-hidden="true"
                             />
                         </div>
                         <div className="absolute bottom-40 left-20 animate-float-medium opacity-30">
@@ -120,6 +207,7 @@ export default function Carousel() {
                                 alt=""
                                 width={40}
                                 height={40}
+                                aria-hidden="true"
                             />
                         </div>
                         <div className="absolute top-1/3 left-1/4 animate-float-medium opacity-30">
@@ -128,6 +216,7 @@ export default function Carousel() {
                                 alt=""
                                 width={40}
                                 height={40}
+                                aria-hidden="true"
                             />
                         </div>
                         <div className="absolute bottom-1/3 right-1/3 animate-float-slow opacity-30">
@@ -136,6 +225,7 @@ export default function Carousel() {
                                 alt=""
                                 width={40}
                                 height={40}
+                                aria-hidden="true"
                             />
                         </div>
                     </div>
@@ -154,7 +244,6 @@ export default function Carousel() {
                                         />
                                     </div>
                                     <div className="bg-white/10 backdrop-blur-md p-3 rounded-lg shadow-lg transition-transform hover:scale-105">
-                                        
                                         <Image
                                             src="/images/iot-logo-en.svg"
                                             alt="IOT Logo"
@@ -200,13 +289,15 @@ export default function Carousel() {
                             </div>
 
                             <div className="w-full md:w-1/2 flex items-center justify-center mt-8 md:mt-0">
-                                <div className="relative">
+                                <div className="relative w-full max-w-[400px] aspect-[4/3]">
                                     <Image
                                         src="/images/IEG-certificate ielts.png"
                                         alt="IELTS Certificate"
-                                        width={400}
-                                        height={300}
-                                        className="max-w-full h-auto scale-110"
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, 400px"
+                                        className="object-contain scale-110"
+                                        placeholder="blur"
+                                        blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMGYyNzRkIi8+PC9zdmc+"
                                     />
                                     <div className="absolute -inset-2 bg-blue-400/20 rounded-xl -z-10 blur-xl"></div>
                                 </div>
@@ -232,6 +323,9 @@ export default function Carousel() {
                             className="object-cover opacity-50"
                             priority
                             quality={90}
+                            sizes="100vw"
+                            placeholder="blur"
+                            blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiMwYjJjNjAiLz48L3N2Zz4="
                         />
                     </div>
 
@@ -264,6 +358,8 @@ export default function Carousel() {
                                                     width={40}
                                                     height={40}
                                                     className="w-full h-full object-cover"
+                                                    placeholder="blur"
+                                                    blurDataURL="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiM2NDc0OGIiLz48L3N2Zz4="
                                                 />
                                             </div>
                                         ))}
@@ -285,109 +381,120 @@ export default function Carousel() {
                                 {/* Animated flowing arrows and lines */}
                                 <div className="absolute inset-0">
                                     <div className="relative w-full h-full">
-                                        {/* Lines falling from top to bottom */}
-                                        <div ref={linesContainerRef} className="absolute inset-0">
+                                        {/* Lines flowing from top-right to bottom-left */}
+                                        <div ref={linesContainerRef} className="absolute inset-0 flex items-center justify-center">
                                             {/* Line 1 */}
-                                            <div className="line-element absolute left-1/5 top-0 opacity-0 rotate-15">
+                                            <div className="line-element absolute right-[45%] top-[20%] opacity-0">
                                                 <Image
                                                     src="/images/hero-line-1.svg"
                                                     alt=""
                                                     width={50}
                                                     height={50}
+                                                    aria-hidden="true"
                                                 />
                                             </div>
                                             {/* Line 2 */}
-                                            <div className="line-element absolute left-1/3 top-0 opacity-0 -rotate-30">
+                                            <div className="line-element absolute right-[40%] top-[25%] opacity-0">
                                                 <Image
                                                     src="/images/hero-line-3.svg"
                                                     alt=""
                                                     width={60}
                                                     height={60}
+                                                    aria-hidden="true"
                                                 />
                                             </div>
                                             {/* Line 3 */}
-                                            <div className="line-element absolute left-2/3 top-0 opacity-0 rotate-20">
+                                            <div className="line-element absolute right-[55%] top-[15%] opacity-0">
                                                 <Image
                                                     src="/images/hero-line-1.svg"
                                                     alt=""
                                                     width={40}
                                                     height={40}
+                                                    aria-hidden="true"
                                                 />
                                             </div>
                                             {/* Line 4 */}
-                                            <div className="line-element absolute left-4/5 top-0 opacity-0 rotate-45">
+                                            <div className="line-element absolute right-[50%] top-[30%] opacity-0">
                                                 <Image
                                                     src="/images/hero-line-3.svg"
                                                     alt=""
                                                     width={45}
                                                     height={45}
+                                                    aria-hidden="true"
                                                 />
                                             </div>
                                             {/* Line 5 */}
-                                            <div className="line-element absolute left-1/6 top-0 opacity-0 -rotate-15">
+                                            <div className="line-element absolute right-[60%] top-[20%] opacity-0">
                                                 <Image
                                                     src="/images/hero-line-1.svg"
                                                     alt=""
                                                     width={55}
                                                     height={55}
+                                                    aria-hidden="true"
                                                 />
                                             </div>
                                         </div>
 
-                                        {/* Arrows rising from bottom to top */}
-                                        <div ref={arrowsContainerRef} className="absolute inset-0">
+                                        {/* Arrows flowing from bottom-left to top-right */}
+                                        <div ref={arrowsContainerRef} className="absolute inset-0 flex items-center justify-center">
                                             {/* Arrow 1 */}
-                                            <div className="arrow-element absolute left-1/4 bottom-0 opacity-0">
+                                            <div className="arrow-element absolute left-[45%] bottom-[30%] opacity-0">
                                                 <Image
                                                     src="/images/hero-arrow-6.svg"
                                                     alt=""
                                                     width={30}
                                                     height={30}
+                                                    aria-hidden="true"
                                                 />
                                             </div>
                                             {/* Arrow 2 */}
-                                            <div className="arrow-element absolute left-1/2 bottom-0 opacity-0">
+                                            <div className="arrow-element absolute left-[50%] bottom-[35%] opacity-0">
                                                 <Image
                                                     src="/images/hero-arrow-9.svg"
                                                     alt=""
                                                     width={35}
                                                     height={35}
+                                                    aria-hidden="true"
                                                 />
                                             </div>
                                             {/* Arrow 3 */}
-                                            <div className="arrow-element absolute left-3/4 bottom-0 opacity-0">
+                                            <div className="arrow-element absolute left-[55%] bottom-[25%] opacity-0">
                                                 <Image
                                                     src="/images/hero-arrow-2.svg"
                                                     alt=""
                                                     width={25}
                                                     height={25}
+                                                    aria-hidden="true"
                                                 />
                                             </div>
                                             {/* Arrow 4 */}
-                                            <div className="arrow-element absolute left-1/6 bottom-0 opacity-0">
+                                            <div className="arrow-element absolute left-[40%] bottom-[40%] opacity-0">
                                                 <Image
                                                     src="/images/hero-arrow-3.svg"
                                                     alt=""
                                                     width={32}
                                                     height={32}
+                                                    aria-hidden="true"
                                                 />
                                             </div>
                                             {/* Arrow 5 */}
-                                            <div className="arrow-element absolute left-2/3 bottom-0 opacity-0">
+                                            <div className="arrow-element absolute left-[60%] bottom-[30%] opacity-0">
                                                 <Image
                                                     src="/images/hero-arrow-6.svg"
                                                     alt=""
                                                     width={28}
                                                     height={28}
+                                                    aria-hidden="true"
                                                 />
                                             </div>
                                             {/* Arrow 6 */}
-                                            <div className="arrow-element absolute left-5/6 bottom-0 opacity-0">
+                                            <div className="arrow-element absolute left-[45%] bottom-[45%] opacity-0">
                                                 <Image
                                                     src="/images/hero-arrow-9.svg"
                                                     alt=""
                                                     width={33}
                                                     height={33}
+                                                    aria-hidden="true"
                                                 />
                                             </div>
                                         </div>

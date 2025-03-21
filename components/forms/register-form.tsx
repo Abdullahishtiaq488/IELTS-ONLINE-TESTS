@@ -47,20 +47,20 @@ export default function RegisterForm({ showHeader = true }: RegisterFormProps) {
                 <div className="md:w-1/2">
                     <form onSubmit={handleSubmit}>
                         <div className="mb-6">
-                            <label className="block text-gray-700 mb-2">Account</label>
+                            <label className="block text-tertiary-700 mb-2">Account</label>
                             <input
                                 type="email"
                                 name="email"
                                 placeholder="Email"
                                 value={formData.email}
                                 onChange={handleInputChange}
-                                className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                                className="w-full border border-tertiary-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-primary-500"
                                 reqg-error
                             />
                         </div>
 
                         <div className="mb-6">
-                            <label className="block text-gray-700 mb-2">Password</label>
+                            <label className="block text-tertiary-700 mb-2">Password</label>
                             <div className="relative">
                                 <input
                                     type={showPassword ? "text" : "password"}
@@ -68,7 +68,7 @@ export default function RegisterForm({ showHeader = true }: RegisterFormProps) {
                                     placeholder="Please enter password"
                                     value={formData.password}
                                     onChange={handleInputChange}
-                                    className="w-full border border-gray-300 rounded-md p-3 pr-10 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                                    className="w-full border border-tertiary-300 rounded-md p-3 pr-10 focus:outline-none focus:ring-2 focus:ring-primary-500"
                                     reqg-error
                                 />
                                 <button
@@ -76,7 +76,7 @@ export default function RegisterForm({ showHeader = true }: RegisterFormProps) {
                                     onClick={() => setShowPassword(!showPassword)}
                                     className="absolute inset-y-0 right-0 flex items-center pr-3"
                                 >
-                                    <svg className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <svg className="h-5 w-5 text-tertiary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                                     </svg>
@@ -85,7 +85,7 @@ export default function RegisterForm({ showHeader = true }: RegisterFormProps) {
                         </div>
 
                         <div className="mb-6">
-                            <label className="block text-gray-700 mb-2">Confirm Password</label>
+                            <label className="block text-tertiary-700 mb-2">Confirm Password</label>
                             <div className="relative">
                                 <input
                                     type={showConfirmPassword ? "text" : "password"}
@@ -93,7 +93,7 @@ export default function RegisterForm({ showHeader = true }: RegisterFormProps) {
                                     placeholder="Please confirm password"
                                     value={formData.confirmPassword}
                                     onChange={handleInputChange}
-                                    className="w-full border border-gray-300 rounded-md p-3 pr-10 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                                    className="w-full border border-tertiary-300 rounded-md p-3 pr-10 focus:outline-none focus:ring-2 focus:ring-primary-500"
                                     reqg-error
                                 />
                                 <button
@@ -101,7 +101,7 @@ export default function RegisterForm({ showHeader = true }: RegisterFormProps) {
                                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                                     className="absolute inset-y-0 right-0 flex items-center pr-3"
                                 >
-                                    <svg className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <svg className="h-5 w-5 text-tertiary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                                     </svg>
@@ -118,7 +118,7 @@ export default function RegisterForm({ showHeader = true }: RegisterFormProps) {
 
                         {showHeader && (
                             <div className="text-center mt-4">
-                                <p className="text-gray-600">
+                                <p className="text-tertiary-600">
                                     Have an account already?{' '}
                                     <Link href="/login" className="text-primary-600 font-medium">
                                         Please login here
@@ -132,10 +132,10 @@ export default function RegisterForm({ showHeader = true }: RegisterFormProps) {
                 {/* Or divider - visible only on mobile */}
                 <div className="relative my-6 md:hidden">
                     <div className="absolute inset-0 flex items-center">
-                        <div className="w-full border-t border-gray-300"></div>
+                        <div className="w-full border-t border-tertiary-300"></div>
                     </div>
                     <div className="relative flex justify-center">
-                        <span className="flex items-center justify-center bg-white rounded-full h-8 w-8 border border-gray-300 text-sm text-gray-500">Or</span>
+                        <span className="flex items-center justify-center bg-white rounded-full h-8 w-8 border border-tertiary-300 text-sm text-tertiary-500">Or</span>
                     </div>
                 </div>
 
@@ -143,10 +143,10 @@ export default function RegisterForm({ showHeader = true }: RegisterFormProps) {
                 <div className="hidden md:flex md:items-center">
                     <div className="relative flex flex-col items-center px-4">
                         <div className="absolute inset-0 flex items-center">
-                            <div className="h-full border-l border-gray-300"></div>
+                            <div className="h-full border-l border-tertiary-300"></div>
                         </div>
                         <div className="relative flex flex-col items-center">
-                            <span className="flex items-center justify-center bg-white rounded-full h-8 w-8 border border-gray-300 text-sm text-gray-500">Or</span>
+                            <span className="flex items-center justify-center bg-white rounded-full h-8 w-8 border border-tertiary-300 text-sm text-tertiary-500">Or</span>
                         </div>
                     </div>
                 </div>
@@ -154,7 +154,7 @@ export default function RegisterForm({ showHeader = true }: RegisterFormProps) {
                 {/* Right side - Social logins */}
                 <div className="md:w-1/2">
                     <div className="space-y-4 h-full flex flex-col justify-center">
-                        <button className="w-full flex items-center justify-center bg-g-error-500 hover:bg-error-600 text-white py-3 rounded-md">
+                        <button className="w-full flex items-center justify-center bg-secondary-500 hover:bg-muted-600 text-white py-3 rounded-md">
                             <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12.545 10.239v3.818h5.556c-.239 1.422-1.704 4.157-5.556 4.157-3.328 0-6.05-2.759-6.05-6.145s2.722-6.145 6.05-6.145c1.9 0 3.184.8 3.912 1.496l2.665-2.561C17.634 3.461 15.286 2.5 12.545 2.5 7.021 2.5 2.5 7.021 2.5 12.545s4.521 10.045 10.045 10.045c5.8 0 9.659-4.075 9.659-9.82 0-.658-.057-1.157-.156-1.665h-9.503z" />
                             </svg>

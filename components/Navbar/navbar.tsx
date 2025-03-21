@@ -149,7 +149,7 @@ export default function Navbar() {
                     )}
 
                     {hasItems && isActive && item.items && (
-                        <div className="bg-error-50">
+                        <div className="bg-muted-50">
                             {renderMobileNavItems(item.items, true)}
                         </div>
                     )}
@@ -164,10 +164,10 @@ export default function Navbar() {
             <div className="hidden md:block bg-white border-b">
                 <Container>
                     <div className="flex justify-between items-center h-24 md:h-28 lg:h-32">
-                        <div className="flex-shrink-0">
+                        <div className="flex-shrink-0 bg-red-500">
                             <Link href="/" className="flex items-center">
                                 <Image
-                                    src="/images/logo.png"
+                                    src="/images/logo.jpg"
                                     alt="IELTS Online"
                                     width={1250}
                                     height={965}

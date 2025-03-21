@@ -20,7 +20,7 @@ export function FeatureContent({ feature }: FeatureContentProps) {
     }, [feature.id]);
 
     return (
-        <div className="bg-error-600 p-6 md:p-10">
+        <div className="bg-muted-600 p-6 md:p-10">
             <div className={`max-w-5xl mx-auto bg-white rounded-md shadow-sm overflow-hidden transition-all duration-400 ${isAnimating ? 'opacity-50 scale-[0.97] brightness-110' : 'opacity-100 scale-100'}`}>
                 <div className="flex flex-col md:flex-row">
                     <div className="w-full px-4 md:w-1/2">

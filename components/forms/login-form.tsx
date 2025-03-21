@@ -46,9 +46,9 @@ export default function LoginForm({ showHeader = true }: LoginFormProps) {
                 {/* Left side - Login form */}
                 <div className="md:w-1/2">
                     {/* Login method tabs */}
-                    <div className="flex mb-6 border-b border-gray-200">
+                    <div className="flex mb-6 border-b border-tertiary-200">
                         <button
-                            className={`flex items-center pb-3 px-4 ${loginMethod === 'phone' ? 'border-b-2 border-primary-500 text-primary-500' : 'text-gray-500'}`}
+                            className={`flex items-center pb-3 px-4 ${loginMethod === 'phone' ? 'border-b-2 border-primary-500 text-primary-500' : 'text-tertiary-500'}`}
                             onClick={() => setLoginMethod('phone')}
                         >
                             <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -57,7 +57,7 @@ export default function LoginForm({ showHeader = true }: LoginFormProps) {
                             Login by phone
                         </button>
                         <button
-                            className={`flex items-center pb-3 px-4 ${loginMethod === 'email' ? 'border-b-2 border-primary-500 text-primary-500' : 'text-gray-500'}`}
+                            className={`flex items-center pb-3 px-4 ${loginMethod === 'email' ? 'border-b-2 border-primary-500 text-primary-500' : 'text-tertiary-500'}`}
                             onClick={() => setLoginMethod('email')}
                         >
                             <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -72,20 +72,20 @@ export default function LoginForm({ showHeader = true }: LoginFormProps) {
                         {loginMethod === 'email' ? (
                             <>
                                 <div className="mb-4">
-                                    <label className="block text-gray-700 mb-2">Email</label>
+                                    <label className="block text-tertiary-700 mb-2">Email</label>
                                     <input
                                         type="email"
                                         name="email"
                                         placeholder="Please enter Username/Email"
                                         value={formData.email}
                                         onChange={handleInputChange}
-                                        className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                                        className="w-full border border-tertiary-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-primary-500"
                                         required
                                     />
                                 </div>
 
                                 <div className="mb-4">
-                                    <label className="block text-gray-700 mb-2">Password</label>
+                                    <label className="block text-tertiary-700 mb-2">Password</label>
                                     <div className="relative">
                                         <input
                                             type={showPassword ? "text" : "password"}
@@ -93,7 +93,7 @@ export default function LoginForm({ showHeader = true }: LoginFormProps) {
                                             placeholder="Please enter password"
                                             value={formData.password}
                                             onChange={handleInputChange}
-                                            className="w-full border border-gray-300 rounded-md p-3 pr-10 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                                            className="w-full border border-tertiary-300 rounded-md p-3 pr-10 focus:outline-none focus:ring-2 focus:ring-primary-500"
                                             required
                                         />
                                         <button
@@ -101,7 +101,7 @@ export default function LoginForm({ showHeader = true }: LoginFormProps) {
                                             onClick={() => setShowPassword(!showPassword)}
                                             className="absolute inset-y-0 right-0 flex items-center pr-3"
                                         >
-                                            <svg className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <svg className="h-5 w-5 text-tertiary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                                             </svg>
@@ -111,14 +111,14 @@ export default function LoginForm({ showHeader = true }: LoginFormProps) {
                             </>
                         ) : (
                             <div className="mb-4">
-                                <label className="block text-gray-700 mb-2">Phone Number</label>
+                                <label className="block text-tertiary-700 mb-2">Phone Number</label>
                                 <input
                                     type="tel"
                                     name="phone"
                                     placeholder="Please enter phone number"
                                     value={formData.phone}
                                     onChange={handleInputChange}
-                                    className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                                    className="w-full border border-tertiary-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-primary-500"
                                     required
                                 />
                             </div>
@@ -142,10 +142,10 @@ export default function LoginForm({ showHeader = true }: LoginFormProps) {
                 {/* Or divider - visible only on mobile */}
                 <div className="relative my-6 md:hidden">
                     <div className="absolute inset-0 flex items-center">
-                        <div className="w-full border-t border-gray-300"></div>
+                        <div className="w-full border-t border-tertiary-300"></div>
                     </div>
                     <div className="relative flex justify-center">
-                        <span className="flex items-center justify-center bg-white rounded-full h-8 w-8 border border-gray-300 text-sm text-gray-500">Or</span>
+                        <span className="flex items-center justify-center bg-white rounded-full h-8 w-8 border border-tertiary-300 text-sm text-tertiary-500">Or</span>
                     </div>
                 </div>
 
@@ -153,10 +153,10 @@ export default function LoginForm({ showHeader = true }: LoginFormProps) {
                 <div className="hidden md:flex md:items-center">
                     <div className="relative flex flex-col items-center px-4">
                         <div className="absolute inset-0 flex items-center">
-                            <div className="h-full border-l border-gray-300"></div>
+                            <div className="h-full border-l border-tertiary-300"></div>
                         </div>
                         <div className="relative flex flex-col items-center">
-                            <span className="flex items-center justify-center bg-white rounded-full h-8 w-8 border border-gray-300 text-sm text-gray-500">Or</span>
+                            <span className="flex items-center justify-center bg-white rounded-full h-8 w-8 border border-tertiary-300 text-sm text-tertiary-500">Or</span>
                         </div>
                     </div>
                 </div>
@@ -190,7 +190,7 @@ export default function LoginForm({ showHeader = true }: LoginFormProps) {
 
             {showHeader && (
                 <div className="text-center mt-8">
-                    <p className="text-gray-600">
+                    <p className="text-tertiary-600">
                         Don&apos;t have an account? <Link href="/signup" className="text-primary-600 font-medium">Create one now!</Link>
                     </p>
                 </div>

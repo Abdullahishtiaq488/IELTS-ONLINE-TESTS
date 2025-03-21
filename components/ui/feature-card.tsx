@@ -9,17 +9,18 @@ interface FeatureCardProps {
 export function FeatureCard({ feature }: FeatureCardProps) {
     return (
         <div className="flex flex-col items-center text-center">
-            <div className="mb-5">
+            <div className="relative h-[90px] w-[90px] mb-5">
                 <Image
                     src={feature.image}
                     alt={feature.title}
-                    width={90}
-                    height={90}
-                    className="mx-auto"
+                    fill
+                    sizes="90px"
+                    priority={false}
+                    className="object-contain"
                 />
             </div>
             <h3 className="text-xl font-semibold text-primary-900 mb-3">{feature.title}</h3>
             <p className="text-sm text-primary-700 max-w-sm mx-auto leading-relaxed">{feature.description}</p>
         </div>
     );
-} 
+}

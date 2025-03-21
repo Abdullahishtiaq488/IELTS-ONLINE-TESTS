@@ -220,11 +220,11 @@ export function MockTestCards({ currentSkill }: MockTestCardsProps) {
                                                 onMouseEnter={() => setHoveredCard(`${mockTest.id}-${month.name}`)}
                                                 onMouseLeave={() => setHoveredCard(null)}
                                             >
-                                                <h3 className="font-medium text-gray-700 flex items-center">
+                                                <h3 className="font-medium text-tertiary-700 flex items-center">
                                                     <span className={`inline-block w-2 h-2 rounded-full mr-2 bg-primary-500 ${hoveredCard === `${mockTest.id}-${month.name}` ? 'animate-pulse' : ''}`}></span>
                                                     {month.name}
                                                 </h3>
-                                                <div className="flex items-center text-gray-500 text-sm mt-1">
+                                                <div className="flex items-center text-tertiary-500 text-sm mt-1">
                                                     <Zap className={`h-4 w-4 mr-1 text-accent-500 ${hoveredCard === `${mockTest.id}-${month.name}` ? 'animate-bounce' : ''}`} />
                                                     {month.totalTests.toLocaleString()} tests taken
                                                 </div>
@@ -244,7 +244,7 @@ export function MockTestCards({ currentSkill }: MockTestCardsProps) {
                                                         {getSkillIcon(currentSkill)}
                                                         {month.name} {currentSkill} Practice Test {practiceTest.testNumber}
                                                     </div>
-                                                    <div className="flex items-center text-gray-500 text-xs mt-1">
+                                                    <div className="flex items-center text-tertiary-500 text-xs mt-1">
                                                         <Zap className={`h-3 w-3 mr-1 text-accent-500 ${hoveredCard === `${mockTest.id}-${month.name}-${practiceTest.testNumber}` ? 'animate-pulse' : ''}`} />
                                                         {practiceTest.testsTaken.toLocaleString()} tests taken
                                                     </div>
@@ -282,7 +282,7 @@ export function MockTestCards({ currentSkill }: MockTestCardsProps) {
                     <button
                         onClick={() => handlePageChange(currentPage - 1)}
                         disabled={currentPage === 1}
-                        className="p-2 rounded-lg border border-gray-200 hover:border-primary-500 hover:bg-primary-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                        className="p-2 rounded-lg border border-tertiary-200 hover:border-primary-500 hover:bg-primary-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                     >
                         <ChevronLeft className="h-5 w-5" />
                     </button>
@@ -294,7 +294,7 @@ export function MockTestCards({ currentSkill }: MockTestCardsProps) {
                                 onClick={() => handlePageChange(page)}
                                 className={`px-4 py-2 rounded-lg border transition-all duration-300 ${currentPage === page
                                     ? 'bg-primary-600 text-white border-primary-600 shadow-md'
-                                    : 'border-gray-200 hover:border-primary-500 hover:bg-primary-50 hover:shadow'
+                                    : 'border-tertiary-200 hover:border-primary-500 hover:bg-primary-50 hover:shadow'
                                     }`}
                             >
                                 {page}
@@ -305,7 +305,7 @@ export function MockTestCards({ currentSkill }: MockTestCardsProps) {
                     <button
                         onClick={() => handlePageChange(currentPage + 1)}
                         disabled={currentPage === totalPages}
-                        className="p-2 rounded-lg border border-gray-200 hover:border-primary-500 hover:bg-primary-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                        className="p-2 rounded-lg border border-tertiary-200 hover:border-primary-500 hover:bg-primary-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                     >
                         <ChevronRight className="h-5 w-5" />
                     </button>

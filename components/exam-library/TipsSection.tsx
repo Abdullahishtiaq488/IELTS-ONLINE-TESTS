@@ -46,7 +46,7 @@ export function TipsSection() {
                     <Link
                         key={tip.id}
                         href={`/ielts-tips/${tip.id}`}
-                        className="flex gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors"
+                        className="flex gap-4 p-4 rounded-lg hover:bg-tertiary-50 transition-colors"
                     >
                         <div className="w-24 h-24 flex-shrink-0">
                             <Image
@@ -61,10 +61,10 @@ export function TipsSection() {
                             <h3 className="text-primary-900 font-medium mb-1 line-clamp-2">
                                 {tip.title}
                             </h3>
-                            <p className="text-sm text-gray-600 mb-2 line-clamp-2">
+                            <p className="text-sm text-tertiary-600 mb-2 line-clamp-2">
                                 {tip.description}
                             </p>
-                            <div className="flex items-center text-sm text-gray-500">
+                            <div className="flex items-center text-sm text-tertiary-500">
                                 <span className="px-2 py-1 bg-primary-50 text-primary-700 rounded-full text-xs font-medium">
                                     {tip.category}
                                 </span>

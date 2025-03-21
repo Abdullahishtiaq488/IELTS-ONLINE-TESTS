@@ -52,7 +52,7 @@ export default function ContactForm() {
                         name="userType"
                         value={formData.userType}
                         onChange={handleInputChange}
-                        className="w-full border border-error-900 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                        className="w-full border border-muted-900 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-primary-500"
                         required
                     >
                         <option value="" disabled>--You are--</option>
@@ -70,7 +70,7 @@ export default function ContactForm() {
                         placeholder="Tell us more"
                         value={formData.details}
                         onChange={handleInputChange}
-                        className="w-full border border-error-900 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                        className="w-full border border-muted-900 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-primary-500"
                     />
                 </div>
 
@@ -81,7 +81,7 @@ export default function ContactForm() {
                         placeholder="Name"
                         value={formData.name}
                         onChange={handleInputChange}
-                        className="w-full border border-error-900 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                        className="w-full border border-muted-900 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-primary-500"
                         required
                     />
                 </div>
@@ -93,7 +93,7 @@ export default function ContactForm() {
                         placeholder="Email"
                         value={formData.email}
                         onChange={handleInputChange}
-                        className="w-full border border-error-900 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                        className="w-full border border-muted-900 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-primary-500"
                         required
                     />
                 </div>
@@ -105,7 +105,7 @@ export default function ContactForm() {
                         placeholder="Title"
                         value={formData.title}
                         onChange={handleInputChange}
-                        className="w-full border border-error-900 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                        className="w-full border border-muted-900 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-primary-500"
                         required
                     />
                 </div>
@@ -118,7 +118,7 @@ export default function ContactForm() {
                         onChange={handleInputChange}
                         maxLength={500}
                         rows={5}
-                        className="w-full border border-error-900 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-primary-500"
+                        className="w-full border border-muted-900 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-primary-500"
                         required
                     ></textarea>
                     <div className="text-sm text-primary-950 mt-1">
@@ -133,7 +133,7 @@ export default function ContactForm() {
                         name="captcha"
                         value={formData.captcha}
                         onChange={handleInputChange}
-                        className="border border-error-950 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-primary-500 w-20"
+                        className="border border-muted-950 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-primary-500 w-20"
                         required
                     />
                 </div>

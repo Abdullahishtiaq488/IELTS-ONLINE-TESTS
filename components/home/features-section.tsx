@@ -12,8 +12,8 @@ export default function FeaturesSection() {
     const activeFeature = testFeatures.find(feature => feature.id === activeFeatureId) || testFeatures[0];
 
     return (
-        <Section background="white" className="pt-10 pb-16">
-            <div className="mb-8 text-center">
+        <Section background="white" >
+            <div className="mb-12 text-center">
                 <h2 className="text-3xl font-bold text-primary-900">Our IELTS tests features</h2>
             </div>
 
