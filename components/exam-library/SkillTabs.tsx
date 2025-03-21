@@ -28,7 +28,7 @@ export function SkillTabs({ currentSkill }: SkillTabsProps) {
                         'flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-colors',
                         currentSkill === skill.id
                             ? 'bg-white text-primary-900 shadow-sm border-b-2 border-primary-900'
-                            : 'bg-white text-secondary-600 hover:text-primary-900'
+                            : 'bg-white text-gray-600 hover:text-primary-900'
                     )}
                 >
                     <span className="flex items-center gap-2">

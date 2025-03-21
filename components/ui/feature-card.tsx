@@ -19,7 +19,7 @@ export function FeatureCard({ feature }: FeatureCardProps) {
                 />
             </div>
             <h3 className="text-xl font-semibold text-primary-900 mb-3">{feature.title}</h3>
-            <p className="text-sm text-secondary-700 max-w-sm mx-auto leading-relaxed">{feature.description}</p>
+            <p className="text-sm text-primary-700 max-w-sm mx-auto leading-relaxed">{feature.description}</p>
         </div>
     );
 } 

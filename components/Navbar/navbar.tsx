@@ -91,7 +91,7 @@ export default function Navbar() {
                     {hasItems && isActive && item.items && (
                         <div
                             className={`absolute ${isNested ? 'left-full top-0 -ml-1' : 'left-0 top-full'
-                                } bg-primary-950/95 backdrop-blur-sm shadow-lg min-w-[200px] md:min-w-[220px] lg:min-w-[240px] z-50`}
+                                } bg-blue-950/95 shadow-lg min-w-[200px] md:min-w-[220px] lg:min-w-[240px] z-50`}
                             onMouseEnter={() => handleDropdownEnter(itemKey)}
                             onMouseLeave={() => handleDropdownLeave(itemKey)}
                         >
@@ -149,7 +149,7 @@ export default function Navbar() {
                     )}
 
                     {hasItems && isActive && item.items && (
-                        <div className="bg-secondary-50">
+                        <div className="bg-error-50">
                             {renderMobileNavItems(item.items, true)}
                         </div>
                     )}
@@ -167,11 +167,12 @@ export default function Navbar() {
                         <div className="flex-shrink-0">
                             <Link href="/" className="flex items-center">
                                 <Image
-                                    src="/images/logo.svg"
+                                    src="/images/logo.png"
                                     alt="IELTS Online"
-                                    width={180}
-                                    height={180}
-                                    className="h-16 md:h-20 lg:h-24 w-auto"
+                                    width={1250}
+                                    height={965}
+                                    className="h-16 md:h-20 lg:h-24 w-auto object-contain"
+                                    priority
                                 />
                             </Link>
                         </div>

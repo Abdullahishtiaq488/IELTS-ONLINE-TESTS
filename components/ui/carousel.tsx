@@ -192,8 +192,8 @@ export default function Carousel() {
                                 </div>
 
                                 <button className="mt-4 relative group">
-                                    <span className="absolute inset-0 bg-gradient-to-br from-yellow-300 to-yellow-600 rounded-full opacity-80 group-hover:opacity-100 blur transition-all"></span>
-                                    <span className="relative bg-gradient-to-br from-yellow-400 to-yellow-600 text-blue-950 px-8 py-3 rounded-full font-bold inline-block transition-transform group-hover:scale-105">
+                                    <span className="absolute inset-0 bg-gradient-to-br from-red-700 to-red-950 rounded-full opacity-80 group-hover:opacity-100 blur transition-all"></span>
+                                    <span className="relative bg-gradient-to-br from-red-600 to-red-900 text-white px-8 py-3 rounded-full font-bold inline-block transition-transform group-hover:scale-105">
                                         Learn More
                                     </span>
                                 </button>
@@ -274,8 +274,8 @@ export default function Carousel() {
                                 </div>
 
                                 <button className="mt-4 relative group">
-                                    <span className="absolute inset-0 bg-gradient-to-br from-yellow-300 to-yellow-600 rounded-full opacity-80 group-hover:opacity-100 blur transition-all"></span>
-                                    <span className="relative bg-gradient-to-br from-yellow-400 to-yellow-600 text-blue-950 px-8 py-3 rounded-full font-bold inline-block transition-transform group-hover:scale-105">
+                                    <span className="absolute inset-0 bg-gradient-to-br from-red-700 to-red-950 rounded-full opacity-80 group-hover:opacity-100 blur transition-all"></span>
+                                    <span className="relative bg-gradient-to-br from-red-600 to-red-900 text-white px-8 py-3 rounded-full font-bold inline-block transition-transform group-hover:scale-105">
                                         Start Now
                                     </span>
                                 </button>

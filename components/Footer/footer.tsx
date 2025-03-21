@@ -21,7 +21,7 @@ export default function Footer() {
 
                         <div className="mt-6 flex flex-col gap-3">
                             <div className="relative inline-block w-44">
-                                <select className="block appearance-none w-full bg-secondary-100 border border-secondary-300 text-primary-900 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white">
+                                <select className="block appearance-none w-full bg-error-100 border border-error-300 text-black py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white">
                                     <option>PKR ₨</option>
                                     <option>USD $</option>
                                     <option>EUR €</option>
@@ -35,7 +35,7 @@ export default function Footer() {
                             </div>
 
                             <div className="relative inline-block w-44">
-                                <select className="block appearance-none w-full bg-secondary-100 border border-secondary-300 text-primary-900 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white">
+                                <select className="block appearance-none w-full bg-error-100 border border-error-300 text-primary-900 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white">
                                     <option>English</option>
                                     <option>Español</option>
                                     <option>Français</option>
@@ -54,7 +54,7 @@ export default function Footer() {
                     <div className="md:col-span-8">
                         <div className="mb-8">
                             <h3 className="text-xl font-bold mb-4">About us</h3>
-                            <p className="text-secondary-300">
+                            <p className="text-error-900">
                                 IELTS Online Tests (IOT) belongs to InterGreat Education Group, founded in 2008, with branch offices located in 12
                                 countries around the world. InterGreat&apos;s head office is situated on Threadneedle Street in London, the iconic home
                                 of the Bank of England.
@@ -63,7 +63,7 @@ export default function Footer() {
 
                         <div className="mb-8">
                             <h3 className="text-xl font-bold mb-4">Our mission</h3>
-                            <p className="text-secondary-300">
+                            <p className="text-error-900">
                                 IOT has currently been the most visited website in over 120 countries with more than 28 million students. We are
                                 aiming toward a community website that provides IELTS test questions and exam tips for free. Students can easily
                                 take the IELTS tests on the website to improve their band scores effectively within a short time through our modern
@@ -95,7 +95,7 @@ export default function Footer() {
                 </div>
 
                 {/* Copyright and Disclaimers */}
-                <div className="border-t border-secondary-700 pt-6 mt-6 text-xs text-secondary-400">
+                <div className="border-t border-error-700 pt-6 mt-6 text-xs text-error-950">
                     <p className="mb-3">© 2017-2025 InterGreat Education Group</p>
 
                     <p className="mb-3">

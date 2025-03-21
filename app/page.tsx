@@ -1,5 +1,4 @@
 import Carousel from '@/components/ui/carousel';
-import HeroSection from '@/components/home/hero-section';
 import LatestTestsSection from '@/components/home/latest-tests-section';
 import TipsSection from '@/components/home/tips-section';
 import WhyUseSection from '@/components/home/why-use-section';
@@ -17,7 +16,7 @@ export default function Home() {
 
       {/* Content sections with consistent spacing */}
       <div className="space-y-8">
-        <HeroSection />
+                
         <LatestTestsSection />
         <WhyUseSection />
         <StatsSection />

@@ -15,11 +15,11 @@ export function TipCard({ tip }: TipCardProps) {
 
         for (let i = 0; i < 5; i++) {
             if (i < fullStars) {
-                stars.push(<span key={i} className="text-accent-400">★</span>);
+                stars.push(<span key={i} className="text-warning-500">★</span>);
             } else if (i === fullStars && hasHalfStar) {
-                stars.push(<span key={i} className="text-accent-400">★</span>);
+                stars.push(<span key={i} className="text-warning-500">★</span>);
             } else {
-                stars.push(<span key={i} className="text-secondary-300">★</span>);
+                stars.push(<span key={i} className="text-error-900">★</span>);
             }
         }
 
@@ -48,23 +48,23 @@ export function TipCard({ tip }: TipCardProps) {
                         <h3 className="text-lg font-semibold text-primary-900 hover:text-primary-700 mb-1">{tip.title}</h3>
                     </Link>
                     <div className="flex items-center mb-2">
-                        <span className="text-sm text-secondary-600">{tip.rating}</span>
+                        <span className="text-sm text-black">{tip.rating}</span>
                         <div className="flex ml-1 mr-2">{renderStars(tip.rating)}</div>
-                        <span className="text-xs text-secondary-500">({tip.votes} votes)</span>
+                        <span className="text-xs text-black">({tip.votes} votes)</span>
                     </div>
                 </div>
             </div>
 
             {/* Bottom section with full-width paragraph */}
             <div>
-                <p className="text-sm text-secondary-600 mb-3">{tip.description}</p>
+                <p className="text-sm text-gray-600 mb-3">{tip.description}</p>
                 <div className="flex items-center justify-between">
                     <div className="flex items-center">
-                        <span className="inline-block bg-secondary-100 text-secondary-800 px-2 py-1 rounded-md text-xs">
+                        <span className="inline-block bg-gray-100 text-gray-800 px-2 py-1 rounded-md text-xs">
                             {tip.category}
                         </span>
                     </div>
-                    <div className="flex items-center text-xs text-secondary-500">
+                    <div className="flex items-center text-xs text-gray-500">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />

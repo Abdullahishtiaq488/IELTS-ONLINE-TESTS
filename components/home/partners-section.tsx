@@ -15,7 +15,7 @@ export default function PartnersSection() {
                 <div className="flex flex-col md:flex-row">
                     {/* Description on the left */}
                     <div className="w-full md:w-1/3 pr-0 md:pr-8 mb-6 md:mb-0">
-                        <p className="text-secondary-700 leading-relaxed">{partnerDescription}</p>
+                        <p className="text-primary-950 leading-relaxed">{partnerDescription}</p>
                     </div>
 
                     {/* Logos on the right */}

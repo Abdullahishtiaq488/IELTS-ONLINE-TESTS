@@ -24,7 +24,7 @@ export function TipsPageLayout({
     children
 }: TipsPageLayoutProps) {
     return (
-        <div className="h-auto bg-secondary-50">
+        <div className="h-auto bg-error-300">
 
             <div className="container mx-auto px-4 py-4">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
@@ -47,7 +47,7 @@ export function TipsPageLayout({
                         {/* Page Title and Description */}
                         <div className="mb-8">
                             <h1 className="text-4xl font-bold text-primary-950 mb-4">{pageTitle}</h1>
-                            <p className="text-secondary-600">{pageDescription}</p>
+                            <p className="text-primary-600">{pageDescription}</p>
                         </div>
                         {/* Featured Tips */}
                         <div className="bg-primary-950 rounded-xl p-6 mb-8">
@@ -87,10 +87,10 @@ export function TipsPageLayout({
                                             <h3 className="text-primary-900 font-medium mb-1 line-clamp-2">
                                                 {tip.title}
                                             </h3>
-                                            <p className="text-sm text-secondary-600 mb-2 line-clamp-2">
+                                            <p className="text-sm text-gray-600 mb-2 line-clamp-2">
                                                 {tip.description}
                                             </p>
-                                            <div className="flex items-center text-sm text-secondary-500">
+                                            <div className="flex items-center text-sm text-gray-500">
                                                 <span className="px-2 py-1 bg-primary-50 text-primary-700 rounded-full text-xs font-medium">
                                                     {tip.category}
                                                 </span>

@@ -16,13 +16,13 @@ export function Breadcrumb({ items }: BreadcrumbProps) {
                 {items.map((item, index) => (
                     <li key={item.href} className="flex items-center">
                         {index > 0 && (
-                            <span className="mx-2 text-seconday-400">/</span>
+                            <span className="mx-2 text-primary-400">/</span>
                         )}
                         <Link
                             href={item.href}
                             className={`text-sm ${index === items.length - 1
-                                    ? 'text-secondary-600 font-medium'
-                                    : 'text-secondary-500 hover:text-secondary-700'
+                                    ? 'text-primary-600 font-medium'
+                                    : 'text-primary-500 hover:text-primary-700'
                                 }`}
                         >
                             {item.label}

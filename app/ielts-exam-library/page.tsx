@@ -1,6 +1,5 @@
 'use client';
 
-import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Container } from '@/components/ui/container';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
@@ -12,45 +11,37 @@ import { MockTestCards } from '@/components/exam-library/MockTestCards';
 import { TipsSection } from '@/components/exam-library/TipsSection';
 import { BelowTipsBanner } from '@/components/exam-library/BelowTipsBanner';
 
-function ExamLibraryContent() {
+export default function ExamLibraryPage() {
   const searchParams = useSearchParams();
   const currentSkill = searchParams.get('skill') || 'all';
   const currentTab = searchParams.get('tab') || 'all';
 
   return (
-    <div className="flex flex-col lg:flex-row gap-8">
-      {/* Left Column - Main Content */}
-      <div className="flex-1">
-        <Breadcrumb
-          items={[
-            { label: 'Home', href: '/' },
-            { label: 'IELTS Exam Library', href: '/ielts-exam-library' }
-          ]}
-        />
-
-        <ExamLibraryHeader />
-        <ExamLibraryTabs currentTab={currentTab} />
-        <SkillTabs currentSkill={currentSkill} />
-        <SearchFilter />
-        <MockTestCards currentSkill={currentSkill} />
-      </div>
-
-      {/* Right Column - Tips and Banner */}
-      <div className="lg:w-[380px] space-y-6">
-        <TipsSection currentSkill={currentSkill} />
-        <BelowTipsBanner />
-      </div>
-    </div>
-  );
-}
-
-export default function ExamLibraryPage() {
-  return (
     <div className="min-h-screen bg-gray-50 py-8">
       <Container>
-        <Suspense fallback={<div>Loading...</div>}>
-          <ExamLibraryContent />
-        </Suspense>
+        <div className="flex flex-col lg:flex-row gap-8">
+          {/* Left Column - Main Content */}
+          <div className="flex-1">
+            <Breadcrumb
+              items={[
+                { label: 'Home', href: '/' },
+                { label: 'IELTS Exam Library', href: '/ielts-exam-library' }
+              ]}
+            />
+
+            <ExamLibraryHeader />
+            <ExamLibraryTabs currentTab={currentTab} />
+            <SkillTabs currentSkill={currentSkill} />
+            <SearchFilter />
+            <MockTestCards currentSkill={currentSkill} />
+          </div>
+
+          {/* Right Column - Tips and Banner */}
+          <div className="lg:w-[380px] space-y-6">
+            <TipsSection currentSkill={currentSkill} />
+            <BelowTipsBanner />
+          </div>
+        </div>
       </Container>
     </div>
   );

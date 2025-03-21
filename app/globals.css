@@ -92,44 +92,43 @@
 
   /* Custom color system */
   /* Primary (Blue) */
-  --primary-50: #eff6ff;
-  --primary-100: #dbeafe;
-  --primary-200: #bfdbfe;
-  --primary-300: #93c5fd;
-  --primary-400: #60a5fa;
-  --primary-500: #3b82f6;
-  --primary-600: #2563eb;
-  --primary-700: #1d4ed8;
-  --primary-800: #1e40af;
-  --primary-900: #1e3a8a;
-  --primary-950: #1a365d;
-  --primary-950-rgb: 26, 54, 93;
+  --primary-50: #eef2ff;
+  --primary-100: #dbe4ff;
+  --primary-200: #b5caff;
+  --primary-300: #8da5f5;
+  --primary-400: #5c7df0;
+  --primary-500: #1e3a8a;
+  --primary-600: #162663;
+  --primary-700: #122052;
+  --primary-800: #0e1941;
+  --primary-900: #0a122f;
+  --primary-950: #070d23;
 
   /* Secondary (Gray) */
-  --secondary-50: #f9fafb;
-  --secondary-100: #f3f4f6;
-  --secondary-200: #e5e7eb;
-  --secondary-300: #d1d5db;
-  --secondary-400: #9ca3af;
-  --secondary-500: #6b7280;
-  --secondary-600: #4b5563;
-  --secondary-700: #374151;
-  --secondary-800: #1f2937;
-  --secondary-900: #111827;
-  --secondary-950: #0f172a;
+  --secondary-50: #ffe5e7;
+  --secondary-100: #ffccd1;
+  --secondary-200: #ff99a1;
+  --secondary-300: #ff6671;
+  --secondary-400: #ff3342;
+  --secondary-500: #e63946;
+  --secondary-600: #cc333f;
+  --secondary-700: #b32e38;
+  --secondary-800: #992931;
+  --secondary-900: #7f232a;
+  --secondary-950: #661d23;
 
-  /* Accent (Yellow) */
-  --accent-50: #fefce8;
-  --accent-100: #fef9c3;
-  --accent-200: #fef08a;
-  --accent-300: #fde047;
-  --accent-400: #facc15;
-  --accent-500: #eab308;
-  --accent-600: #ca8a04;
-  --accent-700: #a16207;
-  --accent-800: #854d0e;
-  --accent-900: #713f12;
-  --accent-950: #422006;
+  /* Accent (Teal/Green - Focus & Growth) */
+  --accent-50: #e6f9f5;
+  --accent-100: #c6f1e5;
+  --accent-200: #99e6d1;
+  --accent-300: #66dabd;
+  --accent-400: #33cfa9;
+  --accent-500: #00a676;
+  --accent-600: #008862;
+  --accent-700: #007453;
+  --accent-800: #005f44;
+  --accent-900: #004a35;
+  --accent-950: #003626;
 
   /* Warning (Orange) */
   --warning-50: #fff7ed;
@@ -144,18 +143,19 @@
   --warning-900: #7c2d12;
   --warning-950: #431407;
 
-  /* Error (Red) */
-  --error-50: #fef2f2;
-  --error-100: #fee2e2;
-  --error-200: #fecaca;
-  --error-300: #fca5a5;
-  --error-400: #f87171;
-  --error-500: #ef4444;
-  --error-600: #dc2626;
-  --error-700: #b91c1c;
-  --error-800: #991b1b;
-  --error-900: #7f1d1d;
-  --error-950: #450a0a;
+
+
+  --error-50: #ffffff;
+  --error-100: #fdfdfd;
+  --error-200: #fafafa;
+  --error-300: #f4f4f4;
+  --error-400: #eaeaea;
+  --error-500: #dfdfdf;
+  --error-600: #d4d4d4;
+  --error-700: #c9c9c9;
+  --error-800: #bfbfbf;
+  --error-900: #b4b4b4;
+  --error-950: #aaaaaa;
 }
 
 .dark {
@@ -191,72 +191,6 @@
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
 
-  /* Custom color system - Dark mode */
-  /* Primary (Blue) - Dark mode */
-  --primary-50: #eff6ff;
-  --primary-100: #dbeafe;
-  --primary-200: #bfdbfe;
-  --primary-300: #93c5fd;
-  --primary-400: #60a5fa;
-  --primary-500: #3b82f6;
-  --primary-600: #2563eb;
-  --primary-700: #1d4ed8;
-  --primary-800: #1e40af;
-  --primary-900: #1e3a8a;
-  --primary-950: #1a365d;
-  --primary-950-rgb: 26, 54, 93;
-
-  /* Secondary (Gray) - Dark mode */
-  --secondary-50: #f9fafb;
-  --secondary-100: #f3f4f6;
-  --secondary-200: #e5e7eb;
-  --secondary-300: #d1d5db;
-  --secondary-400: #9ca3af;
-  --secondary-500: #6b7280;
-  --secondary-600: #4b5563;
-  --secondary-700: #374151;
-  --secondary-800: #1f2937;
-  --secondary-900: #111827;
-  --secondary-950: #0f172a;
-
-  /* Accent (Yellow) - Dark mode */
-  --accent-50: #fefce8;
-  --accent-100: #fef9c3;
-  --accent-200: #fef08a;
-  --accent-300: #fde047;
-  --accent-400: #facc15;
-  --accent-500: #eab308;
-  --accent-600: #ca8a04;
-  --accent-700: #a16207;
-  --accent-800: #854d0e;
-  --accent-900: #713f12;
-  --accent-950: #422006;
-
-  /* Warning (Orange) - Dark mode */
-  --warning-50: #fff7ed;
-  --warning-100: #ffedd5;
-  --warning-200: #fed7aa;
-  --warning-300: #fdba74;
-  --warning-400: #fb923c;
-  --warning-500: #f97316;
-  --warning-600: #ea580c;
-  --warning-700: #c2410c;
-  --warning-800: #9a3412;
-  --warning-900: #7c2d12;
-  --warning-950: #431407;
-
-  /* Error (Red) - Dark mode */
-  --error-50: #fef2f2;
-  --error-100: #fee2e2;
-  --error-200: #fecaca;
-  --error-300: #fca5a5;
-  --error-400: #f87171;
-  --error-500: #ef4444;
-  --error-600: #dc2626;
-  --error-700: #b91c1c;
-  --error-800: #991b1b;
-  --error-900: #7f1d1d;
-  --error-950: #450a0a;
 }
 
 @layer base {

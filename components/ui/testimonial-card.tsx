@@ -15,7 +15,7 @@ export function TestimonialCard({ testimonial, className = '', rating = 5 }: Tes
         return Array(5).fill(0).map((_, i) => (
             <span 
                 key={i} 
-                className={`text-accent-400 text-sm ${i >= count ? 'opacity-30' : ''}`}
+                className={`text-warning-500 text-sm ${i >= count ? 'opacity-30' : ''}`}
             >
                 ★
             </span>
@@ -30,14 +30,14 @@ export function TestimonialCard({ testimonial, className = '', rating = 5 }: Tes
                     alt={testimonial.name}
                     width={80}
                     height={80}
-                    className="rounded-full object-cover border-2 border-secondary-200"
+                    className="rounded-full object-cover border-2 border-warning-600"
                 />
             </div>
             <h3 className="text-lg font-semibold text-primary-900 mb-1">{testimonial.name}</h3>
             <div className="flex items-center space-x-1 mb-3">
                 {renderStars(rating)}
             </div>
-            <p className="italic text-secondary-600 leading-relaxed line-clamp-4">&quot;{testimonial.text}&quot;</p>
+            <p className="italic text-primary-700 leading-relaxed line-clamp-4">&quot;{testimonial.text}&quot;</p>
         </div>
     );
 } 

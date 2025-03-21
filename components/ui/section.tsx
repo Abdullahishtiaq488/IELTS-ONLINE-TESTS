@@ -14,7 +14,7 @@ export function Section({
 }: SectionProps) {
     const bgClasses = {
         white: 'bg-white',
-        gray: 'bg-secondary-50',
+        gray: 'bg-error-400',
         blue: 'bg-primary-50',
         'blue-950': 'bg-primary-950'
     };

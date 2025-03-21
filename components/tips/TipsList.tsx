@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Eye, ChevronLeft, ChevronRight } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Tip } from '@/types/tips';
 
 interface TipsListProps {
@@ -13,6 +13,7 @@ interface TipsListProps {
 export function TipsList({ tips }: TipsListProps) {
     const ITEMS_PER_PAGE = 4;
     const [currentPage, setCurrentPage] = useState(1);
+    const tipsListRef = useRef<HTMLDivElement>(null);
 
     const totalPages = Math.ceil(tips.length / ITEMS_PER_PAGE);
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -20,11 +21,14 @@ export function TipsList({ tips }: TipsListProps) {
 
     const handlePageChange = (page: number) => {
         setCurrentPage(page);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Scroll only to the top of this component instead of the whole page
+        if (tipsListRef.current) {
+            tipsListRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
     };
 
     return (
-        <div>
+        <div ref={tipsListRef}>
             {/* Tips List */}
             <div className="space-y-4 sm:space-y-6">
                 {visibleTips.map((tip) => (
@@ -46,10 +50,10 @@ export function TipsList({ tips }: TipsListProps) {
                                 <h3 className="text-lg sm:text-xl font-semibold text-primary-900 mb-2 line-clamp-2">
                                     {tip.title}
                                 </h3>
-                                <p className="text-sm sm:text-base text-secondary-600 mb-3 sm:mb-4 line-clamp-2">
+                                <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4 line-clamp-2">
                                     {tip.description}
                                 </p>
-                                <div className="flex flex-wrap gap-2 sm:gap-0 items-center text-xs sm:text-sm text-secondary-500">
+                                <div className="flex flex-wrap gap-2 sm:gap-0 items-center text-xs sm:text-sm text-gray-500">
                                     <span className="px-2 sm:px-3 py-1 bg-primary-50 text-primary-700 rounded-full font-medium">
                                         {tip.category}
                                     </span>
@@ -79,7 +83,7 @@ export function TipsList({ tips }: TipsListProps) {
                     <button
                         onClick={() => handlePageChange(currentPage - 1)}
                         disabled={currentPage === 1}
-                        className="p-1.5 sm:p-2 rounded-lg border border-secondary-200 hover:border-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                        className="p-1.5 sm:p-2 rounded-lg border border-error-900 hover:border-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                     >
                         <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
                     </button>
@@ -91,7 +95,7 @@ export function TipsList({ tips }: TipsListProps) {
                                 onClick={() => handlePageChange(page)}
                                 className={`px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base rounded-lg border transition-colors ${currentPage === page
                                     ? 'bg-primary-600 text-white border-primary-600'
-                                    : 'border-secondary-200 hover:border-primary-500'
+                                    : 'border-error-900 hover:border-primary-500'
                                     }`}
                             >
                                 {page}
@@ -102,7 +106,7 @@ export function TipsList({ tips }: TipsListProps) {
                     <button
                         onClick={() => handlePageChange(currentPage + 1)}
                         disabled={currentPage === totalPages}
-                        className="p-1.5 sm:p-2 rounded-lg border border-secondary-200 hover:border-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                        className="p-1.5 sm:p-2 rounded-lg border border-error-900 hover:border-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                     >
                         <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
                     </button>
