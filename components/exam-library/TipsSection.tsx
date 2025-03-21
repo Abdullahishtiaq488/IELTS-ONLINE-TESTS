@@ -2,6 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Eye } from 'lucide-react';
 
+interface TipsSectionProps {
+    currentSkill: string;
+}
 
 const tips = [
     {
@@ -30,7 +33,7 @@ const tips = [
     }
 ];
 
-export function TipsSection() {
+export function TipsSection({ currentSkill }: TipsSectionProps) {
     return (
         <div className="bg-white rounded-xl shadow-sm p-6">
             <div className="flex items-center justify-between mb-6">
