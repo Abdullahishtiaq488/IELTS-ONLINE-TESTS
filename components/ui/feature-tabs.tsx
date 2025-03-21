@@ -18,8 +18,8 @@ export function FeatureTabs({ features, activeFeatureId, onTabChange }: FeatureT
                     onClick={() => onTabChange(feature.id)}
                     className={`flex-1 py-4 px-4 text-center text-sm sm:text-base whitespace-nowrap font-medium transition-colors
                         ${feature.id === activeFeatureId
-                            ? 'bg-yellow-400 text-blue-900'
-                            : 'bg-blue-900 text-white hover:bg-blue-800 hover:opacity-50'}`}
+                            ? 'bg-accent-400 text-primary-900'
+                            : 'bg-primary-900 text-white hover:bg-primary-800 hover:opacity-50'}`}
                 >
                     {feature.title}
                 </button>

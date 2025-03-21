@@ -43,14 +43,14 @@ export function TipsList({ tips }: TipsListProps) {
                                 />
                             </div>
                             <div className="flex-1 min-w-0">
-                                <h3 className="text-lg sm:text-xl font-semibold text-blue-900 mb-2 line-clamp-2">
+                                <h3 className="text-lg sm:text-xl font-semibold text-primary-900 mb-2 line-clamp-2">
                                     {tip.title}
                                 </h3>
-                                <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4 line-clamp-2">
+                                <p className="text-sm sm:text-base text-secondary-600 mb-3 sm:mb-4 line-clamp-2">
                                     {tip.description}
                                 </p>
-                                <div className="flex flex-wrap gap-2 sm:gap-0 items-center text-xs sm:text-sm text-gray-500">
-                                    <span className="px-2 sm:px-3 py-1 bg-blue-50 text-blue-700 rounded-full font-medium">
+                                <div className="flex flex-wrap gap-2 sm:gap-0 items-center text-xs sm:text-sm text-secondary-500">
+                                    <span className="px-2 sm:px-3 py-1 bg-primary-50 text-primary-700 rounded-full font-medium">
                                         {tip.category}
                                     </span>
                                     <span className="hidden sm:inline mx-4">|</span>
@@ -79,7 +79,7 @@ export function TipsList({ tips }: TipsListProps) {
                     <button
                         onClick={() => handlePageChange(currentPage - 1)}
                         disabled={currentPage === 1}
-                        className="p-1.5 sm:p-2 rounded-lg border border-gray-200 hover:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                        className="p-1.5 sm:p-2 rounded-lg border border-secondary-200 hover:border-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                     >
                         <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
                     </button>
@@ -90,8 +90,8 @@ export function TipsList({ tips }: TipsListProps) {
                                 key={page}
                                 onClick={() => handlePageChange(page)}
                                 className={`px-3 sm:px-4 py-1.5 sm:py-2 text-sm sm:text-base rounded-lg border transition-colors ${currentPage === page
-                                    ? 'bg-blue-600 text-white border-blue-600'
-                                    : 'border-gray-200 hover:border-blue-500'
+                                    ? 'bg-primary-600 text-white border-primary-600'
+                                    : 'border-secondary-200 hover:border-primary-500'
                                     }`}
                             >
                                 {page}
@@ -102,7 +102,7 @@ export function TipsList({ tips }: TipsListProps) {
                     <button
                         onClick={() => handlePageChange(currentPage + 1)}
                         disabled={currentPage === totalPages}
-                        className="p-1.5 sm:p-2 rounded-lg border border-gray-200 hover:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                        className="p-1.5 sm:p-2 rounded-lg border border-secondary-200 hover:border-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                     >
                         <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
                     </button>

@@ -32,29 +32,29 @@ export function TestCard({ title, image, rating, votes, link }: TestCardProps) {
 
                 {/* Card Content */}
                 <div className="px-1 py-3">
-                    <h3 className="text-sm font-medium text-blue-950 mb-2 line-clamp-2">{title}</h3>
+                    <h3 className="text-sm font-medium text-primary-950 mb-2 line-clamp-2">{title}</h3>
 
                     {/* Rating with Stars */}
                     <div className="flex items-center">
                         <div className="flex mr-2">
                             {/* Full stars */}
                             {[...Array(fullStars)].map((_, i) => (
-                                <Star key={`full-${i}`} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                                <Star key={`full-${i}`} className="w-4 h-4 fill-accent-400 text-accent-400" />
                             ))}
 
                             {/* Half star if needed */}
                             {hasHalfStar && (
-                                <StarHalf className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                                <StarHalf className="w-4 h-4 fill-accent-400 text-accent-400" />
                             )}
 
                             {/* Empty stars */}
                             {[...Array(emptyStars)].map((_, i) => (
-                                <Star key={`empty-${i}`} className="w-4 h-4 text-yellow-400" />
+                                <Star key={`empty-${i}`} className="w-4 h-4 text-accent-400" />
                             ))}
                         </div>
 
-                        <span className="text-sm text-gray-700">{rating.toFixed(1)}</span>
-                        <span className="text-xs text-gray-500 ml-2">({votes.toLocaleString()} votes)</span>
+                        <span className="text-sm text-secondary-700">{rating.toFixed(1)}</span>
+                        <span className="text-xs text-secondary-500 ml-2">({votes.toLocaleString()} votes)</span>
                     </div>
                 </div>
             </div>

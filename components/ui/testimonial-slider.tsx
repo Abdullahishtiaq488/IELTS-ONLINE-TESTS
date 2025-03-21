@@ -41,7 +41,7 @@ export function TestimonialSlider({ testimonials }: TestimonialSliderProps) {
                         <button
                             key={idx}
                             onClick={() => goToSlide(slideIndex)}
-                            className={`w-3 h-3 rounded-full transition-colors ${activeIndex === slideIndex ? 'bg-blue-800' : 'bg-gray-300 hover:bg-blue-300'}`}
+                            className={`w-3 h-3 rounded-full transition-colors ${activeIndex === slideIndex ? 'bg-primary-800' : 'bg-secondary-300 hover:bg-primary-300'}`}
                             aria-label={`Go to slide ${idx + 1}`}
                         />
                     );

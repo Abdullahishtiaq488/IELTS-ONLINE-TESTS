@@ -199,7 +199,7 @@ export default function Carousel() {
                                 </button>
                             </div>
 
-                            <div className="hidden md:flex w-1/2 items-center justify-center">
+                            <div className="w-full md:w-1/2 flex items-center justify-center mt-8 md:mt-0">
                                 <div className="relative">
                                     <Image
                                         src="/images/IEG-certificate ielts.png"
@@ -281,7 +281,7 @@ export default function Carousel() {
                                 </button>
                             </div>
 
-                            <div className="hidden md:block relative w-1/2 overflow-hidden">
+                            <div className="w-full md:w-1/2 relative overflow-hidden mt-8 md:mt-0">
                                 {/* Animated flowing arrows and lines */}
                                 <div className="absolute inset-0">
                                     <div className="relative w-full h-full">

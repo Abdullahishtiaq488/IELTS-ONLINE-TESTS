@@ -9,13 +9,13 @@ export default function PartnersSection() {
         <Section background="white">
             <div className="max-w-7xl mx-auto">
                 <div className="mb-10">
-                    <h2 className="text-3xl font-bold text-blue-900">Partner</h2>
+                    <h2 className="text-3xl font-bold text-primary-900">Partner</h2>
                 </div>
 
                 <div className="flex flex-col md:flex-row">
                     {/* Description on the left */}
                     <div className="w-full md:w-1/3 pr-0 md:pr-8 mb-6 md:mb-0">
-                        <p className="text-gray-700 leading-relaxed">{partnerDescription}</p>
+                        <p className="text-secondary-700 leading-relaxed">{partnerDescription}</p>
                     </div>
 
                     {/* Logos on the right */}

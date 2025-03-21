@@ -13,7 +13,6 @@ export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeDropdowns, setActiveDropdowns] = useState<Record<string, boolean>>({});
     const dropdownTimersRef = useRef<Record<string, NodeJS.Timeout>>({});
-    const router = useRouter();
 
     // Close dropdowns when navigating
     useEffect(() => {
@@ -93,7 +92,7 @@ export default function Navbar() {
                     {hasItems && isActive && item.items && (
                         <div
                             className={`absolute ${isNested ? 'left-full top-0 -ml-1' : 'left-0 top-full'
-                                } bg-blue-950/95 backdrop-blur-sm shadow-lg min-w-[200px] md:min-w-[220px] lg:min-w-[240px] z-50`}
+                                } bg-primary-950/95 backdrop-blur-sm shadow-lg min-w-[200px] md:min-w-[220px] lg:min-w-[240px] z-50`}
                             onMouseEnter={() => handleDropdownEnter(itemKey)}
                             onMouseLeave={() => handleDropdownLeave(itemKey)}
                         >
@@ -115,20 +114,20 @@ export default function Navbar() {
                 <div key={itemKey}>
                     {hasItems ? (
                         <div
-                            className={`flex items-center justify-between px-3 py-3 text-sm font-bold text-gray-700 hover:bg-gray-50 ${isNested ? 'pl-6' : ''
+                            className={`flex items-center justify-between px-3 py-3 text-sm font-bold text-secondary-700 hover:bg-secondary-50 ${isNested ? 'pl-6' : ''
                                 }`}
                             onClick={() => {
                                 // Close other dropdowns at the same level
                                 const newDropdowns = { ...activeDropdowns };
-                                
+
                                 // Find and close siblings
                                 Object.keys(newDropdowns).forEach(key => {
-                                    if (key.startsWith('mobile-') && key !== itemKey && 
+                                    if (key.startsWith('mobile-') && key !== itemKey &&
                                         key.split('-').length === itemKey.split('-').length) {
                                         newDropdowns[key] = false;
                                     }
                                 });
-                                
+
                                 // Toggle current dropdown
                                 newDropdowns[itemKey] = !newDropdowns[itemKey];
                                 setActiveDropdowns(newDropdowns);
@@ -143,15 +142,15 @@ export default function Navbar() {
                     ) : (
                         <Link
                             href={item.href || '#'}
-                            className={`block px-3 py-3 text-sm font-bold text-gray-700 hover:bg-gray-50 ${isNested ? 'pl-6' : ''}`}
+                            className={`block px-3 py-3 text-sm font-bold text-secondary-700 hover:bg-secondary-50 ${isNested ? 'pl-6' : ''}`}
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
                             {item.label}
                         </Link>
                     )}
-                    
+
                     {hasItems && isActive && item.items && (
-                        <div className="bg-gray-50">
+                        <div className="bg-secondary-50">
                             {renderMobileNavItems(item.items, true)}
                         </div>
                     )}
@@ -191,7 +190,7 @@ export default function Navbar() {
             </div>
 
             {/* Main Navigation */}
-            <div className="hidden md:block bg-blue-950">
+            <div className="hidden md:block bg-primary-950">
                 <Container>
                     <div className="flex items-center justify-between h-10 md:h-12 lg:h-14">
                         <div className="flex items-center">
@@ -235,7 +234,7 @@ export default function Navbar() {
                     </Link>
                     <button
                         type="button"
-                        className="inline-flex items-center justify-center p-2 rounded-md text-blue-900 hover:bg-gray-100"
+                        className="inline-flex items-center justify-center p-2 rounded-md text-primary-900 hover:bg-secondary-100"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     >
                         <span className="sr-only">Open main menu</span>
@@ -257,10 +256,10 @@ export default function Navbar() {
                 <div className={`absolute inset-y-0 right-0 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
                     } no-scrollbar`}>
                     <div className="flex items-center justify-between p-4 border-b">
-                        <h2 className="text-base font-bold text-blue-900">Menu</h2>
+                        <h2 className="text-base font-bold text-primary-900">Menu</h2>
                         <button
                             type="button"
-                            className="text-gray-500 hover:text-gray-700"
+                            className="text-secondary-500 hover:text-secondary-700"
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
                             <X className="h-5 w-5" />
@@ -278,10 +277,10 @@ export default function Navbar() {
                             </div>
 
                             <div className="mt-4 pt-4 border-t">
-                                <Link href="/login" className="block px-3 py-2 text-sm font-bold text-blue-900 hover:bg-gray-50">
+                                <Link href="/login" className="block px-3 py-2 text-sm font-bold text-primary-900 hover:bg-secondary-50">
                                     Log In
                                 </Link>
-                                <Link href="/signup" className="block px-3 py-2 text-sm font-bold text-blue-900 hover:bg-gray-50">
+                                <Link href="/signup" className="block px-3 py-2 text-sm font-bold text-primary-900 hover:bg-secondary-50">
                                     Sign Up
                                 </Link>
                             </div>

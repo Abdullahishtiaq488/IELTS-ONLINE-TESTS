@@ -2,9 +2,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Eye } from 'lucide-react';
 
-interface TipsSectionProps {
-    currentSkill: string;
-}
 
 const tips = [
     {
@@ -33,12 +30,12 @@ const tips = [
     }
 ];
 
-export function TipsSection({ currentSkill }: TipsSectionProps) {
+export function TipsSection() {
     return (
         <div className="bg-white rounded-xl shadow-sm p-6">
             <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl font-bold text-blue-900">Popular IELTS Tips</h2>
-                <button className="text-blue-600 hover:text-blue-700">
+                <h2 className="text-xl font-bold text-primary-900">Popular IELTS Tips</h2>
+                <button className="text-primary-600 hover:text-primary-700">
                     <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                     </svg>
@@ -50,7 +47,7 @@ export function TipsSection({ currentSkill }: TipsSectionProps) {
                     <Link
                         key={tip.id}
                         href={`/ielts-tips/${tip.id}`}
-                        className="flex gap-4 p-4 rounded-lg hover:bg-gray-50 transition-colors"
+                        className="flex gap-4 p-4 rounded-lg hover:bg-secondary-50 transition-colors"
                     >
                         <div className="w-24 h-24 flex-shrink-0">
                             <Image
@@ -62,14 +59,14 @@ export function TipsSection({ currentSkill }: TipsSectionProps) {
                             />
                         </div>
                         <div className="flex-1 min-w-0">
-                            <h3 className="text-blue-900 font-medium mb-1 line-clamp-2">
+                            <h3 className="text-primary-900 font-medium mb-1 line-clamp-2">
                                 {tip.title}
                             </h3>
-                            <p className="text-sm text-gray-600 mb-2 line-clamp-2">
+                            <p className="text-sm text-secondary-600 mb-2 line-clamp-2">
                                 {tip.description}
                             </p>
-                            <div className="flex items-center text-sm text-gray-500">
-                                <span className="px-2 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-medium">
+                            <div className="flex items-center text-sm text-secondary-500">
+                                <span className="px-2 py-1 bg-primary-50 text-primary-700 rounded-full text-xs font-medium">
                                     {tip.category}
                                 </span>
                                 <span className="ml-3 flex items-center">

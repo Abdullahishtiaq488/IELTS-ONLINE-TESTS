@@ -141,49 +141,49 @@ export function EventCard({
                             className="object-cover"
                         />
                     </div>
-                    <div className="absolute bottom-2 right-4 w-6 h-6 bg-green-500 rounded-full border-2 border-white transition-opacity duration-300 opacity-0 group-hover:opacity-100"></div>
+                    <div className="absolute bottom-2 right-4 w-6 h-6 bg-success-500 rounded-full border-2 border-white transition-opacity duration-300 opacity-0 group-hover:opacity-100"></div>
                 </div>
             </div>
 
             {/* Details with animated icons */}
             <div className="px-4 pt-8 pb-3 mt-2">
                 <div className="space-y-2.5">
-                    <div className="flex items-center text-sm text-gray-600 group">
-                        <div className="w-8 h-8 flex items-center justify-center rounded-full mr-3 transition-colors duration-300 group-hover:bg-gray-50"
+                    <div className="flex items-center text-sm text-secondary-600 group">
+                        <div className="w-8 h-8 flex items-center justify-center rounded-full mr-3 transition-colors duration-300 group-hover:bg-secondary-50"
                             style={{ backgroundColor: isHovered ? `${categoryBgColor}10` : '' }}>
-                            <CalendarIcon className="w-4 h-4 text-gray-400 transition-colors duration-300"
+                            <CalendarIcon className="w-4 h-4 text-secondary-400 transition-colors duration-300"
                                 style={{ color: isHovered ? categoryBgColor : '' }} />
                         </div>
                         <span>{date}</span>
                     </div>
-                    <div className="flex items-center text-sm text-gray-600 group">
-                        <div className="w-8 h-8 flex items-center justify-center rounded-full mr-3 transition-colors duration-300 group-hover:bg-gray-50"
+                    <div className="flex items-center text-sm text-secondary-600 group">
+                        <div className="w-8 h-8 flex items-center justify-center rounded-full mr-3 transition-colors duration-300 group-hover:bg-secondary-50"
                             style={{ backgroundColor: isHovered ? `${categoryBgColor}10` : '' }}>
-                            <Clock className="w-4 h-4 text-gray-400 transition-colors duration-300"
+                            <Clock className="w-4 h-4 text-secondary-400 transition-colors duration-300"
                                 style={{ color: isHovered ? categoryBgColor : '' }} />
                         </div>
                         <span>{time}</span>
                     </div>
-                    <div className="flex items-center text-sm text-gray-600 group">
-                        <div className="w-8 h-8 flex items-center justify-center rounded-full mr-3 transition-colors duration-300 group-hover:bg-gray-50"
+                    <div className="flex items-center text-sm text-secondary-600 group">
+                        <div className="w-8 h-8 flex items-center justify-center rounded-full mr-3 transition-colors duration-300 group-hover:bg-secondary-50"
                             style={{ backgroundColor: isHovered ? `${categoryBgColor}10` : '' }}>
-                            <Users className="w-4 h-4 text-gray-400 transition-colors duration-300"
+                            <Users className="w-4 h-4 text-secondary-400 transition-colors duration-300"
                                 style={{ color: isHovered ? categoryBgColor : '' }} />
                         </div>
                         <span><span className="font-medium">{attendees.toLocaleString()}+</span> Attending</span>
                     </div>
-                    <div className="flex items-center text-sm text-gray-600 group">
-                        <div className="w-8 h-8 flex items-center justify-center rounded-full mr-3 transition-colors duration-300 group-hover:bg-gray-50"
+                    <div className="flex items-center text-sm text-secondary-600 group">
+                        <div className="w-8 h-8 flex items-center justify-center rounded-full mr-3 transition-colors duration-300 group-hover:bg-secondary-50"
                             style={{ backgroundColor: isHovered ? `${categoryBgColor}10` : '' }}>
-                            <MessageSquare className="w-4 h-4 text-gray-400 transition-colors duration-300"
+                            <MessageSquare className="w-4 h-4 text-secondary-400 transition-colors duration-300"
                                 style={{ color: isHovered ? categoryBgColor : '' }} />
                         </div>
                         <span>{language}</span>
                     </div>
-                    <div className="flex items-center text-sm text-gray-600 group">
-                        <div className="w-8 h-8 flex items-center justify-center rounded-full mr-3 transition-colors duration-300 group-hover:bg-gray-50"
+                    <div className="flex items-center text-sm text-secondary-600 group">
+                        <div className="w-8 h-8 flex items-center justify-center rounded-full mr-3 transition-colors duration-300 group-hover:bg-secondary-50"
                             style={{ backgroundColor: isHovered ? `${categoryBgColor}10` : '' }}>
-                            <DollarSign className="w-4 h-4 text-gray-400 transition-colors duration-300"
+                            <DollarSign className="w-4 h-4 text-secondary-400 transition-colors duration-300"
                                 style={{ color: isHovered ? categoryBgColor : '' }} />
                         </div>
                         <span className="font-medium">{price}</span>

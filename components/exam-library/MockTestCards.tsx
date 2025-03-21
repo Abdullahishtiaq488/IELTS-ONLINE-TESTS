@@ -165,8 +165,8 @@ export function MockTestCards({ currentSkill }: MockTestCardsProps) {
 
                         {/* Test Content and Tabs */}
                         <div className="flex-1">
-                            <h2 className="text-2xl font-bold text-blue-900 mb-4">{mockTest.title}</h2>
-                            <p className="text-gray-600 mb-6">Practice with our latest collection of IELTS mock tests</p>
+                            <h2 className="text-2xl font-bold text-primary-900 mb-4">{mockTest.title}</h2>
+                            <p className="text-secondary-600 mb-6">Practice with our latest collection of IELTS mock tests</p>
 
                             <div className="relative">
                                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -176,11 +176,11 @@ export function MockTestCards({ currentSkill }: MockTestCardsProps) {
                                             <Link
                                                 key={month.name}
                                                 href={`/mock-test/${mockTest.id}/${month.name.toLowerCase()}`}
-                                                className="p-4 rounded-lg border border-gray-200 hover:border-blue-500 transition-colors"
+                                                className="p-4 rounded-lg border border-secondary-200 hover:border-primary-500 transition-colors"
                                             >
-                                                <h3 className="font-medium text-gray-700">{month.name}</h3>
-                                                <div className="flex items-center text-gray-500 text-sm mt-1">
-                                                    <Zap className="h-4 w-4 mr-1 text-yellow-500" />
+                                                <h3 className="font-medium text-secondary-700">{month.name}</h3>
+                                                <div className="flex items-center text-secondary-500 text-sm mt-1">
+                                                    <Zap className="h-4 w-4 mr-1 text-accent-500" />
                                                     {month.totalTests.toLocaleString()} tests taken
                                                 </div>
                                             </Link>
@@ -190,13 +190,13 @@ export function MockTestCards({ currentSkill }: MockTestCardsProps) {
                                                 <Link
                                                     key={`${month.name}-${practiceTest.testNumber}`}
                                                     href={`/mock-test/${mockTest.id}/${month.name.toLowerCase()}/${currentSkill.toLowerCase()}-${practiceTest.testNumber}`}
-                                                    className="p-4 rounded-lg border border-gray-200 hover:border-blue-500 transition-colors"
+                                                    className="p-4 rounded-lg border border-secondary-200 hover:border-primary-500 transition-colors"
                                                 >
-                                                    <div className="text-sm text-blue-900">
+                                                    <div className="text-sm text-primary-900">
                                                         {month.name} {currentSkill} Practice Test {practiceTest.testNumber}
                                                     </div>
-                                                    <div className="flex items-center text-gray-500 text-xs mt-1">
-                                                        <Zap className="h-3 w-3 mr-1 text-yellow-500" />
+                                                    <div className="flex items-center text-secondary-500 text-xs mt-1">
+                                                        <Zap className="h-3 w-3 mr-1 text-accent-500" />
                                                         {practiceTest.testsTaken.toLocaleString()} tests taken
                                                     </div>
                                                 </Link>
@@ -214,7 +214,7 @@ export function MockTestCards({ currentSkill }: MockTestCardsProps) {
                                     <div className="mt-2 text-center relative">
                                         <button
                                             onClick={() => toggleExpand(mockTest.id)}
-                                            className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-700 font-medium"
+                                            className="inline-flex items-center gap-1 text-primary-600 hover:text-primary-700 font-medium"
                                         >
                                             {expandedMonths[mockTest.id] ? 'Show less' : `View more ${getRemainingTests(mockTest.months, mockTest.id)} tests`}
                                             <ChevronDown className={`h-4 w-4 transition-transform ${expandedMonths[mockTest.id] ? 'rotate-180' : ''}`} />
@@ -233,7 +233,7 @@ export function MockTestCards({ currentSkill }: MockTestCardsProps) {
                     <button
                         onClick={() => handlePageChange(currentPage - 1)}
                         disabled={currentPage === 1}
-                        className="p-2 rounded-lg border border-gray-200 hover:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                        className="p-2 rounded-lg border border-secondary-200 hover:border-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                     >
                         <ChevronLeft className="h-5 w-5" />
                     </button>
@@ -244,8 +244,8 @@ export function MockTestCards({ currentSkill }: MockTestCardsProps) {
                                 key={page}
                                 onClick={() => handlePageChange(page)}
                                 className={`px-4 py-2 rounded-lg border transition-colors ${currentPage === page
-                                    ? 'bg-blue-600 text-white border-blue-600'
-                                    : 'border-gray-200 hover:border-blue-500'
+                                    ? 'bg-primary-600 text-white border-primary-600'
+                                    : 'border-secondary-200 hover:border-primary-500'
                                     }`}
                             >
                                 {page}
@@ -256,7 +256,7 @@ export function MockTestCards({ currentSkill }: MockTestCardsProps) {
                     <button
                         onClick={() => handlePageChange(currentPage + 1)}
                         disabled={currentPage === totalPages}
-                        className="p-2 rounded-lg border border-gray-200 hover:border-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                        className="p-2 rounded-lg border border-secondary-200 hover:border-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                     >
                         <ChevronRight className="h-5 w-5" />
                     </button>

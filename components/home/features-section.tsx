@@ -14,10 +14,10 @@ export default function FeaturesSection() {
     return (
         <Section background="white" className="pt-10 pb-16">
             <div className="mb-8 text-center">
-                <h2 className="text-3xl font-bold text-blue-900">Our IELTS tests features</h2>
+                <h2 className="text-3xl font-bold text-primary-900">Our IELTS tests features</h2>
             </div>
 
-            <div className="border border-gray-200 rounded-md overflow-hidden shadow-sm">
+            <div className="border border-seconday-200 rounded-md overflow-hidden shadow-sm">
                 <FeatureTabs
                     features={testFeatures}
                     activeFeatureId={activeFeatureId}

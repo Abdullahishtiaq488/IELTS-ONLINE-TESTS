@@ -18,8 +18,8 @@ export function StatCard({ stat }: StatCardProps) {
                 />
             </div>
             <div>
-                <h3 className="text-2xl font-bold text-blue-900">{stat.value}</h3>
-                <p className="text-blue-700 font-medium">{stat.label}</p>
+                <h3 className="text-2xl font-bold text-primary-900">{stat.value}</h3>
+                <p className="text-primary-700 font-medium">{stat.label}</p>
             </div>
         </div>
     );

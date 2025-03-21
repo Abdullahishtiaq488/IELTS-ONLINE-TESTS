@@ -43,7 +43,7 @@ export default function ContactForm() {
                 <div className="mr-4">
                     <Image src="/images/contact-icon.svg" alt="Contact" width={40} height={40} />
                 </div>
-                <h2 className="text-2xl font-bold text-blue-900">Contact us</h2>
+                <h2 className="text-2xl font-bold text-primary-900">Contact us</h2>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-5">
@@ -52,7 +52,7 @@ export default function ContactForm() {
                         name="userType"
                         value={formData.userType}
                         onChange={handleInputChange}
-                        className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full border border-secondary-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-primary-500"
                         required
                     >
                         <option value="" disabled>--You are--</option>
@@ -70,7 +70,7 @@ export default function ContactForm() {
                         placeholder="Tell us more"
                         value={formData.details}
                         onChange={handleInputChange}
-                        className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full border border-secondary-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-primary-500"
                     />
                 </div>
 
@@ -81,7 +81,7 @@ export default function ContactForm() {
                         placeholder="Name"
                         value={formData.name}
                         onChange={handleInputChange}
-                        className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full border border-secondary-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-primary-500"
                         required
                     />
                 </div>
@@ -93,7 +93,7 @@ export default function ContactForm() {
                         placeholder="Email"
                         value={formData.email}
                         onChange={handleInputChange}
-                        className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full border border-secondary-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-primary-500"
                         required
                     />
                 </div>
@@ -105,7 +105,7 @@ export default function ContactForm() {
                         placeholder="Title"
                         value={formData.title}
                         onChange={handleInputChange}
-                        className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full border border-secondary-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-primary-500"
                         required
                     />
                 </div>
@@ -118,34 +118,34 @@ export default function ContactForm() {
                         onChange={handleInputChange}
                         maxLength={500}
                         rows={5}
-                        className="w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="w-full border border-secondary-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-primary-500"
                         required
                     ></textarea>
-                    <div className="text-sm text-gray-500 mt-1">
+                    <div className="text-sm text-secondary-500 mt-1">
                         {charactersRemaining} character(s) remaining
                     </div>
                 </div>
 
                 <div className="flex items-center">
-                    <label className="mr-4 text-gray-700">1 + 3 =</label>
+                    <label className="mr-4 text-secondary-700">1 + 3 =</label>
                     <input
                         type="text"
                         name="captcha"
                         value={formData.captcha}
                         onChange={handleInputChange}
-                        className="border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-blue-500 w-20"
+                        className="border border-secondary-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-primary-500 w-20"
                         required
                     />
                 </div>
 
-                <div className="text-sm text-gray-600">
+                <div className="text-sm text-secondary-600">
                     Solve this simple math problem and enter the result. E.g. for 1+3, enter 4.
                 </div>
 
                 <div className="flex justify-center mt-6">
                     <button
                         type="submit"
-                        className="bg-blue-900 hover:bg-blue-800 text-white font-medium py-3 px-10 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="bg-primary-900 hover:bg-primary-800 text-white font-medium py-3 px-10 rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500"
                     >
                         Send
                     </button>

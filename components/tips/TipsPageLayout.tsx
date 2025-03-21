@@ -24,7 +24,7 @@ export function TipsPageLayout({
     children
 }: TipsPageLayoutProps) {
     return (
-        <div className="h-auto bg-gray-50">
+        <div className="h-auto bg-secondary-50">
 
             <div className="container mx-auto px-4 py-4">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
@@ -46,11 +46,11 @@ export function TipsPageLayout({
 
                         {/* Page Title and Description */}
                         <div className="mb-8">
-                            <h1 className="text-4xl font-bold text-blue-950 mb-4">{pageTitle}</h1>
-                            <p className="text-gray-600">{pageDescription}</p>
+                            <h1 className="text-4xl font-bold text-primary-950 mb-4">{pageTitle}</h1>
+                            <p className="text-secondary-600">{pageDescription}</p>
                         </div>
                         {/* Featured Tips */}
-                        <div className="bg-blue-950 rounded-xl p-6 mb-8">
+                        <div className="bg-primary-950 rounded-xl p-6 mb-8">
                             <FeaturedTips tips={featuredTips} />
                         </div>
                         {/* Tips Content */}
@@ -63,8 +63,8 @@ export function TipsPageLayout({
                         {/* Popular Tips Box */}
                         <div className="bg-white rounded-xl shadow-sm p-6 mb-6">
                             <div className="flex items-center justify-between mb-6">
-                                <h2 className="text-xl font-bold text-blue-900">Most popular IELTS tips</h2>
-                                <button className="text-blue-600 hover:text-blue-700">
+                                <h2 className="text-xl font-bold text-primary-900">Most popular IELTS tips</h2>
+                                <button className="text-primary-600 hover:text-primary-700">
                                     <RefreshCw className="h-5 w-5" />
                                 </button>
                             </div>
@@ -74,7 +74,7 @@ export function TipsPageLayout({
                                     <Link
                                         key={tip.id}
                                         href={`/tips/${tip.id}`}
-                                        className="flex gap-4 p-2 rounded-xl hover:bg-gray-50 transition-colors"
+                                        className="flex gap-4 p-2 rounded-xl hover:bg-secondary-50 transition-colors"
                                     >
                                         <Image
                                             src={tip.image}
@@ -84,14 +84,14 @@ export function TipsPageLayout({
                                             className="w-18 h-18 object-cover rounded-lg"
                                         />
                                         <div className="flex-1">
-                                            <h3 className="text-blue-900 font-medium mb-1 line-clamp-2">
+                                            <h3 className="text-primary-900 font-medium mb-1 line-clamp-2">
                                                 {tip.title}
                                             </h3>
-                                            <p className="text-sm text-gray-600 mb-2 line-clamp-2">
+                                            <p className="text-sm text-secondary-600 mb-2 line-clamp-2">
                                                 {tip.description}
                                             </p>
-                                            <div className="flex items-center text-sm text-gray-500">
-                                                <span className="px-2 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-medium">
+                                            <div className="flex items-center text-sm text-secondary-500">
+                                                <span className="px-2 py-1 bg-primary-50 text-primary-700 rounded-full text-xs font-medium">
                                                     {tip.category}
                                                 </span>
                                                 <span className="ml-3 flex items-center">
@@ -106,7 +106,7 @@ export function TipsPageLayout({
                         </div>
 
                         {/* Below Tips Banner */}
-                        <div className="bg-yellow-400 rounded-xl overflow-hidden w-full" style={{ height: '700px' }}>
+                        <div className="bg-accent-400 rounded-xl overflow-hidden w-full" style={{ height: '700px' }}>
                             <Link href="/ielts-1-to-1" className="block h-full">
                                 <div className="relative w-full h-full">
                                     <Image

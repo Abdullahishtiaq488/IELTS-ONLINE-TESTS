@@ -25,8 +25,8 @@ export function ExamLibraryTabs({ currentTab }: ExamLibraryTabsProps) {
                     className={cn(
                         'flex items-center px-4 py-2 rounded-full text-sm font-medium transition-colors',
                         currentTab === tab.id
-                            ? 'bg-blue-900 text-white'
-                            : 'bg-white text-gray-600 hover:bg-gray-50'
+                            ? 'bg-primary-900 text-white'
+                            : 'bg-white text-secondary-600 hover:bg-secondary-50'
                     )}
                 >
                     <svg
