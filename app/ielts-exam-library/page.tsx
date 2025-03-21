@@ -1,21 +1,14 @@
 'use client';
 
-import { useSearchParams } from 'next/navigation';
+import { Suspense } from 'react';
 import { Container } from '@/components/ui/container';
 import { Breadcrumb } from '@/components/shared/Breadcrumb';
 import { ExamLibraryHeader } from '@/components/exam-library/ExamLibraryHeader';
-import { ExamLibraryTabs } from '@/components/exam-library/ExamLibraryTabs';
-import { SkillTabs } from '@/components/exam-library/SkillTabs';
-import { SearchFilter } from '@/components/exam-library/SearchFilter';
-import { MockTestCards } from '@/components/exam-library/MockTestCards';
 import { TipsSection } from '@/components/exam-library/TipsSection';
 import { BelowTipsBanner } from '@/components/exam-library/BelowTipsBanner';
+import ExamLibraryContent from './content';
 
 export default function ExamLibraryPage() {
-  const searchParams = useSearchParams();
-  const currentSkill = searchParams.get('skill') || 'all';
-  const currentTab = searchParams.get('tab') || 'all';
-
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <Container>
@@ -30,15 +23,15 @@ export default function ExamLibraryPage() {
             />
 
             <ExamLibraryHeader />
-            <ExamLibraryTabs currentTab={currentTab} />
-            <SkillTabs currentSkill={currentSkill} />
-            <SearchFilter />
-            <MockTestCards currentSkill={currentSkill} />
+
+            <Suspense fallback={<div className="p-4 text-center">Loading content...</div>}>
+              <ExamLibraryContent />
+            </Suspense>
           </div>
 
           {/* Right Column - Tips and Banner */}
           <div className="lg:w-[380px] space-y-6">
-            <TipsSection currentSkill={currentSkill} />
+            <TipsSection />
             <BelowTipsBanner />
           </div>
         </div>
