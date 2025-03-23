@@ -7,11 +7,14 @@ import { Home, ChevronDown, ChevronRight, Menu, X } from 'lucide-react';
 import { navigationItems } from '@/data/navigation';
 import type { NavItemArray } from '@/types/navigation';
 import { Container } from '@/components/ui/container';
+import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [activeDropdowns, setActiveDropdowns] = useState<Record<string, boolean>>({});
     const dropdownTimersRef = useRef<Record<string, NodeJS.Timeout>>({});
+    const pathname = usePathname();
+    const mobileMenuRef = useRef<HTMLDivElement>(null);
 
     // Close dropdowns when navigating
     useEffect(() => {
@@ -25,6 +28,41 @@ export default function Navbar() {
             window.removeEventListener('popstate', handleRouteChange);
         };
     }, []);
+
+    // Close dropdowns when pathname changes
+    useEffect(() => {
+        setActiveDropdowns({});
+        setIsMobileMenuOpen(false);
+    }, [pathname]);
+
+    // Handle clicks outside mobile menu to close it
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (isMobileMenuOpen && 
+                mobileMenuRef.current && 
+                !mobileMenuRef.current.contains(event.target as Node)) {
+                setIsMobileMenuOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isMobileMenuOpen]);
+
+    // Prevent body scroll when mobile menu is open
+    useEffect(() => {
+        if (isMobileMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+        
+        return () => {
+            document.body.style.overflow = '';
+        };
+    }, [isMobileMenuOpen]);
 
     const handleDropdownEnter = (key: string) => {
         if (dropdownTimersRef.current[key]) {
@@ -88,6 +126,7 @@ export default function Navbar() {
                         <Link
                             href={item.href || '#'}
                             className={`flex items-center gap-0.5 px-6 h-12 text-xs md:text-xs lg:text-sm font-bold text-white hover:bg-slate-600 ${isNested ? 'pl-4 h-8' : ''}`}
+                            onClick={() => setActiveDropdowns({})}
                         >
                             <span>{item.label}</span>
                         </Link>
@@ -120,12 +159,12 @@ export default function Navbar() {
                 <div key={itemKey}>
                     {hasItems ? (
                         <button
-                            className={`flex w-full items-center justify-between px-3 py-3 text-sm font-bold text-secondary-700 hover:bg-secondary-50 ${isNested ? 'pl-6' : ''}`}
+                            className={`flex w-full items-center justify-between px-3 py-3 text-sm font-bold text-secondary-700 hover:bg-secondary-50 ${isNested ? 'pl-6' : ''} transition-colors duration-200`}
                             onClick={() => {
                                 // Close other dropdowns at the same level
                                 const newDropdowns = { ...activeDropdowns };
 
-                                // Find and close siblings
+                                // Find and close siblings at the same level
                                 Object.keys(newDropdowns).forEach(key => {
                                     if (key.startsWith('mobile-') && key !== itemKey &&
                                         key.split('-').length === itemKey.split('-').length) {
@@ -143,22 +182,26 @@ export default function Navbar() {
                         >
                             <span>{item.label}</span>
                             <ChevronRight
-                                className={`w-4 h-4 transition-transform ${isActive ? 'transform rotate-90' : ''}`}
+                                className={`w-4 h-4 transition-transform duration-300 ${isActive ? 'transform rotate-90' : ''}`}
                                 aria-hidden="true"
                             />
                         </button>
                     ) : (
                         <Link
                             href={item.href || '#'}
-                            className={`block px-3 py-3 text-sm font-bold text-secondary-700 hover:bg-secondary-50 ${isNested ? 'pl-6' : ''}`}
+                            className={`block px-3 py-3 text-sm font-bold text-secondary-700 hover:bg-secondary-50 ${isNested ? 'pl-6' : ''} transition-colors duration-200`}
                             onClick={() => setIsMobileMenuOpen(false)}
                         >
                             {item.label}
                         </Link>
                     )}
 
-                    {hasItems && isActive && item.items && (
-                        <div id={mobileDropdownId} className="bg-muted-50" role="menu">
+                    {hasItems && item.items && (
+                        <div 
+                            id={mobileDropdownId} 
+                            className={`bg-muted-50 overflow-hidden transition-all duration-300 ease-in-out ${isActive ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`} 
+                            role="menu"
+                        >
                             {renderMobileNavItems(item.items, true)}
                         </div>
                     )}
@@ -243,7 +286,7 @@ export default function Navbar() {
                     </Link>
                     <button
                         type="button"
-                        className="inline-flex items-center justify-center p-2 rounded-md text-primary-900 hover:bg-secondary-100"
+                        className="inline-flex items-center justify-center p-2 rounded-md text-primary-900 hover:bg-secondary-100 transition-colors duration-200"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         aria-expanded={isMobileMenuOpen}
                         aria-controls="mobile-menu"
@@ -266,6 +309,7 @@ export default function Navbar() {
                 {/* Sidebar */}
                 <div
                     id="mobile-menu"
+                    ref={mobileMenuRef}
                     className={`absolute inset-y-0 right-0 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'} no-scrollbar`}
                     role="dialog"
                     aria-modal="true"
@@ -275,7 +319,7 @@ export default function Navbar() {
                         <h2 className="text-base font-bold text-primary-900">Menu</h2>
                         <button
                             type="button"
-                            className="text-secondary-500 hover:text-secondary-700"
+                            className="text-secondary-500 hover:text-secondary-700 transition-colors duration-200"
                             onClick={() => setIsMobileMenuOpen(false)}
                             aria-label="Close menu"
                         >
@@ -294,10 +338,10 @@ export default function Navbar() {
                             </div>
 
                             <div className="mt-4 pt-4 border-t">
-                                <Link href="/login" className="block px-3 py-2 text-sm font-bold text-primary-900 hover:bg-secondary-50">
+                                <Link href="/login" className="block px-3 py-2 text-sm font-bold text-primary-900 hover:bg-secondary-50 transition-colors duration-200">
                                     Log In
                                 </Link>
-                                <Link href="/signup" className="block px-3 py-2 text-sm font-bold text-primary-900 hover:bg-secondary-50">
+                                <Link href="/signup" className="block px-3 py-2 text-sm font-bold text-primary-900 hover:bg-secondary-50 transition-colors duration-200">
                                     Sign Up
                                 </Link>
                             </div>

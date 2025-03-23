@@ -11,6 +11,8 @@ export default function Carousel() {
     const [slideDirection, setSlideDirection] = useState('next');
 
     // Animation elements refs for custom timing
+    const arrowsContainerRef = useRef<HTMLDivElement>(null);
+    const linesContainerRef = useRef<HTMLDivElement>(null);
     const meteorsContainerRef = useRef<HTMLDivElement>(null);
     const personRef = useRef<HTMLDivElement>(null);
 
@@ -42,41 +44,42 @@ export default function Carousel() {
         return () => clearTimeout(timer);
     }, [currentSlide]);
 
-    // Setup meteor shower animation for slide 2
+    // Setup continuous animations for slide 2
     useEffect(() => {
-        if (currentSlide === 1 && meteorsContainerRef.current && personRef.current) {
-            const meteorsContainer = meteorsContainerRef.current;
-            const person = personRef.current;
+        // Capture current ref values at the beginning of the effect
+        const currentArrowsContainer = arrowsContainerRef.current;
+        const currentLinesContainer = linesContainerRef.current;
+        const currentMeteorsContainer = meteorsContainerRef.current;
+        const currentPersonRef = personRef.current;
 
-            // Setup meteor shower animation
-            meteorsContainer.querySelectorAll('.meteor-element').forEach(meteor => {
-                const element = meteor as HTMLElement;
+        if (currentSlide === 1 && currentArrowsContainer && currentLinesContainer && currentPersonRef) {
+            // Setup animations using the captured ref values
+
+            // Setup continuous animations for arrows (bottom-left to top-right)
+            currentArrowsContainer.querySelectorAll('.arrow-element').forEach(arrow => {
+                const element = arrow as HTMLElement;
 
                 // Set initial position
                 element.style.opacity = '0';
                 element.style.transform = 'translate(0, 0)';
 
                 // Create animation function for continuous movement
-                const animateMeteor = () => {
+                const animateArrow = () => {
                     // Random start delay
-                    const delay = Math.random() * 3000;
-                    // Random duration between 8-12 seconds
-                    const duration = 8000 + Math.random() * 4000;
-                    // Random angle variation
-                    const angleVar = -10 + Math.random() * 20;
+                    const delay = Math.random() * 5000;
 
                     setTimeout(() => {
                         // Start visible
                         element.style.opacity = '1';
-                        element.style.transition = `transform ${duration/1000}s linear, opacity 2s ease-in-out`;
+                        element.style.transition = 'transform 15s linear, opacity 2s ease-in-out';
 
-                        // Move diagonally from top-right to bottom-left with slight angle variation
-                        element.style.transform = `translate(${-80 + angleVar}%, ${80 + angleVar}%)`;
+                        // Move diagonally from bottom-left to top-right
+                        element.style.transform = 'translate(80%, -80%)';
 
                         // Fade out near the end
                         setTimeout(() => {
                             element.style.opacity = '0';
-                        }, duration - 2000);
+                        }, 13000);
 
                         // Reset after animation completes
                         setTimeout(() => {
@@ -84,27 +87,84 @@ export default function Carousel() {
                             element.style.transform = 'translate(0, 0)';
 
                             // Restart animation
-                            animateMeteor();
-                        }, duration);
+                            animateArrow();
+                        }, 15000);
                     }, delay);
                 };
 
                 // Start the animation cycle
-                animateMeteor();
+                animateArrow();
+            });
+
+            // Setup continuous animations for lines (top-right to bottom-left)
+            currentLinesContainer.querySelectorAll('.line-element').forEach(line => {
+                const element = line as HTMLElement;
+
+                // Set initial position
+                element.style.opacity = '0';
+                element.style.transform = 'translate(0, 0)';
+
+                // Create animation function for continuous movement
+                const animateLine = () => {
+                    // Random start delay
+                    const delay = Math.random() * 5000;
+
+                    setTimeout(() => {
+                        // Start visible
+                        element.style.opacity = '1';
+                        element.style.transition = 'transform 15s linear, opacity 2s ease-in-out';
+
+                        // Move diagonally from top-right to bottom-left
+                        element.style.transform = 'translate(-80%, 80%)';
+
+                        // Fade out near the end
+                        setTimeout(() => {
+                            element.style.opacity = '0';
+                        }, 13000);
+
+                        // Reset after animation completes
+                        setTimeout(() => {
+                            element.style.transition = 'none';
+                            element.style.transform = 'translate(0, 0)';
+
+                            // Restart animation
+                            animateLine();
+                        }, 15000);
+                    }, delay);
+                };
+
+                // Start the animation cycle
+                animateLine();
             });
 
             // Reset and restart person animation
-            person.classList.remove('animate-slide-up');
-            void person.offsetWidth;
+            currentPersonRef.classList.remove('animate-slide-up');
+            void currentPersonRef.offsetWidth;
             setTimeout(() => {
-                person.classList.add('animate-slide-up');
+                currentPersonRef.classList.add('animate-slide-up');
             }, 500);
         }
 
         // Cleanup animations when slide changes
         return () => {
-            if (meteorsContainerRef.current) {
-                meteorsContainerRef.current.querySelectorAll('.meteor-element').forEach(meteor => {
+            if (currentArrowsContainer) {
+                currentArrowsContainer.querySelectorAll('.arrow-element').forEach(arrow => {
+                    const element = arrow as HTMLElement;
+                    element.style.transition = 'none';
+                    element.style.opacity = '0';
+                });
+            }
+
+            if (currentLinesContainer) {
+                currentLinesContainer.querySelectorAll('.line-element').forEach(line => {
+                    const element = line as HTMLElement;
+                    element.style.transition = 'none';
+                    element.style.opacity = '0';
+                });
+            }
+
+            if (currentMeteorsContainer) {
+                currentMeteorsContainer.querySelectorAll('.meteor-element').forEach(meteor => {
                     const element = meteor as HTMLElement;
                     element.style.transition = 'none';
                     element.style.opacity = '0';
@@ -346,9 +406,9 @@ export default function Carousel() {
                                         <div ref={meteorsContainerRef} className="absolute inset-0 flex items-center justify-center">
                                             {/* Create 12 meteor elements for a rich meteor shower effect */}
                                             {Array.from({ length: 12 }).map((_, index) => (
-                                                <div 
+                                                <div
                                                     key={index}
-                                                    className="meteor-element absolute" 
+                                                    className="meteor-element absolute"
                                                     style={{
                                                         right: `${10 + Math.random() * 70}%`,
                                                         top: `${5 + Math.random() * 30}%`,

@@ -9,12 +9,11 @@ interface TestimonialSliderProps {
     autoSlideInterval?: number; // Optional prop to control slide interval
 }
 
-export function TestimonialSlider({ 
-    testimonials, 
+export function TestimonialSlider({
+    testimonials,
     autoSlideInterval = 5000 // Default to 5 seconds
 }: TestimonialSliderProps) {
     const [activeIndex, setActiveIndex] = useState(0);
-    const maxIndex = Math.ceil(testimonials.length / 3) - 1;
 
     // Display 3 testimonials at a time
     const visibleTestimonials = [
@@ -37,7 +36,7 @@ export function TestimonialSlider({
     // Auto slide effect
     useEffect(() => {
         const timer = setInterval(goToNextSlide, autoSlideInterval);
-        
+
         // Cleanup interval on component unmount
         return () => clearInterval(timer);
     }, [goToNextSlide, autoSlideInterval]);
