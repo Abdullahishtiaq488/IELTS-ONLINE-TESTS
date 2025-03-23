@@ -11,8 +11,7 @@ export default function Carousel() {
     const [slideDirection, setSlideDirection] = useState('next');
 
     // Animation elements refs for custom timing
-    const arrowsContainerRef = useRef<HTMLDivElement>(null);
-    const linesContainerRef = useRef<HTMLDivElement>(null);
+    const meteorsContainerRef = useRef<HTMLDivElement>(null);
     const personRef = useRef<HTMLDivElement>(null);
 
     const nextSlide = useCallback(() => {
@@ -43,95 +42,55 @@ export default function Carousel() {
         return () => clearTimeout(timer);
     }, [currentSlide]);
 
-    // Setup continuous animations for slide 2
+    // Setup meteor shower animation for slide 2
     useEffect(() => {
-        if (currentSlide === 1 && arrowsContainerRef.current && linesContainerRef.current && personRef.current) {
-            const arrowsContainer = arrowsContainerRef.current;
-            const linesContainer = linesContainerRef.current;
+        if (currentSlide === 1 && meteorsContainerRef.current && personRef.current) {
+            const meteorsContainer = meteorsContainerRef.current;
             const person = personRef.current;
 
-            // Setup continuous animations for arrows (bottom-left to top-right)
-            arrowsContainer.querySelectorAll('.arrow-element').forEach(arrow => {
-                const element = arrow as HTMLElement;
-                
-                // Set initial position
-                element.style.opacity = '0';
-                element.style.transform = 'translate(0, 0)';
-                
-                // Create animation function for continuous movement
-                const animateArrow = () => {
-                    // Random start delay
-                    const delay = Math.random() * 5000;
-                    
-                    setTimeout(() => {
-                        // Start visible
-                        element.style.opacity = '1';
-                        element.style.transition = 'transform 15s linear, opacity 2s ease-in-out';
-                        
-                        // Move diagonally from bottom-left to top-right
-                        // Reduced movement range to keep arrows closer to the person
-                        element.style.transform = 'translate(80%, -80%)';
-                        
-                        // Fade out near the end
-                        setTimeout(() => {
-                            element.style.opacity = '0';
-                        }, 13000);
-                        
-                        // Reset after animation completes
-                        setTimeout(() => {
-                            element.style.transition = 'none';
-                            element.style.transform = 'translate(0, 0)';
-                            
-                            // Restart animation
-                            animateArrow();
-                        }, 15000);
-                    }, delay);
-                };
-                
-                // Start the animation cycle
-                animateArrow();
-            });
+            // Setup meteor shower animation
+            meteorsContainer.querySelectorAll('.meteor-element').forEach(meteor => {
+                const element = meteor as HTMLElement;
 
-            // Setup continuous animations for lines (top-right to bottom-left)
-            linesContainer.querySelectorAll('.line-element').forEach(line => {
-                const element = line as HTMLElement;
-                
                 // Set initial position
                 element.style.opacity = '0';
                 element.style.transform = 'translate(0, 0)';
-                
+
                 // Create animation function for continuous movement
-                const animateLine = () => {
+                const animateMeteor = () => {
                     // Random start delay
-                    const delay = Math.random() * 5000;
-                    
+                    const delay = Math.random() * 3000;
+                    // Random duration between 8-12 seconds
+                    const duration = 8000 + Math.random() * 4000;
+                    // Random angle variation
+                    const angleVar = -10 + Math.random() * 20;
+
                     setTimeout(() => {
                         // Start visible
                         element.style.opacity = '1';
-                        element.style.transition = 'transform 15s linear, opacity 2s ease-in-out';
-                        
-                        // Move diagonally from top-right to bottom-left
-                        // Reduced movement range to keep lines closer to the person
-                        element.style.transform = 'translate(-80%, 80%)';
-                        
+                        element.style.transition = `transform ${duration/1000}s linear, opacity 2s ease-in-out`;
+
+                        // Move diagonally from top-right to bottom-left with slight angle variation
+                        element.style.transform = `translate(${-80 + angleVar}%, ${80 + angleVar}%)`;
+
                         // Fade out near the end
                         setTimeout(() => {
                             element.style.opacity = '0';
-                        }, 13000);
-                        
+                        }, duration - 2000);
+
                         // Reset after animation completes
                         setTimeout(() => {
                             element.style.transition = 'none';
                             element.style.transform = 'translate(0, 0)';
-                            
+
                             // Restart animation
-                            animateLine();
-                        }, 15000);
+                            animateMeteor();
+                        }, duration);
                     }, delay);
                 };
-                
+
                 // Start the animation cycle
-                animateLine();
+                animateMeteor();
             });
 
             // Reset and restart person animation
@@ -141,18 +100,12 @@ export default function Carousel() {
                 person.classList.add('animate-slide-up');
             }, 500);
         }
-        
+
         // Cleanup animations when slide changes
         return () => {
-            if (arrowsContainerRef.current && linesContainerRef.current) {
-                arrowsContainerRef.current.querySelectorAll('.arrow-element').forEach(arrow => {
-                    const element = arrow as HTMLElement;
-                    element.style.transition = 'none';
-                    element.style.opacity = '0';
-                });
-                
-                linesContainerRef.current.querySelectorAll('.line-element').forEach(line => {
-                    const element = line as HTMLElement;
+            if (meteorsContainerRef.current) {
+                meteorsContainerRef.current.querySelectorAll('.meteor-element').forEach(meteor => {
+                    const element = meteor as HTMLElement;
                     element.style.transition = 'none';
                     element.style.opacity = '0';
                 });
@@ -161,7 +114,7 @@ export default function Carousel() {
     }, [currentSlide]);
 
     return (
-        <div className="relative w-full overflow-hidden">
+        <div className="relative w-full overflow-hidden" role="region" aria-roledescription="carousel" aria-label="Main promotional content">
             {/* Background SVG for styling */}
             <div className="absolute inset-0 z-0">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-950 to-blue-900"></div>
@@ -177,11 +130,15 @@ export default function Carousel() {
                             ? 'opacity-0 -translate-x-full'
                             : 'opacity-0 translate-x-full'
                         }`}
+                    role="group"
+                    aria-roledescription="slide"
+                    aria-label="1 of 2"
+                    aria-hidden={currentSlide !== 0}
                 >
                     <div className="absolute inset-0">
                         <Image
                             src="/images/carousel1.png"
-                            alt="IELTS Partnership"
+                            alt="IELTS Partnership background"
                             fill
                             className="object-cover opacity-60"
                             priority
@@ -280,19 +237,19 @@ export default function Carousel() {
                                     </p>
                                 </div>
 
-                                <button className="mt-4 relative group">
+                                <a href="#learn-more" className="mt-4 relative group" aria-label="Learn more about IELTS partnership">
                                     <span className="absolute inset-0 bg-gradient-to-br from-red-700 to-red-950 rounded-full opacity-80 group-hover:opacity-100 blur transition-all"></span>
                                     <span className="relative bg-gradient-to-br from-red-600 to-red-900 text-white px-8 py-3 rounded-full font-bold inline-block transition-transform group-hover:scale-105">
                                         Learn More
                                     </span>
-                                </button>
+                                </a>
                             </div>
 
                             <div className="w-full md:w-1/2 flex items-center justify-center mt-8 md:mt-0">
                                 <div className="relative w-full max-w-[400px] aspect-[4/3]">
                                     <Image
                                         src="/images/IEG-certificate ielts.png"
-                                        alt="IELTS Certificate"
+                                        alt="IELTS Partnership Certificate"
                                         fill
                                         sizes="(max-width: 768px) 100vw, 400px"
                                         className="object-contain scale-110"
@@ -314,11 +271,15 @@ export default function Carousel() {
                             ? 'opacity-0 translate-x-full'
                             : 'opacity-0 -translate-x-full'
                         }`}
+                    role="group"
+                    aria-roledescription="slide"
+                    aria-label="2 of 2"
+                    aria-hidden={currentSlide !== 1}
                 >
                     <div className="absolute inset-0">
                         <Image
                             src="/images/carousel2.jpg"
-                            alt="IELTS Practice"
+                            alt="IELTS Practice background"
                             fill
                             className="object-cover opacity-50"
                             priority
@@ -369,134 +330,40 @@ export default function Carousel() {
                                     </p>
                                 </div>
 
-                                <button className="mt-4 relative group">
+                                <a href="#start-now" className="mt-4 relative group" aria-label="Start practicing IELTS tests">
                                     <span className="absolute inset-0 bg-gradient-to-br from-red-700 to-red-950 rounded-full opacity-80 group-hover:opacity-100 blur transition-all"></span>
                                     <span className="relative bg-gradient-to-br from-red-600 to-red-900 text-white px-8 py-3 rounded-full font-bold inline-block transition-transform group-hover:scale-105">
                                         Start Now
                                     </span>
-                                </button>
+                                </a>
                             </div>
 
                             <div className="w-full md:w-1/2 relative overflow-hidden mt-8 md:mt-0">
-                                {/* Animated flowing arrows and lines */}
+                                {/* Meteor shower animation */}
                                 <div className="absolute inset-0">
                                     <div className="relative w-full h-full">
-                                        {/* Lines flowing from top-right to bottom-left */}
-                                        <div ref={linesContainerRef} className="absolute inset-0 flex items-center justify-center">
-                                            {/* Line 1 */}
-                                            <div className="line-element absolute right-[45%] top-[20%] opacity-0">
-                                                <Image
-                                                    src="/images/hero-line-1.svg"
-                                                    alt=""
-                                                    width={50}
-                                                    height={50}
-                                                    aria-hidden="true"
-                                                />
-                                            </div>
-                                            {/* Line 2 */}
-                                            <div className="line-element absolute right-[40%] top-[25%] opacity-0">
-                                                <Image
-                                                    src="/images/hero-line-3.svg"
-                                                    alt=""
-                                                    width={60}
-                                                    height={60}
-                                                    aria-hidden="true"
-                                                />
-                                            </div>
-                                            {/* Line 3 */}
-                                            <div className="line-element absolute right-[55%] top-[15%] opacity-0">
-                                                <Image
-                                                    src="/images/hero-line-1.svg"
-                                                    alt=""
-                                                    width={40}
-                                                    height={40}
-                                                    aria-hidden="true"
-                                                />
-                                            </div>
-                                            {/* Line 4 */}
-                                            <div className="line-element absolute right-[50%] top-[30%] opacity-0">
-                                                <Image
-                                                    src="/images/hero-line-3.svg"
-                                                    alt=""
-                                                    width={45}
-                                                    height={45}
-                                                    aria-hidden="true"
-                                                />
-                                            </div>
-                                            {/* Line 5 */}
-                                            <div className="line-element absolute right-[60%] top-[20%] opacity-0">
-                                                <Image
-                                                    src="/images/hero-line-1.svg"
-                                                    alt=""
-                                                    width={55}
-                                                    height={55}
-                                                    aria-hidden="true"
-                                                />
-                                            </div>
-                                        </div>
-
-                                        {/* Arrows flowing from bottom-left to top-right */}
-                                        <div ref={arrowsContainerRef} className="absolute inset-0 flex items-center justify-center">
-                                            {/* Arrow 1 */}
-                                            <div className="arrow-element absolute left-[45%] bottom-[30%] opacity-0">
-                                                <Image
-                                                    src="/images/hero-arrow-6.svg"
-                                                    alt=""
-                                                    width={30}
-                                                    height={30}
-                                                    aria-hidden="true"
-                                                />
-                                            </div>
-                                            {/* Arrow 2 */}
-                                            <div className="arrow-element absolute left-[50%] bottom-[35%] opacity-0">
-                                                <Image
-                                                    src="/images/hero-arrow-9.svg"
-                                                    alt=""
-                                                    width={35}
-                                                    height={35}
-                                                    aria-hidden="true"
-                                                />
-                                            </div>
-                                            {/* Arrow 3 */}
-                                            <div className="arrow-element absolute left-[55%] bottom-[25%] opacity-0">
-                                                <Image
-                                                    src="/images/hero-arrow-2.svg"
-                                                    alt=""
-                                                    width={25}
-                                                    height={25}
-                                                    aria-hidden="true"
-                                                />
-                                            </div>
-                                            {/* Arrow 4 */}
-                                            <div className="arrow-element absolute left-[40%] bottom-[40%] opacity-0">
-                                                <Image
-                                                    src="/images/hero-arrow-3.svg"
-                                                    alt=""
-                                                    width={32}
-                                                    height={32}
-                                                    aria-hidden="true"
-                                                />
-                                            </div>
-                                            {/* Arrow 5 */}
-                                            <div className="arrow-element absolute left-[60%] bottom-[30%] opacity-0">
-                                                <Image
-                                                    src="/images/hero-arrow-6.svg"
-                                                    alt=""
-                                                    width={28}
-                                                    height={28}
-                                                    aria-hidden="true"
-                                                />
-                                            </div>
-                                            {/* Arrow 6 */}
-                                            <div className="arrow-element absolute left-[45%] bottom-[45%] opacity-0">
-                                                <Image
-                                                    src="/images/hero-arrow-9.svg"
-                                                    alt=""
-                                                    width={33}
-                                                    height={33}
-                                                    aria-hidden="true"
-                                                />
-                                            </div>
+                                        {/* Meteor shower elements */}
+                                        <div ref={meteorsContainerRef} className="absolute inset-0 flex items-center justify-center">
+                                            {/* Create 12 meteor elements for a rich meteor shower effect */}
+                                            {Array.from({ length: 12 }).map((_, index) => (
+                                                <div 
+                                                    key={index}
+                                                    className="meteor-element absolute" 
+                                                    style={{
+                                                        right: `${10 + Math.random() * 70}%`,
+                                                        top: `${5 + Math.random() * 30}%`,
+                                                        opacity: 0
+                                                    }}
+                                                >
+                                                    <Image
+                                                        src={`/images/hero-line-${Math.random() > 0.5 ? '1' : '3'}.svg`}
+                                                        alt=""
+                                                        width={30 + Math.random() * 30}
+                                                        height={30 + Math.random() * 30}
+                                                        aria-hidden="true"
+                                                    />
+                                                </div>
+                                            ))}
                                         </div>
 
                                         {/* Main arrow with person */}
@@ -511,13 +378,13 @@ export default function Carousel() {
                                                 />
 
                                                 {/* Person standing on the arrow */}
-                                                <div 
-                                                    ref={personRef} 
+                                                <div
+                                                    ref={personRef}
                                                     className="absolute -top-[200px] left-1/2 -translate-x-1/2 animate-slide-up"
                                                 >
                                                     <Image
                                                         src="/images/hero-person.svg"
-                                                        alt="Person"
+                                                        alt="Person climbing up"
                                                         width={200}
                                                         height={250}
                                                         className="w-auto h-[200px]"
@@ -538,33 +405,37 @@ export default function Carousel() {
                 onClick={prevSlide}
                 className="absolute left-6 top-1/2 -translate-y-1/2 z-20 bg-white/5 hover:bg-white/15 backdrop-blur-sm p-3 rounded-full border border-white/10 transition-all duration-300 shadow-lg hover:scale-110"
                 aria-label="Previous slide"
+                aria-controls="carousel-slides"
             >
-                <ChevronLeft className="w-6 h-6 text-white/90" />
+                <ChevronLeft className="w-6 h-6 text-white/90" aria-hidden="true" />
             </button>
             <button
                 onClick={nextSlide}
                 className="absolute right-6 top-1/2 -translate-y-1/2 z-20 bg-white/5 hover:bg-white/15 backdrop-blur-sm p-3 rounded-full border border-white/10 transition-all duration-300 shadow-lg hover:scale-110"
                 aria-label="Next slide"
+                aria-controls="carousel-slides"
             >
-                <ChevronRight className="w-6 h-6 text-white/90" />
+                <ChevronRight className="w-6 h-6 text-white/90" aria-hidden="true" />
             </button>
 
             {/* Enhanced indicators with animations */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-4 z-20">
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex space-x-4 z-20" role="tablist" aria-label="Carousel navigation">
                 {[0, 1].map((index) => (
                     <button
                         key={index}
                         onClick={() => setCurrentSlide(index)}
-                        className={`group relative transition-all duration-300 ${index === currentSlide ? 'scale-110' : 'scale-100 opacity-70'
-                            }`}
+                        className={`group relative transition-all duration-300 ${index === currentSlide ? 'scale-110' : 'scale-100 opacity-70'}`}
                         aria-label={`Go to slide ${index + 1}`}
+                        aria-selected={index === currentSlide}
+                        role="tab"
+                        aria-controls={`slide-${index + 1}`}
                     >
                         <span className={`block w-3 h-3 rounded-full transition-all duration-500 ${index === currentSlide
                             ? 'bg-yellow-400 scale-100'
                             : 'bg-white/60 scale-90 group-hover:scale-100 group-hover:bg-white'
-                            }`}></span>
+                            }`} aria-hidden="true"></span>
                         {index === currentSlide && (
-                            <span className="absolute inset-0 bg-yellow-400/50 rounded-full animate-ping"></span>
+                            <span className="absolute inset-0 bg-yellow-400/50 rounded-full animate-ping" aria-hidden="true"></span>
                         )}
                     </button>
                 ))}

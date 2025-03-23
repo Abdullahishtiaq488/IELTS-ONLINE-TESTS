@@ -40,26 +40,29 @@ export function TestCard({ title, image, rating, votes, link }: TestCardProps) {
                     <h3 className="text-sm font-bold text-tertiary-800 mb-2 line-clamp-2 hover:text-primary-600">{title}</h3>
 
                     {/* Rating with Stars */}
-                    <div className="flex items-center flex-wrap">
-                        <div className="flex mr-1 sm:mr-2">
-                            {/* Full stars */}
-                            {[...Array(fullStars)].map((_, i) => (
-                                <Star key={`full-${i}`} className="w-3 h-3 sm:w-4 sm:h-4 fill-yellow-400 text-yellow-400" />
-                            ))}
+                    <div className="flex items-center justify-between">
+                        <div className="flex items-center">
+                            <div className="flex mr-1">
+                                {/* Full stars */}
+                                {[...Array(fullStars)].map((_, i) => (
+                                    <Star key={`full-${i}`} className="w-3 h-3 sm:w-4 sm:h-4 fill-yellow-400 text-yellow-400" />
+                                ))}
 
-                            {/* Half star if needed */}
-                            {hasHalfStar && (
-                                <StarHalf className="w-3 h-3 sm:w-4 sm:h-4 fill-yellow-400 text-yellow-400" />
-                            )}
+                                {/* Half star if needed */}
+                                {hasHalfStar && (
+                                    <StarHalf className="w-3 h-3 sm:w-4 sm:h-4 fill-yellow-400 text-yellow-400" />
+                                )}
 
-                            {/* Empty stars */}
-                            {[...Array(emptyStars)].map((_, i) => (
-                                <Star key={`empty-${i}`} className="w-3 h-3 sm:w-4 sm:h-4 text-tertiary-300" />
-                            ))}
+                                {/* Empty stars */}
+                                {[...Array(emptyStars)].map((_, i) => (
+                                    <Star key={`empty-${i}`} className="w-3 h-3 sm:w-4 sm:h-4 text-tertiary-300" />
+                                ))}
+                            </div>
+                            <span className="text-xs sm:text-sm font-medium text-tertiary-700">{rating.toFixed(1)}</span>
                         </div>
-
-                        <span className="text-xs sm:text-sm font-medium text-tertiary-700">{rating.toFixed(1)}</span>
-                        <span className="text-xs text-tertiary-500 ml-1 sm:ml-2 truncate">({votes.toLocaleString()} votes)</span>
+                        
+                        {/* Votes moved to right side */}
+                        <span className="text-xs text-tertiary-500 truncate">({votes.toLocaleString()} votes)</span>
                     </div>
                     
                     <div className="mt-3 sm:mt-4 text-center">

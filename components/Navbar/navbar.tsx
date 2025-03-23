@@ -62,6 +62,7 @@ export default function Navbar() {
             const hasItems = item.items && item.items.length > 0;
             const itemKey = parentKey ? `${parentKey}-${index}` : `item-${index}`;
             const isActive = activeDropdowns[itemKey];
+            const dropdownId = `dropdown-${itemKey}`;
 
             return (
                 <div
@@ -70,30 +71,35 @@ export default function Navbar() {
                     onMouseEnter={() => hasItems && handleDropdownEnter(itemKey)}
                     onMouseLeave={() => hasItems && handleDropdownLeave(itemKey)}
                 >
-                    <Link
-                        href={item.href || '#'}
-                        className={`flex items-center gap-0.5 px-6 h-12 text-xs md:text-xs lg:text-sm font-bold text-white hover:bg-slate-600 ${isNested ? 'pl-4 h-8' : ''
-                            }`}
-                        onClick={() => {
-                            if (!hasItems) {
-                                setActiveDropdowns({});
-                            }
-                        }}
-                    >
-                        <span>{item.label}</span>
-                        {hasItems && (
+                    {hasItems ? (
+                        <button
+                            className={`flex items-center gap-0.5 px-6 h-12 text-xs md:text-xs lg:text-sm font-bold text-white hover:bg-slate-600 ${isNested ? 'pl-4 h-8' : ''}`}
+                            aria-expanded={isActive}
+                            aria-controls={dropdownId}
+                            aria-haspopup="true"
+                        >
+                            <span>{item.label}</span>
                             <ChevronDown
-                                className={`w-3 h-3 md:w-3.5 md:h-3.5 ml-0.5 transition-transform ${isActive ? 'rotate-180' : ''
-                                    }`}
+                                className={`w-3 h-3 md:w-3.5 md:h-3.5 ml-0.5 transition-transform ${isActive ? 'rotate-180' : ''}`}
+                                aria-hidden="true"
                             />
-                        )}
-                    </Link>
+                        </button>
+                    ) : (
+                        <Link
+                            href={item.href || '#'}
+                            className={`flex items-center gap-0.5 px-6 h-12 text-xs md:text-xs lg:text-sm font-bold text-white hover:bg-slate-600 ${isNested ? 'pl-4 h-8' : ''}`}
+                        >
+                            <span>{item.label}</span>
+                        </Link>
+                    )}
+
                     {hasItems && isActive && item.items && (
                         <div
-                            className={`absolute ${isNested ? 'left-full top-0 -ml-1' : 'left-0 top-full'
-                                } bg-blue-950/95 shadow-lg min-w-[200px] md:min-w-[220px] lg:min-w-[240px] z-50`}
+                            id={dropdownId}
+                            className={`absolute ${isNested ? 'left-full top-0 -ml-1' : 'left-0 top-full'} bg-blue-950/95 shadow-lg min-w-[200px] md:min-w-[220px] lg:min-w-[240px] z-50`}
                             onMouseEnter={() => handleDropdownEnter(itemKey)}
                             onMouseLeave={() => handleDropdownLeave(itemKey)}
+                            role="menu"
                         >
                             {renderNavItems(item.items, true, itemKey)}
                         </div>
@@ -108,13 +114,13 @@ export default function Navbar() {
             const hasItems = item.items && item.items.length > 0;
             const itemKey = `mobile-${item.label}-${index}`;
             const isActive = activeDropdowns[itemKey];
+            const mobileDropdownId = `mobile-dropdown-${itemKey}`;
 
             return (
                 <div key={itemKey}>
                     {hasItems ? (
-                        <div
-                            className={`flex items-center justify-between px-3 py-3 text-sm font-bold text-secondary-700 hover:bg-secondary-50 ${isNested ? 'pl-6' : ''
-                                }`}
+                        <button
+                            className={`flex w-full items-center justify-between px-3 py-3 text-sm font-bold text-secondary-700 hover:bg-secondary-50 ${isNested ? 'pl-6' : ''}`}
                             onClick={() => {
                                 // Close other dropdowns at the same level
                                 const newDropdowns = { ...activeDropdowns };
@@ -131,13 +137,16 @@ export default function Navbar() {
                                 newDropdowns[itemKey] = !newDropdowns[itemKey];
                                 setActiveDropdowns(newDropdowns);
                             }}
+                            aria-expanded={isActive}
+                            aria-controls={mobileDropdownId}
+                            aria-haspopup="true"
                         >
                             <span>{item.label}</span>
                             <ChevronRight
-                                className={`w-4 h-4 transition-transform ${isActive ? 'transform rotate-90' : ''
-                                    }`}
+                                className={`w-4 h-4 transition-transform ${isActive ? 'transform rotate-90' : ''}`}
+                                aria-hidden="true"
                             />
-                        </div>
+                        </button>
                     ) : (
                         <Link
                             href={item.href || '#'}
@@ -149,7 +158,7 @@ export default function Navbar() {
                     )}
 
                     {hasItems && isActive && item.items && (
-                        <div className="bg-muted-50">
+                        <div id={mobileDropdownId} className="bg-muted-50" role="menu">
                             {renderMobileNavItems(item.items, true)}
                         </div>
                     )}
@@ -159,7 +168,7 @@ export default function Navbar() {
     };
 
     return (
-        <nav>
+        <nav aria-label="Main navigation">
             {/* Top Section with Logo and Horizontal Image */}
             <div className="hidden md:block bg-white border-b">
                 <Container>
@@ -194,8 +203,8 @@ export default function Navbar() {
                 <Container>
                     <div className="flex items-center justify-between h-10 md:h-12 lg:h-14">
                         <div className="flex items-center">
-                            <Link href="/" className="text-white hover:bg-slate-600 px-3 h-10 md:h-12 lg:h-14 flex items-center">
-                                <Home className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" />
+                            <Link href="/" className="text-white hover:bg-slate-600 px-3 h-10 md:h-12 lg:h-14 flex items-center" aria-label="Home">
+                                <Home className="w-4 h-4 md:w-5 md:h-5 lg:w-6 lg:h-6" aria-hidden="true" />
                             </Link>
                             <div className="flex items-center space-x-2 md:space-x-0 md:text-xs">
                                 {Object.entries(navigationItems).map(([key, item], index) => (
@@ -236,9 +245,11 @@ export default function Navbar() {
                         type="button"
                         className="inline-flex items-center justify-center p-2 rounded-md text-primary-900 hover:bg-secondary-100"
                         onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                        aria-expanded={isMobileMenuOpen}
+                        aria-controls="mobile-menu"
+                        aria-label="Open main menu"
                     >
-                        <span className="sr-only">Open main menu</span>
-                        <Menu className="h-6 w-6" />
+                        <Menu className="h-6 w-6" aria-hidden="true" />
                     </button>
                 </div>
             </div>
@@ -247,22 +258,28 @@ export default function Navbar() {
             <div className={`fixed inset-0 overflow-hidden z-50 ${isMobileMenuOpen ? 'pointer-events-auto' : 'pointer-events-none'}`}>
                 {/* Backdrop */}
                 <div
-                    className={`absolute inset-0 bg-black transition-opacity duration-300 ease-in-out ${isMobileMenuOpen ? 'opacity-25' : 'opacity-0'
-                        }`}
+                    className={`absolute inset-0 bg-black transition-opacity duration-300 ease-in-out ${isMobileMenuOpen ? 'opacity-25' : 'opacity-0'}`}
                     onClick={() => setIsMobileMenuOpen(false)}
+                    aria-hidden="true"
                 ></div>
 
                 {/* Sidebar */}
-                <div className={`absolute inset-y-0 right-0 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-                    } no-scrollbar`}>
+                <div
+                    id="mobile-menu"
+                    className={`absolute inset-y-0 right-0 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'} no-scrollbar`}
+                    role="dialog"
+                    aria-modal="true"
+                    aria-label="Mobile navigation menu"
+                >
                     <div className="flex items-center justify-between p-4 border-b">
                         <h2 className="text-base font-bold text-primary-900">Menu</h2>
                         <button
                             type="button"
                             className="text-secondary-500 hover:text-secondary-700"
                             onClick={() => setIsMobileMenuOpen(false)}
+                            aria-label="Close menu"
                         >
-                            <X className="h-5 w-5" />
+                            <X className="h-5 w-5" aria-hidden="true" />
                         </button>
                     </div>
 
