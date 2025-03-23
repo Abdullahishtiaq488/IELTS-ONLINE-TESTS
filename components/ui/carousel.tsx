@@ -510,14 +510,17 @@ export default function Carousel() {
                                                     className="w-full h-auto"
                                                 />
 
-                                                {/* Person on top */}
-                                                <div ref={personRef} className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full opacity-0">
+                                                {/* Person standing on the arrow */}
+                                                <div 
+                                                    ref={personRef} 
+                                                    className="absolute -top-[200px] left-1/2 -translate-x-1/2 animate-slide-up"
+                                                >
                                                     <Image
                                                         src="/images/hero-person.svg"
                                                         alt="Person"
-                                                        width={60}
-                                                        height={160}
-                                                        className="w-auto h-auto"
+                                                        width={200}
+                                                        height={250}
+                                                        className="w-auto h-[200px]"
                                                     />
                                                 </div>
                                             </div>

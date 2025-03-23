@@ -164,7 +164,7 @@ export default function Navbar() {
             <div className="hidden md:block bg-white border-b">
                 <Container>
                     <div className="flex justify-between items-center h-24 md:h-28 lg:h-32">
-                        <div className="flex-shrink-0 bg-red-500">
+                        <div className="flex-shrink-0">
                             <Link href="/" className="flex items-center">
                                 <Image
                                     src="/images/logo.jpg"
@@ -225,10 +225,10 @@ export default function Navbar() {
                 <div className="flex justify-between items-center h-16 px-4">
                     <Link href="/" className="flex-shrink-0">
                         <Image
-                            src="/images/logo.svg"
+                            src="/images/logo.jpg"
                             alt="IELTS Online"
-                            width={120}
-                            height={120}
+                            width={1250}
+                            height={965}
                             className="h-10 w-auto"
                         />
                     </Link>

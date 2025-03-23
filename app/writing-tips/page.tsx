@@ -1,5 +1,5 @@
-import { TipsPageLayout } from '@/components/tips/TipsPageLayout';
-import { TipsList } from '@/components/tips/TipsList';
+import { TipsPageLayout } from '@/components/tips-page/TipsPageLayout';
+import { TipsList } from '@/components/tips-page/TipsList';
 import { Container } from '@/components/ui/container';
 import { popularTips, featuredTips, mainTips } from '@/data/tips';
 
