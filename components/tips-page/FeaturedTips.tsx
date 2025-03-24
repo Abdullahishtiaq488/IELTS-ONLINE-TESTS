@@ -31,12 +31,11 @@ export function FeaturedTips({ tips = [] }: FeaturedTipsProps) {
                 : i - rating <= 0.5
                     ? 'text-warning-400'
                     : 'text-muted-500';
-            const starFilled = i <= Math.floor(rating) || (i - rating <= 0.5);
             stars.push(
-                <svg 
-                    key={i} 
-                    className={`h-3 w-3 sm:h-4 sm:w-4 ${starClass}`} 
-                    fill="currentColor" 
+                <svg
+                    key={i}
+                    className={`h-3 w-3 sm:h-4 sm:w-4 ${starClass}`}
+                    fill="currentColor"
                     viewBox="0 0 20 20"
                     aria-hidden="true"
                 >

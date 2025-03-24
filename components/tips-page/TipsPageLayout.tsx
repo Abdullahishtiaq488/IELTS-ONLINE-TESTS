@@ -62,7 +62,7 @@ export function TipsPageLayout({
                     {/* Sidebar - Right Side */}
                     <aside className="lg:col-span-1">
                         {/* Popular Tips Box */}
-                        <section aria-labelledby="popular-tips-heading" className="bg-white rounded-xl shadow-sm p-6 mb-6">
+                        <section aria-labelledby="popular-tips-heading" className="bg-white rounded-xl shadow-sm p-4 mb-6">
                             <div className="flex items-center justify-between mb-6">
                                 <h2 id="popular-tips-heading" className="text-xl font-bold text-primary-900">Most popular IELTS tips</h2>
                                 <button 
@@ -96,7 +96,7 @@ export function TipsPageLayout({
                                             <p className="text-sm text-tertiary-600 mb-2 line-clamp-2">
                                                 {tip.description}
                                             </p>
-                                            <div className="flex items-center text-sm text-tertiary-500">
+                                            <div className="flex items-center text-xs text-tertiary-500">
                                                 <span className="px-2 py-1 bg-primary-50 text-primary-700 rounded-full text-xs font-medium">
                                                     {tip.category}
                                                 </span>
