@@ -10,14 +10,14 @@ export const metadata = {
 export default function ForgotPasswordPage() {
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-md mx-auto bg-white rounded-lg shadow-md p-8">
+      <div className="max-w-md mx-auto bg-white rounded-4xl shadow-2xl p-8">
         <div className="flex justify-center mb-8">
-          <Image src="/images/logo.svg" alt="IELTS Online Tests" width={180} height={60} />
+          <Image src="/images/logo.jpg" alt="IELTS Online Tests" width={180} height={60} />
         </div>
 
-        <h1 className="text-2xl font-bold text-center text-blue-900 mb-4">FORGOT PASSWORD</h1>
+        <h1 className="text-2xl font-bold text-center text-primary-900 mb-4">FORGOT PASSWORD</h1>
 
-        <p className="text-center mb-8 text-gray-600">
+        <p className="text-center mb-8 text-tertiary-600">
           Enter your email address below and we&apos;ll send you a link to reset your password.
         </p>
 

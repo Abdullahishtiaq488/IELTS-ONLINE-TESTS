@@ -116,13 +116,13 @@ const mockTests = [
 const getSkillIcon = (skill: string) => {
     switch (skill.toLowerCase()) {
         case 'listening':
-            return <Headphones className="h-4 w-4 mr-1" />;
+            return <Headphones className="h-4 w-4 mr-1" aria-hidden="true" />;
         case 'reading':
-            return <BookOpen className="h-4 w-4 mr-1" />;
+            return <BookOpen className="h-4 w-4 mr-1" aria-hidden="true" />;
         case 'writing':
-            return <Edit className="h-4 w-4 mr-1" />;
+            return <Edit className="h-4 w-4 mr-1" aria-hidden="true" />;
         case 'speaking':
-            return <Mic className="h-4 w-4 mr-1" />;
+            return <Mic className="h-4 w-4 mr-1" aria-hidden="true" />;
         default:
             return null;
     }
@@ -199,7 +199,7 @@ export function MockTestCards({ currentSkill }: MockTestCardsProps) {
                                     height={280}
                                     className="w-full max-w-[200px] mx-auto md:w-full h-auto rounded-xl shadow-sm group-hover:shadow-md transition-all duration-300 transform group-hover:scale-[1.02]"
                                 />
-                                <div className="absolute inset-0 rounded-xl bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                <div className="absolute inset-0 rounded-xl bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true"></div>
                             </div>
                         </div>
 
@@ -219,13 +219,14 @@ export function MockTestCards({ currentSkill }: MockTestCardsProps) {
                                                 className={`p-4 rounded-lg border bg-gradient-to-br ${getMonthColor(month.name)} transition-all duration-300 transform hover:scale-[1.02] hover:shadow-md`}
                                                 onMouseEnter={() => setHoveredCard(`${mockTest.id}-${month.name}`)}
                                                 onMouseLeave={() => setHoveredCard(null)}
+                                                aria-label={`${month.name} ${mockTest.title} with ${month.totalTests.toLocaleString()} tests taken`}
                                             >
                                                 <h3 className="font-medium text-tertiary-700 flex items-center">
-                                                    <span className={`inline-block w-2 h-2 rounded-full mr-2 bg-primary-500 ${hoveredCard === `${mockTest.id}-${month.name}` ? 'animate-pulse' : ''}`}></span>
+                                                    <span className={`inline-block w-2 h-2 rounded-full mr-2 bg-primary-500 ${hoveredCard === `${mockTest.id}-${month.name}` ? 'animate-pulse' : ''}`} aria-hidden="true"></span>
                                                     {month.name}
                                                 </h3>
                                                 <div className="flex items-center text-tertiary-500 text-sm mt-1">
-                                                    <Zap className={`h-4 w-4 mr-1 text-accent-500 ${hoveredCard === `${mockTest.id}-${month.name}` ? 'animate-bounce' : ''}`} />
+                                                    <Zap className={`h-4 w-4 mr-1 text-accent-500 ${hoveredCard === `${mockTest.id}-${month.name}` ? 'animate-bounce' : ''}`} aria-hidden="true" />
                                                     {month.totalTests.toLocaleString()} tests taken
                                                 </div>
                                             </Link>
@@ -238,14 +239,15 @@ export function MockTestCards({ currentSkill }: MockTestCardsProps) {
                                                     className={`p-4 rounded-lg border bg-gradient-to-br ${getMonthColor(month.name)} transition-all duration-300 transform hover:scale-[1.02] hover:shadow-md relative overflow-hidden group`}
                                                     onMouseEnter={() => setHoveredCard(`${mockTest.id}-${month.name}-${practiceTest.testNumber}`)}
                                                     onMouseLeave={() => setHoveredCard(null)}
+                                                    aria-label={`${month.name} ${currentSkill} Practice Test ${practiceTest.testNumber} with ${practiceTest.testsTaken.toLocaleString()} tests taken`}
                                                 >
-                                                    <div className="absolute top-0 right-0 w-0 h-0 border-t-[40px] border-r-[40px] border-t-transparent border-r-primary-500/20 group-hover:border-r-primary-500/40 transition-colors"></div>
+                                                    <div className="absolute top-0 right-0 w-0 h-0 border-t-[40px] border-r-[40px] border-t-transparent border-r-primary-500/20 group-hover:border-r-primary-500/40 transition-colors" aria-hidden="true"></div>
                                                     <div className="text-sm text-primary-900 font-medium flex items-center">
                                                         {getSkillIcon(currentSkill)}
                                                         {month.name} {currentSkill} Practice Test {practiceTest.testNumber}
                                                     </div>
                                                     <div className="flex items-center text-tertiary-500 text-xs mt-1">
-                                                        <Zap className={`h-3 w-3 mr-1 text-accent-500 ${hoveredCard === `${mockTest.id}-${month.name}-${practiceTest.testNumber}` ? 'animate-pulse' : ''}`} />
+                                                        <Zap className={`h-3 w-3 mr-1 text-accent-500 ${hoveredCard === `${mockTest.id}-${month.name}-${practiceTest.testNumber}` ? 'animate-pulse' : ''}`} aria-hidden="true" />
                                                         {practiceTest.testsTaken.toLocaleString()} tests taken
                                                     </div>
                                                 </Link>
@@ -256,7 +258,7 @@ export function MockTestCards({ currentSkill }: MockTestCardsProps) {
 
                                 {/* Gradient Overlay - Only show when not expanded */}
                                 {!expandedMonths[mockTest.id] && (
-                                    <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+                                    <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent pointer-events-none" aria-hidden="true" />
                                 )}
 
                                 {getRemainingTests(mockTest.months, mockTest.id) > 0 && (
@@ -264,9 +266,11 @@ export function MockTestCards({ currentSkill }: MockTestCardsProps) {
                                         <button
                                             onClick={() => toggleExpand(mockTest.id)}
                                             className="inline-flex items-center gap-1 px-4 py-2 rounded-full bg-primary-50 text-primary-600 hover:bg-primary-100 hover:text-primary-700 font-medium transition-colors shadow-sm hover:shadow"
+                                            aria-expanded={expandedMonths[mockTest.id] ? "true" : "false"}
+                                            aria-controls={`month-list-${mockTest.id}`}
                                         >
                                             {expandedMonths[mockTest.id] ? 'Show less' : `View more ${getRemainingTests(mockTest.months, mockTest.id)} tests`}
-                                            <ChevronDown className={`h-4 w-4 transition-transform ${expandedMonths[mockTest.id] ? 'rotate-180' : ''}`} />
+                                            <ChevronDown className={`h-4 w-4 transition-transform ${expandedMonths[mockTest.id] ? 'rotate-180' : ''}`} aria-hidden="true" />
                                         </button>
                                     </div>
                                 )}
@@ -278,16 +282,17 @@ export function MockTestCards({ currentSkill }: MockTestCardsProps) {
 
             {/* Pagination Controls */}
             {totalPages > 1 && (
-                <div className="flex items-center justify-center gap-2 mt-8">
+                <nav className="flex items-center justify-center gap-2 mt-8" aria-label="Mock test pagination">
                     <button
                         onClick={() => handlePageChange(currentPage - 1)}
                         disabled={currentPage === 1}
                         className="p-2 rounded-lg border border-tertiary-200 hover:border-primary-500 hover:bg-primary-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                        aria-label="Previous page"
                     >
-                        <ChevronLeft className="h-5 w-5" />
+                        <ChevronLeft className="h-5 w-5" aria-hidden="true" />
                     </button>
 
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2" role="list">
                         {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
                             <button
                                 key={page}
@@ -296,6 +301,8 @@ export function MockTestCards({ currentSkill }: MockTestCardsProps) {
                                     ? 'bg-primary-600 text-white border-primary-600 shadow-md'
                                     : 'border-tertiary-200 hover:border-primary-500 hover:bg-primary-50 hover:shadow'
                                     }`}
+                                aria-label={`Page ${page}`}
+                                aria-current={currentPage === page ? "page" : undefined}
                             >
                                 {page}
                             </button>
@@ -306,10 +313,11 @@ export function MockTestCards({ currentSkill }: MockTestCardsProps) {
                         onClick={() => handlePageChange(currentPage + 1)}
                         disabled={currentPage === totalPages}
                         className="p-2 rounded-lg border border-tertiary-200 hover:border-primary-500 hover:bg-primary-50 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                        aria-label="Next page"
                     >
-                        <ChevronRight className="h-5 w-5" />
+                        <ChevronRight className="h-5 w-5" aria-hidden="true" />
                     </button>
-                </div>
+                </nav>
             )}
         </div>
     );

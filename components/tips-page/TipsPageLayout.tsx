@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Eye, RefreshCw } from 'lucide-react';
-import { Breadcrumb } from '@/components/shared/Breadcrumb';
+import { Breadcrumb } from '@/components/exam-library/Breadcrumb';
 import { FeaturedTips } from '@/components/tips-page/FeaturedTips';
 import { FeaturedTip, PopularTip } from '@/types/tips';
 
@@ -24,8 +24,7 @@ export function TipsPageLayout({
     children
 }: TipsPageLayoutProps) {
     return (
-        <div className="h-auto bg-muted-300">
-
+        <main className="h-auto bg-muted-300">
             <div className="container mx-auto px-4 py-4">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
                     {/* Main Content - Left Side */}
@@ -36,7 +35,7 @@ export function TipsPageLayout({
                         <div className="relative w-full h-[500px] mb-8">
                             <Image
                                 src="/images/ieltsgrammer101.png"
-                                alt="IELTS Grammar"
+                                alt="IELTS Grammar tips and resources"
                                 fill
                                 priority
                                 className="object-contain rounded-xl"
@@ -50,22 +49,27 @@ export function TipsPageLayout({
                             <p className="text-primary-600">{pageDescription}</p>
                         </div>
                         {/* Featured Tips */}
-                        <div className="bg-primary-950 rounded-xl p-6 mb-8">
+                        <section aria-labelledby="featured-tips-section" className="bg-primary-950 rounded-xl p-6 mb-8">
+                            <h2 id="featured-tips-section" className="sr-only">Featured IELTS Tips</h2>
                             <FeaturedTips tips={featuredTips} />
-                        </div>
+                        </section>
                         {/* Tips Content */}
-                        {children}
+                        <section aria-label="IELTS Tips Content">
+                            {children}
+                        </section>
                     </div>
 
                     {/* Sidebar - Right Side */}
-                    <div className="lg:col-span-1">
-
+                    <aside className="lg:col-span-1">
                         {/* Popular Tips Box */}
-                        <div className="bg-white rounded-xl shadow-sm p-6 mb-6">
+                        <section aria-labelledby="popular-tips-heading" className="bg-white rounded-xl shadow-sm p-6 mb-6">
                             <div className="flex items-center justify-between mb-6">
-                                <h2 className="text-xl font-bold text-primary-900">Most popular IELTS tips</h2>
-                                <button className="text-primary-600 hover:text-primary-700">
-                                    <RefreshCw className="h-5 w-5" />
+                                <h2 id="popular-tips-heading" className="text-xl font-bold text-primary-900">Most popular IELTS tips</h2>
+                                <button 
+                                    className="text-primary-600 hover:text-primary-700"
+                                    aria-label="Refresh popular tips"
+                                >
+                                    <RefreshCw className="h-5 w-5" aria-hidden="true" />
                                 </button>
                             </div>
 
@@ -75,16 +79,18 @@ export function TipsPageLayout({
                                         key={tip.id}
                                         href={`/tips/${tip.id}`}
                                         className="flex gap-4 p-2 rounded-xl hover:bg-secondary-50 transition-colors"
+                                        aria-labelledby={`tip-title-${tip.id}`}
                                     >
                                         <Image
                                             src={tip.image}
-                                            alt={tip.title}
+                                            alt=""
                                             width={66}
                                             height={66}
                                             className="w-18 h-18 object-cover rounded-lg"
+                                            aria-hidden="true"
                                         />
                                         <div className="flex-1">
-                                            <h3 className="text-primary-900 font-medium mb-1 line-clamp-2">
+                                            <h3 id={`tip-title-${tip.id}`} className="text-primary-900 font-medium mb-1 line-clamp-2">
                                                 {tip.title}
                                             </h3>
                                             <p className="text-sm text-tertiary-600 mb-2 line-clamp-2">
@@ -95,34 +101,39 @@ export function TipsPageLayout({
                                                     {tip.category}
                                                 </span>
                                                 <span className="ml-3 flex items-center">
-                                                    <Eye className="h-4 w-4 mr-1" />
-                                                    {tip.views.toLocaleString()}
+                                                    <Eye className="h-4 w-4 mr-1" aria-hidden="true" />
+                                                    <span>{tip.views.toLocaleString()} views</span>
                                                 </span>
                                             </div>
                                         </div>
                                     </Link>
                                 ))}
                             </div>
-                        </div>
+                        </section>
 
                         {/* Below Tips Banner */}
                         <div className="bg-accent-400 rounded-xl overflow-hidden w-full" style={{ height: '700px' }}>
-                            <Link href="/ielts-1-to-1" className="block h-full">
+                            <Link 
+                                href="/ielts-1-to-1" 
+                                className="block h-full"
+                                aria-label="Learn more about IELTS one-to-one tutoring"
+                            >
                                 <div className="relative w-full h-full">
                                     <Image
                                         src="/images/below-tips-banner1.png"
-                                        alt="IELTS 1 to 1"
+                                        alt=""
                                         className="object-cover"
                                         fill
                                         sizes="(max-width: 380px) 100vw"
                                         priority
+                                        aria-hidden="true"
                                     />
                                 </div>
                             </Link>
                         </div>
-                    </div>
+                    </aside>
                 </div>
             </div>
-        </div>
+        </main>
     );
 } 

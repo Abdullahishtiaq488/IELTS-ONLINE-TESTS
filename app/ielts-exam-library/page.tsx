@@ -2,7 +2,7 @@
 
 import { Suspense } from 'react';
 import { Container } from '@/components/ui/container';
-import { Breadcrumb } from '@/components/shared/Breadcrumb';
+import { Breadcrumb } from '@/components/exam-library/Breadcrumb';
 import { ExamLibraryHeader } from '@/components/exam-library/ExamLibraryHeader';
 import { TipsSection } from '@/components/exam-library/TipsSection';
 import { BelowTipsBanner } from '@/components/exam-library/BelowTipsBanner';

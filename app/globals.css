@@ -117,6 +117,19 @@
   --secondary-900: #7f232a;
   --secondary-950: #661d23;
 
+  /* Tertiary (Gray) */
+  --tertiary-50: #f9fafb;
+  --tertiary-100: #f3f4f6;
+  --tertiary-200: #e5e7eb;
+  --tertiary-300: #d1d5db;
+  --tertiary-400: #9ca3af;
+  --tertiary-500: #6b7280;
+  --tertiary-600: #4b5563;
+  --tertiary-700: #374151;
+  --tertiary-800: #1f2937;
+  --tertiary-900: #111827;
+  --tertiary-950: #030712;
+
   /* Accent (Teal/Green - Focus & Growth) */
   --accent-50: #e6f9f5;
   --accent-100: #c6f1e5;
@@ -189,7 +202,6 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
-
 }
 
 @layer base {
@@ -310,6 +322,40 @@
   }
   .text-secondary-950 {
     color: var(--secondary-950);
+  }
+
+  .text-tertiary-50 {
+    color: var(--tertiary-50);
+  }
+  .text-tertiary-100 {
+    color: var(--tertiary-100);
+  }
+  .text-tertiary-200 {
+    color: var(--tertiary-200);
+  }
+  .text-tertiary-300 {
+    color: var(--tertiary-300);
+  }
+  .text-tertiary-400 {
+    color: var(--tertiary-400);
+  }
+  .text-tertiary-500 {
+    color: var(--tertiary-500);
+  }
+  .text-tertiary-600 {
+    color: var(--tertiary-600);
+  }
+  .text-tertiary-700 {
+    color: var(--tertiary-700);
+  }
+  .text-tertiary-800 {
+    color: var(--tertiary-800);
+  }
+  .text-tertiary-900 {
+    color: var(--tertiary-900);
+  }
+  .text-tertiary-950 {
+    color: var(--tertiary-950);
   }
 
   .text-accent-50 {
@@ -483,6 +529,40 @@
     background-color: var(--secondary-950);
   }
 
+  .bg-tertiary-50 {
+    background-color: var(--tertiary-50);
+  }
+  .bg-tertiary-100 {
+    background-color: var(--tertiary-100);
+  }
+  .bg-tertiary-200 {
+    background-color: var(--tertiary-200);
+  }
+  .bg-tertiary-300 {
+    background-color: var(--tertiary-300);
+  }
+  .bg-tertiary-400 {
+    background-color: var(--tertiary-400);
+  }
+  .bg-tertiary-500 {
+    background-color: var(--tertiary-500);
+  }
+  .bg-tertiary-600 {
+    background-color: var(--tertiary-600);
+  }
+  .bg-tertiary-700 {
+    background-color: var(--tertiary-700);
+  }
+  .bg-tertiary-800 {
+    background-color: var(--tertiary-800);
+  }
+  .bg-tertiary-900 {
+    background-color: var(--tertiary-900);
+  }
+  .bg-tertiary-950 {
+    background-color: var(--tertiary-950);
+  }
+
   .bg-accent-50 {
     background-color: var(--accent-50);
   }
@@ -652,6 +732,40 @@
   }
   .border-secondary-950 {
     border-color: var(--secondary-950);
+  }
+
+  .border-tertiary-50 {
+    border-color: var(--tertiary-50);
+  }
+  .border-tertiary-100 {
+    border-color: var(--tertiary-100);
+  }
+  .border-tertiary-200 {
+    border-color: var(--tertiary-200);
+  }
+  .border-tertiary-300 {
+    border-color: var(--tertiary-300);
+  }
+  .border-tertiary-400 {
+    border-color: var(--tertiary-400);
+  }
+  .border-tertiary-500 {
+    border-color: var(--tertiary-500);
+  }
+  .border-tertiary-600 {
+    border-color: var(--tertiary-600);
+  }
+  .border-tertiary-700 {
+    border-color: var(--tertiary-700);
+  }
+  .border-tertiary-800 {
+    border-color: var(--tertiary-800);
+  }
+  .border-tertiary-900 {
+    border-color: var(--tertiary-900);
+  }
+  .border-tertiary-950 {
+    border-color: var(--tertiary-950);
   }
 
   .border-accent-50 {

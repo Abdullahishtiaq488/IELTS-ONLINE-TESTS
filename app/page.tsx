@@ -20,7 +20,7 @@ export default function Home() {
       </section>
 
       {/* Content sections with consistent spacing */}
-      <div className="space-y-8">
+      <div className="space-y-0">
         <section aria-labelledby="latest-tests-heading">
           <LatestTestsSection />
         </section>

@@ -17,35 +17,40 @@ export function ExamLibraryTabs({ currentTab }: ExamLibraryTabsProps) {
     const skill = searchParams.get('skill') || 'all';
 
     return (
-        <div className="flex flex-wrap gap-2 mb-6">
-            {tabs.map((tab) => (
-                <Link
-                    key={tab.id}
-                    href={`/ielts-exam-library?tab=${tab.id}&skill=${skill}`}
-                    className={cn(
-                        'flex items-center px-4 py-2 rounded-full text-sm font-medium transition-colors',
-                        currentTab === tab.id
-                            ? 'bg-primary-900 text-white'
-                            : 'bg-white text-tertiary-600 hover:bg-tertiary-50'
-                    )}
-                >
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4 mr-2"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d={tab.icon}
-                        />
-                    </svg>
-                    {tab.label}
-                </Link>
-            ))}
-        </div>
+        <nav aria-label="Exam type filters">
+            <ul className="flex flex-wrap gap-2 mb-6">
+                {tabs.map((tab) => (
+                    <li key={tab.id}>
+                        <Link
+                            href={`/ielts-exam-library?tab=${tab.id}&skill=${skill}`}
+                            className={cn(
+                                'flex items-center px-4 py-2 rounded-full text-sm font-medium transition-colors',
+                                currentTab === tab.id
+                                    ? 'bg-primary-900 text-white'
+                                    : 'bg-white text-tertiary-600 hover:bg-tertiary-50'
+                            )}
+                            aria-current={currentTab === tab.id ? 'page' : undefined}
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-4 w-4 mr-2"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d={tab.icon}
+                                />
+                            </svg>
+                            <span>{tab.label}</span>
+                        </Link>
+                    </li>
+                ))}
+            </ul>
+        </nav>
     );
 } 

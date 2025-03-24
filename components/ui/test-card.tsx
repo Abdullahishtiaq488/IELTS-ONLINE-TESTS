@@ -16,21 +16,24 @@ export function TestCard({ title, image, rating, votes, link }: TestCardProps) {
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 >= 0.3 && rating % 1 <= 0.7;
     const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+    
+    // Create accessible rating text
+    const ratingText = `${rating.toFixed(1)} out of 5 stars, based on ${votes.toLocaleString()} votes`;
 
     return (
-        <Link href={link} className="block h-full">
+        <Link href={link} className="block h-full" aria-label={`${title} - ${ratingText}`}>
             <div className="h-full rounded-lg overflow-hidden shadow-md border border-tertiary-200 bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                 {/* Card Image */}
                 <div className="relative aspect-[4/3] w-full">
                     <Image
                         src={image}
-                        alt={title}
+                        alt={`Preview of ${title}`}
                         fill
                         sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                         priority={false}
                         className="object-cover"
                     />
-                    <div className="absolute top-0 right-0 bg-secondary-600 text-white px-2 py-1 text-xs font-bold rounded-bl-lg">
+                    <div className="absolute top-0 right-0 bg-secondary-600 text-white px-2 py-1 text-xs font-bold rounded-bl-lg" aria-label="New test">
                         NEW
                     </div>
                 </div>
@@ -41,7 +44,7 @@ export function TestCard({ title, image, rating, votes, link }: TestCardProps) {
 
                     {/* Rating with Stars */}
                     <div className="flex items-center justify-between">
-                        <div className="flex items-center">
+                        <div className="flex items-center" aria-hidden="true">
                             <div className="flex mr-1">
                                 {/* Full stars */}
                                 {[...Array(fullStars)].map((_, i) => (
