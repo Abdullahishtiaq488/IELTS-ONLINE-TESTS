@@ -16,7 +16,8 @@ export const prepData: PrepData = {
                 localCurrency: "PKR",
                 isBestSeller: true,
                 soldCount: 5824,
-                url: "/reading/pdf-pack"
+                url: "/reading/pdf-pack",
+                segment: "reading"
             },
             {
                 id: "reading-practice-set",
@@ -29,7 +30,8 @@ export const prepData: PrepData = {
                 localCurrency: "PKR",
                 isNew: true,
                 soldCount: 2145,
-                url: "/reading/practice-set"
+                url: "/reading/practice-set",
+                segment: "reading"
             },
             {
                 id: "reading-strategies",
@@ -41,7 +43,8 @@ export const prepData: PrepData = {
                 localPrice: 838.15,
                 localCurrency: "PKR",
                 soldCount: 3567,
-                url: "/reading/strategies"
+                url: "/reading/strategies",
+                segment: "reading"
             },
             {
                 id: "reading-assessment",
@@ -53,7 +56,8 @@ export const prepData: PrepData = {
                 localPrice: 2799.20,
                 localCurrency: "PKR",
                 soldCount: 1290,
-                url: "/reading/assessment"
+                url: "/reading/assessment",
+                segment: "reading"
             }
         ]
     },
@@ -72,7 +76,8 @@ export const prepData: PrepData = {
                 localCurrency: "PKR",
                 isNew: true,
                 soldCount: 9063,
-                url: "/writing/gpt-evaluation"
+                url: "/writing/gpt-evaluation",
+                segment: "writing"
             },
             {
                 id: "writing-examiner-evaluation",
@@ -84,7 +89,8 @@ export const prepData: PrepData = {
                 localPrice: 5602.19,
                 localCurrency: "PKR",
                 soldCount: 13675,
-                url: "/writing/examiners-evaluation"
+                url: "/writing/examiners-evaluation",
+                segment: "writing"
             },
             {
                 id: "writing-academic-samples",
@@ -96,7 +102,8 @@ export const prepData: PrepData = {
                 localPrice: 838.15,
                 localCurrency: "PKR",
                 soldCount: 7420,
-                url: "/writing/academic-samples"
+                url: "/writing/academic-samples",
+                segment: "writing"
             },
             {
                 id: "writing-gt-samples",
@@ -108,7 +115,8 @@ export const prepData: PrepData = {
                 localPrice: 838.15,
                 localCurrency: "PKR",
                 soldCount: 6310,
-                url: "/writing/gt-samples"
+                url: "/writing/gt-samples",
+                segment: "writing"
             }
         ]
     },
@@ -127,7 +135,8 @@ export const prepData: PrepData = {
                 localCurrency: "PKR",
                 isBestSeller: true,
                 soldCount: 4827,
-                url: "/listening/pdf-pack"
+                url: "/listening/pdf-pack",
+                segment: "listening"
             },
             {
                 id: "listening-audio-collection",
@@ -139,7 +148,8 @@ export const prepData: PrepData = {
                 localPrice: 1678.80,
                 localCurrency: "PKR",
                 soldCount: 3254,
-                url: "/listening/audio-collection"
+                url: "/listening/audio-collection",
+                segment: "listening"
             },
             {
                 id: "listening-strategies",
@@ -151,7 +161,8 @@ export const prepData: PrepData = {
                 localPrice: 838.15,
                 localCurrency: "PKR",
                 soldCount: 2189,
-                url: "/listening/strategies"
+                url: "/listening/strategies",
+                segment: "listening"
             },
             {
                 id: "listening-assessment",
@@ -163,7 +174,8 @@ export const prepData: PrepData = {
                 localPrice: 2799.20,
                 localCurrency: "PKR",
                 soldCount: 1573,
-                url: "/listening/assessment"
+                url: "/listening/assessment",
+                segment: "listening"
             }
         ]
     },
@@ -182,7 +194,8 @@ export const prepData: PrepData = {
                 localCurrency: "PKR",
                 isNew: true,
                 soldCount: 8298,
-                url: "/speaking/gpt-evaluation"
+                url: "/speaking/gpt-evaluation",
+                segment: "speaking"
             },
             {
                 id: "speaking-examiner-evaluation",
@@ -194,7 +207,8 @@ export const prepData: PrepData = {
                 localPrice: 5602.19,
                 localCurrency: "PKR",
                 soldCount: 4218,
-                url: "/speaking/examiners-evaluation"
+                url: "/speaking/examiners-evaluation",
+                segment: "speaking"
             },
             {
                 id: "speaking-question-bank",
@@ -206,7 +220,8 @@ export const prepData: PrepData = {
                 localPrice: 1118.10,
                 localCurrency: "PKR",
                 soldCount: 6542,
-                url: "/speaking/question-bank"
+                url: "/speaking/question-bank",
+                segment: "speaking"
             },
             {
                 id: "speaking-vocabulary",
@@ -218,7 +233,8 @@ export const prepData: PrepData = {
                 localPrice: 838.15,
                 localCurrency: "PKR",
                 soldCount: 5923,
-                url: "/speaking/vocabulary"
+                url: "/speaking/vocabulary",
+                segment: "speaking"
             }
         ]
     }

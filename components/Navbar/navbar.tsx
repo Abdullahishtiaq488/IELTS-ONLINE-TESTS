@@ -110,11 +110,11 @@ export default function Navbar() {
                     onMouseLeave={() => hasItems && handleDropdownLeave(itemKey)}
                 >
                     {hasItems ? (
-                        <div className="flex items-center">
+                        <div className="flex items-center hover:bg-slate-600">
                             {item.href ? (
                                 <Link
                                     href={item.href}
-                                    className="flex-1 flex items-center gap-0.5 px-6 h-12 text-xs md:text-xs lg:text-sm font-bold text-white hover:bg-slate-600"
+                                    className="flex-1 flex items-center gap-0.5 px-6 h-12 text-xs md:text-xs lg:text-sm font-bold text-white"
                                 >
                                     <span>{item.label}</span>
                                 </Link>
@@ -124,7 +124,7 @@ export default function Navbar() {
                                 </span>
                             )}
                             <button
-                                className="flex items-center h-12 px-2 text-xs md:text-xs lg:text-sm font-bold text-white hover:bg-slate-600"
+                                className="flex items-center h-12 px-2 text-xs md:text-xs lg:text-sm font-bold text-white"
                                 aria-expanded={isActive}
                                 aria-controls={dropdownId}
                                 aria-haspopup="true"

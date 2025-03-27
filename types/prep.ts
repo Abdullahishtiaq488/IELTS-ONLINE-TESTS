@@ -12,6 +12,7 @@ export interface PrepCard {
     isNew?: boolean;
     soldCount: number;
     url: string;
+    segment?: 'reading' | 'writing' | 'listening' | 'speaking' | 'bestSeller';
 }
 
 export interface PrepSection {

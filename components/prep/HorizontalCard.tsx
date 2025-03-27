@@ -7,8 +7,41 @@ interface HorizontalCardProps {
 }
 
 export function HorizontalCard({ card }: HorizontalCardProps) {
+    // Define color schemes for each segment
+    const colorScheme = {
+        reading: {
+            title: 'text-green-600',
+            button: 'bg-green-600 hover:bg-green-700',
+            shadow: 'hover:shadow-green-200'
+        },
+        writing: {
+            title: 'text-amber-600',
+            button: 'bg-amber-600 hover:bg-amber-700',
+            shadow: 'hover:shadow-amber-200'
+        },
+        listening: {
+            title: 'text-primary-600',
+            button: 'bg-primary-600 hover:bg-primary-700',
+            shadow: 'hover:shadow-primary-200'
+        },
+        speaking: {
+            title: 'text-pink-600',
+            button: 'bg-pink-600 hover:bg-pink-700',
+            shadow: 'hover:shadow-pink-200'
+        },
+        bestSeller: {
+            title: 'text-primary-950',
+            button: 'bg-primary-950 hover:bg-primary-900',
+            shadow: 'hover:shadow-primary-200'
+        }
+    };
+
+    // Default to bestSeller if no segment specified
+    const segment = card.segment || (card.isBestSeller ? 'bestSeller' : 'speaking');
+    const colors = colorScheme[segment];
+
     return (
-        <div className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 flex">
+        <div className={`bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 flex transition-shadow ${colors.shadow}`}>
             {/* Card Image - Left Side */}
             <div className="relative w-[280px] min-w-[280px]">
                 <Image
@@ -26,55 +59,49 @@ export function HorizontalCard({ card }: HorizontalCardProps) {
                 )}
             </div>
 
-            {/* Card Content - Right Side */}
-            <div className="p-6 flex flex-col justify-between flex-grow">
-                <div>
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                        {card.title}
-                    </h3>
+            {/* Card Content - Middle */}
+            <div className="p-6 flex-grow">
+                <h3 className={`text-xl font-semibold ${colors.title} mb-3`}>
+                    {card.title}
+                </h3>
 
-                    <p className="text-md text-gray-600 mb-4 line-clamp-2">
-                        {card.description}
-                    </p>
+                <p className="text-md text-gray-600 mb-4">
+                    {card.description}
+                </p>
 
-                    {/* Additional description that might appear in expanded format */}
-                    <p className="text-gray-600 mb-4 hidden md:block">
-                        This video series includes all the videos from our IELTS expert Jamie, who gives
-                        thorough instruction on how to tackle specific questions type to achieve target scores.
-                    </p>
+                {/* Additional description */}
+                <p className="text-gray-600 mb-4 hidden md:block">
+                    This video series includes all the videos from our IELTS expert Jamie, who gives
+                    thorough instruction on how to tackle specific questions type to achieve target scores.
+                </p>
+
+                <div className="text-orange-500 text-sm mt-auto">
+                    🔥 {card.soldCount.toLocaleString()} sold
                 </div>
+            </div>
 
-                {/* Bottom Row with Price and Button */}
-                <div className="flex flex-wrap items-center justify-between gap-4">
-                    <div className="flex items-center gap-4">
-                        <div className="flex flex-col">
-                            <div className="flex items-center gap-2">
-                                <span className="font-bold text-2xl text-gray-900">
-                                    {card.price} {card.currency}
-                                </span>
-                                {card.originalPrice && (
-                                    <span className="text-gray-400 line-through text-sm">
-                                        {card.originalPrice} {card.currency}
-                                    </span>
-                                )}
-                            </div>
-                            <span className="text-xs text-gray-500">
-                                ~ {card.localPrice.toLocaleString()} {card.localCurrency}
-                            </span>
-                        </div>
-
-                        <span className="text-orange-500 text-sm hidden md:block">
-                            🔥 {card.soldCount.toLocaleString()} sold
+            {/* Price and Buy Button - Right Side */}
+            <div className="p-6 flex flex-col justify-center gap-4 min-w-[200px] border-l border-gray-100">
+                <div className="flex flex-col items-center">
+                    <span className="font-bold text-2xl text-gray-900 mb-1">
+                        {card.price} {card.currency}
+                    </span>
+                    {card.originalPrice && (
+                        <span className="text-gray-400 line-through text-sm mb-1">
+                            {card.originalPrice} {card.currency}
                         </span>
-                    </div>
-
-                    <Link
-                        href={card.url}
-                        className="bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-6 rounded-md transition-colors"
-                    >
-                        Buy Now
-                    </Link>
+                    )}
+                    <span className="text-xs text-gray-500 mb-4">
+                        ~ {card.localPrice.toLocaleString()} {card.localCurrency}
+                    </span>
                 </div>
+
+                <Link
+                    href={card.url}
+                    className={`${colors.button} text-white font-medium py-3 px-6 rounded-md transition-colors text-center`}
+                >
+                    Buy Now
+                </Link>
             </div>
         </div>
     );

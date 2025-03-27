@@ -3,6 +3,7 @@ import { NavigationItems } from '@/types/navigation';
 export const navigationItems: NavigationItems = {
     examLibrary: {
         label: 'IELTS Exam Library',
+        href: '/ielts-exam-library',
         items: [
             { label: 'IELTS Listening Tests', href: '/ielts-exam-library?skill=listening' },
             { label: 'IELTS Reading Tests', href: '/ielts-exam-library?skill=reading' },
@@ -13,6 +14,7 @@ export const navigationItems: NavigationItems = {
     },
     tips: {
         label: 'IELTS Tips',
+        href: '/ielts-tips',
         items: [
             { label: 'Listening Tips', href: '/listening-tips' },
             { label: 'Reading Tips', href: '/reading-tips' },
@@ -24,6 +26,7 @@ export const navigationItems: NavigationItems = {
     },
     prep: {
         label: 'IELTS Prep',
+        href: '/ielts-prep',
         items: [
             {
                 label: 'IELTS Writing Services',

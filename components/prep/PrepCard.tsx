@@ -7,8 +7,41 @@ interface PrepCardProps {
 }
 
 export function PrepCard({ card }: PrepCardProps) {
+    // Define color schemes for each segment
+    const colorScheme = {
+        reading: {
+            title: 'text-green-600',
+            button: 'bg-green-600 hover:bg-green-700',
+            shadow: 'hover:shadow-green-200'
+        },
+        writing: {
+            title: 'text-amber-600',
+            button: 'bg-amber-600 hover:bg-amber-700',
+            shadow: 'hover:shadow-amber-200'
+        },
+        listening: {
+            title: 'text-primary-600',
+            button: 'bg-primary-600 hover:bg-primary-700',
+            shadow: 'hover:shadow-primary-200'
+        },
+        speaking: {
+            title: 'text-pink-600',
+            button: 'bg-pink-600 hover:bg-pink-700',
+            shadow: 'hover:shadow-pink-200'
+        },
+        bestSeller: {
+            title: 'text-primary-950',
+            button: 'bg-primary-950 hover:bg-primary-900',
+            shadow: 'hover:shadow-primary-200'
+        }
+    };
+
+    // Default to bestSeller if no segment specified
+    const segment = card.segment || (card.isBestSeller ? 'bestSeller' : 'speaking');
+    const colors = colorScheme[segment];
+
     return (
-        <div className="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 flex flex-col h-full">
+        <div className={`bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 flex flex-col h-full transition-shadow ${colors.shadow}`}>
             {/* Card Image */}
             <div className="relative aspect-[4/3] w-full">
                 <Image
@@ -28,7 +61,7 @@ export function PrepCard({ card }: PrepCardProps) {
 
             {/* Card Content */}
             <div className="p-4 flex flex-col flex-grow">
-                <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
+                <h3 className={`text-lg font-semibold ${colors.title} mb-2 line-clamp-2`}>
                     {card.title}
                 </h3>
 
@@ -63,7 +96,7 @@ export function PrepCard({ card }: PrepCardProps) {
 
                     <Link
                         href={card.url}
-                        className="bg-rose-500 hover:bg-rose-600 text-white font-medium py-2 px-4 rounded-md transition-colors"
+                        className={`${colors.button} text-white font-medium py-2 px-4 rounded-md transition-colors`}
                     >
                         Buy Now
                     </Link>
