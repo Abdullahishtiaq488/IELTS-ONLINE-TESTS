@@ -38,8 +38,8 @@ export default function Navbar() {
     // Handle clicks outside mobile menu to close it
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
-            if (isMobileMenuOpen && 
-                mobileMenuRef.current && 
+            if (isMobileMenuOpen &&
+                mobileMenuRef.current &&
                 !mobileMenuRef.current.contains(event.target as Node)) {
                 setIsMobileMenuOpen(false);
             }
@@ -58,7 +58,7 @@ export default function Navbar() {
         } else {
             document.body.style.overflow = '';
         }
-        
+
         return () => {
             document.body.style.overflow = '';
         };
@@ -110,18 +110,31 @@ export default function Navbar() {
                     onMouseLeave={() => hasItems && handleDropdownLeave(itemKey)}
                 >
                     {hasItems ? (
-                        <button
-                            className={`flex items-center gap-0.5 px-6 h-12 text-xs md:text-xs lg:text-sm font-bold text-white hover:bg-slate-600 ${isNested ? 'pl-4 h-8' : ''}`}
-                            aria-expanded={isActive}
-                            aria-controls={dropdownId}
-                            aria-haspopup="true"
-                        >
-                            <span>{item.label}</span>
-                            <ChevronDown
-                                className={`w-3 h-3 md:w-3.5 md:h-3.5 ml-0.5 transition-transform ${isActive ? 'rotate-180' : ''}`}
-                                aria-hidden="true"
-                            />
-                        </button>
+                        <div className="flex items-center">
+                            {item.href ? (
+                                <Link
+                                    href={item.href}
+                                    className="flex-1 flex items-center gap-0.5 px-6 h-12 text-xs md:text-xs lg:text-sm font-bold text-white hover:bg-slate-600"
+                                >
+                                    <span>{item.label}</span>
+                                </Link>
+                            ) : (
+                                <span className="flex-1 flex items-center gap-0.5 px-6 h-12 text-xs md:text-xs lg:text-sm font-bold text-white">
+                                    {item.label}
+                                </span>
+                            )}
+                            <button
+                                className="flex items-center h-12 px-2 text-xs md:text-xs lg:text-sm font-bold text-white hover:bg-slate-600"
+                                aria-expanded={isActive}
+                                aria-controls={dropdownId}
+                                aria-haspopup="true"
+                            >
+                                <ChevronDown
+                                    className={`w-3 h-3 md:w-3.5 md:h-3.5 transition-transform ${isActive ? 'rotate-180' : ''}`}
+                                    aria-hidden="true"
+                                />
+                            </button>
+                        </div>
                     ) : (
                         <Link
                             href={item.href || '#'}
@@ -158,34 +171,48 @@ export default function Navbar() {
             return (
                 <div key={itemKey}>
                     {hasItems ? (
-                        <button
-                            className={`flex w-full items-center justify-between px-3 py-3 text-sm font-bold text-secondary-700 hover:bg-secondary-50 ${isNested ? 'pl-6' : ''} transition-colors duration-200`}
-                            onClick={() => {
-                                // Close other dropdowns at the same level
-                                const newDropdowns = { ...activeDropdowns };
+                        <div className="flex items-center w-full">
+                            {item.href ? (
+                                <Link
+                                    href={item.href}
+                                    className={`flex-1 px-3 py-3 text-sm font-bold text-secondary-700 hover:bg-secondary-50 ${isNested ? 'pl-6' : ''} transition-colors duration-200`}
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                    {item.label}
+                                </Link>
+                            ) : (
+                                <span className={`flex-1 px-3 py-3 text-sm font-bold text-secondary-700 ${isNested ? 'pl-6' : ''}`}>
+                                    {item.label}
+                                </span>
+                            )}
+                            <button
+                                className={`px-3 py-3 text-sm font-bold text-secondary-700 hover:bg-secondary-50 transition-colors duration-200`}
+                                onClick={() => {
+                                    // Close other dropdowns at the same level
+                                    const newDropdowns = { ...activeDropdowns };
 
-                                // Find and close siblings at the same level
-                                Object.keys(newDropdowns).forEach(key => {
-                                    if (key.startsWith('mobile-') && key !== itemKey &&
-                                        key.split('-').length === itemKey.split('-').length) {
-                                        newDropdowns[key] = false;
-                                    }
-                                });
+                                    // Find and close siblings at the same level
+                                    Object.keys(newDropdowns).forEach(key => {
+                                        if (key.startsWith('mobile-') && key !== itemKey &&
+                                            key.split('-').length === itemKey.split('-').length) {
+                                            newDropdowns[key] = false;
+                                        }
+                                    });
 
-                                // Toggle current dropdown
-                                newDropdowns[itemKey] = !newDropdowns[itemKey];
-                                setActiveDropdowns(newDropdowns);
-                            }}
-                            aria-expanded={isActive}
-                            aria-controls={mobileDropdownId}
-                            aria-haspopup="true"
-                        >
-                            <span>{item.label}</span>
-                            <ChevronRight
-                                className={`w-4 h-4 transition-transform duration-300 ${isActive ? 'transform rotate-90' : ''}`}
-                                aria-hidden="true"
-                            />
-                        </button>
+                                    // Toggle current dropdown
+                                    newDropdowns[itemKey] = !newDropdowns[itemKey];
+                                    setActiveDropdowns(newDropdowns);
+                                }}
+                                aria-expanded={isActive}
+                                aria-controls={mobileDropdownId}
+                                aria-haspopup="true"
+                            >
+                                <ChevronRight
+                                    className={`w-4 h-4 transition-transform duration-300 ${isActive ? 'transform rotate-90' : ''}`}
+                                    aria-hidden="true"
+                                />
+                            </button>
+                        </div>
                     ) : (
                         <Link
                             href={item.href || '#'}
@@ -197,9 +224,9 @@ export default function Navbar() {
                     )}
 
                     {hasItems && item.items && (
-                        <div 
-                            id={mobileDropdownId} 
-                            className={`bg-muted-50 overflow-hidden transition-all duration-300 ease-in-out ${isActive ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`} 
+                        <div
+                            id={mobileDropdownId}
+                            className={`bg-muted-50 overflow-hidden transition-all duration-300 ease-in-out ${isActive ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}
                             role="menu"
                         >
                             {renderMobileNavItems(item.items, true)}

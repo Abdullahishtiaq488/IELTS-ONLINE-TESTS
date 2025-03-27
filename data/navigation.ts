@@ -27,35 +27,40 @@ export const navigationItems: NavigationItems = {
         items: [
             {
                 label: 'IELTS Writing Services',
+                href: '/ielts-writing-prep',
                 items: [
-                    { label: 'GPT Evaluation', href: '/writing/gpt-evaluation' },
-                    { label: 'Examiners Evaluation', href: '/writing/examiners-evaluation' },
-                    { label: 'Sample Essays - Academic', href: '/writing/academic-samples' },
-                    { label: 'Sample Essays - GT', href: '/writing/gt-samples' },
+                    { label: 'GPT Evaluation', href: '/ielts-writing-prep' },
+                    { label: 'Examiners Evaluation', href: '/ielts-writing-prep' },
+                    { label: 'Sample Essays - Academic', href: '/ielts-writing-prep' },
+                    { label: 'Sample Essays - GT', href: '/ielts-writing-prep' },
                 ],
             },
             {
                 label: 'IELTS Speaking Services',
-                items: [{ label: 'GPT Evaluation', href: '/speaking/gpt-evaluation' }],
+                href: '/ielts-speaking-prep',
+                items: [{ label: 'GPT Evaluation', href: '/ielts-speaking-prep' }],
             },
             {
                 label: 'IELTS Listening Services',
-                items: [{ label: 'Super PDF Pack', href: '/listening/pdf-pack' }],
+                href: '/ielts-listening-prep',
+                items: [{ label: 'Super PDF Pack', href: '/ielts-listening-prep' }],
             },
             {
                 label: 'IELTS Reading Services',
-                items: [{ label: 'Super PDF Pack', href: '/reading/pdf-pack' }],
+                href: '/ielts-reading-prep',
+                items: [{ label: 'Super PDF Pack', href: '/ielts-reading-prep' }],
             },
             {
                 label: 'Video Learning',
+                href: '/ielts-prep',
                 items: [
-                    { label: 'IELTS Explained - All Videos', href: '/videos/explained' },
-                    { label: 'IELTS Self-Study Course', href: '/videos/self-study' },
-                    { label: 'IELTS Live Lessons - Recorded', href: '/videos/recorded' },
-                    { label: 'IELTS Video Courses', href: '/videos/courses' },
+                    { label: 'IELTS Explained - All Videos', href: '/ielts-prep' },
+                    { label: 'IELTS Self-Study Course', href: '/ielts-prep' },
+                    { label: 'IELTS Live Lessons - Recorded', href: '/ielts-prep' },
+                    { label: 'IELTS Video Courses', href: '/ielts-prep' },
                 ],
             },
-            { label: 'IELTS AI Checker', href: '/ai-checker' },
+            { label: 'IELTS AI Checker', href: '/ielts-prep' },
         ],
     },
 }; 

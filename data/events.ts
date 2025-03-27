@@ -1,8 +1,10 @@
 import { LiveEvent } from '@/types/data';
 
+// Array of upcoming live events with details like category, title, author, images, 
+// organization info, date/time, attendees count, language, and join link
 export const upcomingLiveEvents: LiveEvent[] = [
     {
-        category: "Speaking",
+        category: "Speaking", // Event category (Speaking/Writing)
         title: "Speaking - Talking about People",
         author: "Gillian S.",
         authorImage: "/images/professor1.jpg",
@@ -11,7 +13,7 @@ export const upcomingLiveEvents: LiveEvent[] = [
         organizationName: "InterGreat Education Group",
         date: "20/03/2025",
         time: "18:00 - 19:00 (GMT +5)",
-        attendees: 1350,
+        attendees: 1350, // Number of registered attendees
         language: "English",
         joinLink: "/events/speaking-talking-about-people"
     },
