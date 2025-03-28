@@ -105,7 +105,7 @@ export default function Navbar() {
             return (
                 <div
                     key={itemKey}
-                    className="relative"
+                    className="relative font-montserrat text-xs"
                     onMouseEnter={() => hasItems && handleDropdownEnter(itemKey)}
                     onMouseLeave={() => hasItems && handleDropdownLeave(itemKey)}
                 >
@@ -114,12 +114,12 @@ export default function Navbar() {
                             {item.href ? (
                                 <Link
                                     href={item.href}
-                                    className="flex-1 flex items-center gap-0.5 px-6 h-12 text-xs md:text-xs lg:text-sm font-bold text-white"
+                                    className="flex-1 flex items-center gap-0.5 px-4 h-12 text-xxs md:text-xs lg:text-sm font-bold text-white"
                                 >
                                     <span>{item.label}</span>
                                 </Link>
                             ) : (
-                                <span className="flex-1 flex items-center gap-0.5 px-6 h-12 text-xs md:text-xs lg:text-sm font-bold text-white">
+                                <span className="flex-1 flex items-center gap-0.5 px-4 h-12 text-xs md:text-xs lg:text-sm font-bold text-white">
                                     {item.label}
                                 </span>
                             )}

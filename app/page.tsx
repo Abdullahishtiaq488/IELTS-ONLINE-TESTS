@@ -10,7 +10,7 @@ import PartnersSection from '@/components/home/partners-section';
 
 export default function Home() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col ">
       <h1 className="sr-only">IELTS Online Practice Tests - Your Path to Higher Scores</h1>
 
       {/* Full-width component */}

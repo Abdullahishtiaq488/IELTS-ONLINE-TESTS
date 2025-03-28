@@ -79,7 +79,7 @@ export default function IELTSTipsPage() {
                             </div>
 
                             {/* Tips Section Cards */}
-                            <section aria-labelledby="tips-section-cards" className="mb-8">
+                            <section aria-labelledby="tips-section-cards" className="mb-8 ">
                                 <h2 id="tips-section-cards" className="text-2xl font-bold text-primary-900 mb-6">IELTS Sections</h2>
                                 <TipsCardGrid tipsCards={tipsCards} />
                             </section>
@@ -130,11 +130,7 @@ export default function IELTSTipsPage() {
                                 </div>
                             </section>
 
-                            {/* Example Product Card */}
-                            <section aria-labelledby="example-product-card" className="mb-12">
-                                <h2 id="example-product-card" className="text-2xl font-bold text-primary-900 mb-6">Featured Course</h2>
-                                <ExplainedVideoCard />
-                            </section>
+                            
                         </div>
 
                         {/* Sidebar - Right Side */}
