@@ -5,8 +5,6 @@ import { ieltsTips } from '@/data/tips';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Eye, RefreshCw } from 'lucide-react';
-import { ExplainedVideoCard } from '@/components/prep/ExplainedVideoCard';
-
 export default function IELTSTipsPage() {
     // Define cards for each section
     const tipsCards = [
