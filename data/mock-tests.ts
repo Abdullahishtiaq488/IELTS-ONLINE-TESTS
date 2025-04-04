@@ -15,14 +15,14 @@ export const latestMockTests: MockTest[] = [
         link: "/exam-library"    },
     {
         title: "IELTS Practice Test Volume 8",
-        image: "/images/mock-test2.jpg",
+        image: "/images/mock-test-2025.jpg",
         rating: 3.6,
         votes: 1489,
         link: "/exam-library"
     },
     {
         title: "Prepare for IELTS General Training Volume 2",
-        image: "/images/mock-test3.jpg",
+        image: "/images/mock-test-2025.jpg",
         rating: 3.3,
         votes: 1022,
         link: "/exam-library"

@@ -9,12 +9,12 @@ export const testimonials: Testimonial[] = [
     {
         name: "David Wagaba",
         image: "/images/testimon-m2.jpg",
-        text: "Thank you so much for the IELTS online mock tests as they really helped me to achieve a Band 7.5 on my first attempt at the IELTS test. The practice materials were comprehensive and the feedback was incredibly helpful."
+        text: "Thank you so much for the IELTS Project mock tests as they really helped me to achieve a Band 7.5 on my first attempt at the IELTS test. The practice materials were comprehensive and the feedback was incredibly helpful."
     },
     {
         name: "Quoc Tran Anh Le",
         image: "/images/testimon-m3.jpg",
-        text: "I have nothing to say but a brief thanks to IELTS Online Tests for helping me with my road to achieving success in the IELTS test. I've been using your platform for 3 months and improved my score from 6.0 to 7.5!"
+        text: "I have nothing to say but a brief thanks to IELTS Project for helping me with my road to achieving success in the IELTS test. I've been using your platform for 3 months and improved my score from 6.0 to 7.5!"
     },
     {
         name: "Sophia Williams",

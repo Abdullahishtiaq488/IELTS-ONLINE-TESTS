@@ -7,6 +7,7 @@ export default function TestimonialsSection() {
     return (
         <Section background="gray">
             <div className="mb-12 text-center">
+            <h2 className="text-3xl font-bold text-secondary-900">Test Taker's Testimonials</h2>
                 <h2 className="text-3xl font-bold text-primary-900">What IELTS test takers say about us</h2>
             </div>
             <TestimonialSlider testimonials={testimonials} />

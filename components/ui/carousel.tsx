@@ -39,18 +39,17 @@ export default function Carousel() {
                             <div className="w-full md:w-1/2 flex flex-col justify-center items-start space-y-6">
                                 <div className="space-y-4">
                                     <h2 className="text-white text-4xl md:text-5xl font-light tracking-wide">
-                                        We take your
+                                        Achieve a
                                     </h2>
                                     <h3 className="text-white text-3xl md:text-4xl font-bold tracking-wide">
-                                        IELTS score higher
+                                        Higher IELTS Score
                                     </h3>
                                 </div>
 
-                                <div className="bg-blue-900/20 backdrop-blur-md p-4 rounded-lg border border-blue-800/30">
+                                <div className="bg-blue-900/20 backdrop-blur-md py-4 rounded-lg border border-blue-800/30">
                                     <p className="text-blue-100 text-base md:text-lg">
-                                        Get ready for your 2025 IELTS exam by practicing our
-                                        <span className="font-bold text-white"> IELTS mock tests</span>
-                                        <span className="font-bold text-white"> for free</span>
+                                        Realistic IELTS Mock Tests <br />
+                                        <span className="font-bold text-white">Perfect for your 2025 exam strategy</span>
                                     </p>
                                 </div>
 
@@ -83,9 +82,9 @@ export default function Carousel() {
                                 </a>
                             </div>
 
-                            <div className="w-full md:w-1/2 relative overflow-hidden mt-8 md:mt-0 flex items-center justify-center">
+                            <div className="w-full md:w-1/2 relative overflow-hidden mt-8 md:mt-0 flex items-center justify-center md:justify-end">
                                 {/* YouTube Video using iframe */}
-                                <div className="relative w-full max-w-[500px] aspect-video rounded-lg overflow-hidden shadow-2xl">
+                                <div className="relative w-full max-w-[500px] aspect-video rounded-lg overflow-hidden shadow-2xl md:mr-0">
                                     <iframe
                                         src="https://www.youtube.com/embed/483rMP3rCk8?si=BILL1M5_VdQN5Lmw&autoplay=1&mute=1&modestbranding=1&rel=0"
                                         title="IELTS Preparation Video"
