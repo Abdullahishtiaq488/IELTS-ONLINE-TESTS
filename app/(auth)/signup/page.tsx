@@ -2,8 +2,8 @@ import React from 'react';
 import RegisterForm from '@/components/forms/register-form';
 
 export const metadata = {
-    title: 'Sign Up - IELTS Online Tests',
-    description: 'Create your IELTS Online Tests account',
+    title: 'Sign Up - The IELTS Project',
+    description: 'Create your IELTS Project account',
 };
 
 export default function SignupPage() {

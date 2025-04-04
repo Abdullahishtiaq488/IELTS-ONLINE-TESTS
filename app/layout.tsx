@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "IELTS Online Practice Tests",
+  title: "The IELTS Project - Practice Tests",
   description: "Practice IELTS tests online with comprehensive resources and expert guidance",
   keywords: "IELTS, online practice, IELTS tests, IELTS preparation, IELTS tips",
 };

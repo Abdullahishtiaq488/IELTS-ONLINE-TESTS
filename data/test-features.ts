@@ -26,8 +26,8 @@ export const testFeatures: TestFeature[] = [
         image: '/images/ielts-question4.png'
     },
     {
-        id: 'iot-analytics',
-        title: 'IOT Analytics',
+        id: 'ip-analytics',
+        title: 'I.P. Analytics',
         description: 'A brand new feature allowing IELTS test takers to track their IELTS learning and achievement progress. View all data like average IELTS band scores and time spent. It even shows what type of questions you need to improve on and for which elements you need to study more.',
         image: '/images/ielts-question5.jpeg'
     }

@@ -24,9 +24,9 @@ export default function Footer() {
                         <div className="mt-6 flex flex-col gap-3">
                             <div className="relative inline-block w-44">
                                 <label htmlFor="currency-selector" className="sr-only">Select currency</label>
-                                <select 
+                                <select
                                     id="currency-selector"
-                                    className="block appearance-none w-full bg-muted-100 border border-muted-300 text-black py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:ring-2 focus:ring-primary-500" 
+                                    className="block appearance-none w-full bg-muted-100 border border-muted-300 text-black py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:ring-2 focus:ring-primary-500"
                                 >
                                     <option>PKR ₨</option>
                                     <option>USD $</option>
@@ -42,9 +42,9 @@ export default function Footer() {
 
                             <div className="relative inline-block w-44">
                                 <label htmlFor="language-selector" className="sr-only">Select language</label>
-                                <select 
+                                <select
                                     id="language-selector"
-                                    className="block appearance-none w-full bg-muted-100 border border-muted-300 text-primary-900 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:ring-2 focus:ring-primary-500" 
+                                    className="block appearance-none w-full bg-muted-100 border border-muted-300 text-primary-900 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:ring-2 focus:ring-primary-500"
                                 >
                                     <option>English</option>
                                     <option>Español</option>
@@ -63,22 +63,16 @@ export default function Footer() {
                     {/* Right Column - About & Mission */}
                     <div className="md:col-span-8">
                         <section aria-labelledby="about-heading" className="mb-8">
-                            <h2 id="about-heading" className="text-xl font-bold mb-4">About us</h2>
+                            <h2 id="about-heading" className="text-xl font-bold mb-4">About Us</h2>
                             <p className="text-white text-base">
-                                IELTS Online Tests (IOT) belongs to InterGreat Education Group, founded in 2008, with branch offices located in 12
-                                countries around the world. InterGreat&apos;s head office is situated on Threadneedle Street in London, the iconic home
-                                of the Bank of England.
+                                The IELTS Project was founded in 2024 with the goal of providing high-quality IELTS preparation materials to students worldwide. We offer mock test materials, AI-powered practice tests and multilingual PDF guides with expert tips to help learners improve their scores efficiently. Our unique leaderboard feature adds a competitive edge, motivating students to track their progress and strive for higher band scores.
                             </p>
                         </section>
 
                         <section aria-labelledby="mission-heading" className="mb-8">
-                            <h2 id="mission-heading" className="text-xl font-bold mb-4">Our mission</h2>
+                            <h2 id="mission-heading" className="text-xl font-bold mb-4">Our Mission</h2>
                             <p className="text-white text-base">
-                                IOT has currently been the most visited website in over 120 countries with more than 28 million students. We are
-                                aiming toward a community website that provides IELTS test questions and exam tips for free. Students can easily
-                                take the IELTS tests on the website to improve their band scores effectively within a short time through our modern
-                                e-learning platform. Moreover, we have developed an ecosystem centred around transnational education, online
-                                learning, and study abroad to assist students in the pursuit of international education.
+                                Currently focusing on six countries, The IELTS Project is committed to making IELTS preparation accessible and effective. Our platform is designed to support students with a modern e-learning experience, helping them enhance their test-taking skills with real exam-like practice. Through our comprehensive resources and innovative tools, we empower students to achieve their desired IELTS scores and unlock global education opportunities.
                             </p>
                         </section>
 
@@ -110,7 +104,7 @@ export default function Footer() {
 
                 {/* Copyright and Disclaimers */}
                 <div className="border-t border-muted-700 pt-6 mt-6 text-xs text-white/80">
-                    <p className="mb-3">© 2017-2025 InterGreat Education Group</p>
+                    <p className="mb-3">© 2024-2025 The IELTS Project</p>
 
                     <p className="mb-3">
                         IELTS is a registered trademark of University of Cambridge, the British Council, and IDP Education Australia. This site and its owners are not affiliated,

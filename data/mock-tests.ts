@@ -2,31 +2,29 @@ import { MockTest } from '@/types/data';
 
 export const latestMockTests: MockTest[] = [
     {
-        title: "IELTS Mock Test 2023 December",
-        image: "/images/mock-test1.jpg",
+        title: "IELTS Mock Test 2025 December",
+        image: "/images/mock-test-2025.jpg",
         rating: 3.5,
         votes: 2099,
-        link: "/mock-tests/december-2023"
-    },
+        link: "/exam-library"   },
     {
-        title: "IELTS Mock Test 2023 September",
-        image: "/images/mock-test1.jpg",
+        title: "IELTS Mock Test 2025 September",
+        image: "/images/mock-test-2025.jpg",
         rating: 3.3,
         votes: 884,
-        link: "/mock-tests/september-2023"
-    },
+        link: "/exam-library"    },
     {
         title: "IELTS Practice Test Volume 8",
         image: "/images/mock-test2.jpg",
         rating: 3.6,
         votes: 1489,
-        link: "/practice-tests/volume-8"
+        link: "/exam-library"
     },
     {
         title: "Prepare for IELTS General Training Volume 2",
         image: "/images/mock-test3.jpg",
         rating: 3.3,
         votes: 1022,
-        link: "/general-training/volume-2"
+        link: "/exam-library"
     }
 ]; 

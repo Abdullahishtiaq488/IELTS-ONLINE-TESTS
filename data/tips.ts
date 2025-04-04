@@ -155,7 +155,7 @@ export const popularTips = {
 export const featuredTips = [
     {
         id: '1',
-        title: 'IELTS Grammar 101 by IOT',
+        title: 'IELTS Grammar 101 by I.P.',
         description: 'In the journey towards achieving success in the IELTS examination, a solid grasp of grammar is essential. The IELTS Grammar 101 course is designed...',
         image: '/images/featured-ielts-tips1.png',
         category: 'IELTS Grammar',

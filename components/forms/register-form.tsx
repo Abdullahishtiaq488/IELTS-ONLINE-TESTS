@@ -37,7 +37,7 @@ export default function RegisterForm({ showHeader = true }: RegisterFormProps) {
             {showHeader && (
                 <>
                     <div className="flex justify-center mb-4">
-                        <Image src="/images/logo.jpg" alt="IELTS Online Tests" width={180} height={60} priority />
+                        <Image src="/images/logo.jpg" alt="The IELTS Project" width={180} height={60} priority />
                     </div>
                     <h1 className="text-2xl font-bold text-center text-primary-900 mb-8">CREATE AN ACCOUNT</h1>
                 </>
@@ -166,7 +166,7 @@ export default function RegisterForm({ showHeader = true }: RegisterFormProps) {
                 {/* Right side - Social logins */}
                 <div className="md:w-1/2">
                     <div className="space-y-4 h-full flex flex-col justify-center">
-                        <button 
+                        <button
                             type="button"
                             className="w-full flex items-center justify-center bg-secondary-500 hover:bg-muted-600 text-white py-3 rounded-md"
                             aria-label="Login with Google"
@@ -177,7 +177,7 @@ export default function RegisterForm({ showHeader = true }: RegisterFormProps) {
                             Login with Google
                         </button>
 
-                        <button 
+                        <button
                             type="button"
                             className="w-full flex items-center justify-center bg-primary-600 hover:bg-primary-700 text-white py-3 rounded-md"
                             aria-label="Login with Facebook"
@@ -188,7 +188,7 @@ export default function RegisterForm({ showHeader = true }: RegisterFormProps) {
                             Login with Facebook
                         </button>
 
-                        <button 
+                        <button
                             type="button"
                             className="w-full flex items-center justify-center bg-primary-400 hover:bg-primary-500 text-white py-3 rounded-md"
                             aria-label="Login with Twitter"
@@ -205,7 +205,7 @@ export default function RegisterForm({ showHeader = true }: RegisterFormProps) {
             {showHeader && (
                 <div className="text-center mt-8">
                     <p>
-                        By joining IELTS Online Tests, you agree to our{' '}
+                        By joining The IELTS Project, you agree to our{' '}
                         <Link href="/terms" className="text-primary-900 font-medium" aria-label="Read Terms of Use">Terms of Use</Link> and{' '}
                         <Link href="/privacy" className="text-primary-900 font-medium" aria-label="Read Privacy Policy">Privacy Policy</Link>
                     </p>

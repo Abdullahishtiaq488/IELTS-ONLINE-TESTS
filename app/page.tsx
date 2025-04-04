@@ -11,7 +11,7 @@ import PartnersSection from '@/components/home/partners-section';
 export default function Home() {
   return (
     <div className="flex flex-col ">
-      <h1 className="sr-only">IELTS Online Practice Tests - Your Path to Higher Scores</h1>
+      <h1 className="sr-only">The IELTS Project - Your Path to Higher Scores</h1>
 
       {/* Full-width component */}
       <section aria-labelledby="carousel-heading">
@@ -29,9 +29,9 @@ export default function Home() {
           <WhyUseSection />
         </section>
 
-        <section aria-labelledby="stats-heading">
+        {/* <section aria-labelledby="stats-heading">
           <StatsSection />
-        </section>
+        </section> */}
 
         <section aria-labelledby="features-heading">
           <FeaturesSection />

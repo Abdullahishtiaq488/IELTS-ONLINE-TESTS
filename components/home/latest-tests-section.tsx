@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Section } from '@/components/ui/section';
 import { TestCard } from '@/components/ui/test-card';
 import { latestMockTests } from '@/data/mock-tests';
@@ -22,9 +23,9 @@ export default function LatestTestsSection() {
                 ))}
             </div>
             <div className="mt-10 flex justify-center">
-                <button className="bg-primary-800 hover:bg-primary-900 text-white font-semibold py-2.5 px-8 rounded-md transition-colors shadow-sm">
+                <Link href="/ielts-exam-library" className="bg-primary-800 hover:bg-primary-900 text-white font-semibold py-2.5 px-8 rounded-md transition-colors shadow-sm">
                     View all tests
-                </button>
+                </Link>
             </div>
         </Section>
     );

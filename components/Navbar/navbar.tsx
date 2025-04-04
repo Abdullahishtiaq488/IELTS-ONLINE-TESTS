@@ -247,7 +247,7 @@ export default function Navbar() {
                             <Link href="/" className="flex items-center">
                                 <Image
                                     src="/images/logo.jpg"
-                                    alt="IELTS Online"
+                                    alt="The IELTS Project"
                                     width={1250}
                                     height={965}
                                     className="h-16 md:h-20 lg:h-24 w-auto object-contain"
@@ -257,8 +257,8 @@ export default function Navbar() {
                         </div>
                         <div className="flex-shrink-0">
                             <Image
-                                src="/images/top-nav-horizontal.png"
-                                alt="IELTS Online Banner"
+                                src="/images/top-nav-horizontal.jpg"
+                                alt="The IELTS Project Banner"
                                 width={600}
                                 height={80}
                                 className="h-16 md:h-20 lg:h-24 w-auto"
@@ -305,7 +305,7 @@ export default function Navbar() {
                     <Link href="/" className="flex-shrink-0">
                         <Image
                             src="/images/logo.jpg"
-                            alt="IELTS Online"
+                            alt="The IELTS Project"
                             width={1250}
                             height={965}
                             className="h-10 w-auto"

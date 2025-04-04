@@ -7,7 +7,7 @@ export const ieltsStats: IELTSStat[] = [
         image: "/images/number-section1.png"
     },
     {
-        value: "28.000.000+",
+        value: "50,000+",
         label: "Test Takers",
         image: "/images/number-section2.png"
     },
@@ -17,8 +17,8 @@ export const ieltsStats: IELTSStat[] = [
         image: "/images/number-section3.png"
     },
     {
-        value: "100+",
-        label: "Academic Tests",
+        value: "Our",
+        label: "IELTS mock tests",
         image: "/images/number-section4.png"
     },
     {

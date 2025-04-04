@@ -2,8 +2,8 @@ import React from 'react';
 import LoginForm from '@/components/forms/login-form';
 
 export const metadata = {
-  title: 'Log In - IELTS Online Tests',
-  description: 'Log in to your IELTS Online Tests account',
+  title: 'Log In - The IELTS Project',
+  description: 'Log in to your IELTS Project account',
 };
 
 export default function LoginPage() {

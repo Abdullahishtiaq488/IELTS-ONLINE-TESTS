@@ -33,4 +33,4 @@ export const partners: Partner[] = [
     }
 ];
 
-export const partnerDescription = "IELTS Online IOT has reached extensive cooperation with overseas institutions, international education non-profit organizations and IELTS test bureaus to provide a brand new IELTS learning platform for IELTS students around the world."; 
+export const partnerDescription = "The IELTS Project is building a global IELTS learning platform and seeking collaborations with institutions, non-profits, and training centers. Let's work together to support students with innovative and accessible test prep."; 

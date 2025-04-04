@@ -3,8 +3,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const metadata = {
-  title: 'Forgot Password - IELTS Online Tests',
-  description: 'Reset your IELTS Online Tests password',
+  title: 'Forgot Password - The IELTS Project',
+  description: 'Reset your IELTS Project password',
 };
 
 export default function ForgotPasswordPage() {
@@ -12,7 +12,7 @@ export default function ForgotPasswordPage() {
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md mx-auto bg-white rounded-4xl shadow-2xl p-8">
         <div className="flex justify-center mb-8">
-          <Image src="/images/logo.jpg" alt="IELTS Online Tests" width={180} height={60} />
+          <Image src="/images/logo.jpg" alt="The IELTS Project" width={180} height={60} />
         </div>
 
         <h1 className="text-2xl font-bold text-center text-primary-900 mb-4">FORGOT PASSWORD</h1>

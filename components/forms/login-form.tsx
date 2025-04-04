@@ -41,7 +41,7 @@ export default function LoginForm({ showHeader = true }: LoginFormProps) {
             {showHeader && (
                 <>
                     <div className="flex justify-center mb-4">
-                        <Image src="/images/logo.jpg" alt="IELTS Online Tests" width={180} height={60} priority />
+                        <Image src="/images/logo.jpg" alt="The IELTS Project" width={180} height={60} priority />
                     </div>
                     <h1 className="text-2xl font-bold text-center text-primary-900 mb-8">LOG IN TO YOUR ACCOUNT</h1>
                 </>
