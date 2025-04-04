@@ -12,25 +12,25 @@ export default function IELTSTipsPage() {
             title: "Reading Tips",
             image: "/images/reading.jpg",
             description: "Improve your reading speed, comprehension, and test-taking strategies for the IELTS Reading section.",
-            link: "/reading-tips"
+            link: "/blog/ielts-reading-guide"
         },
         {
             title: "Writing Tips",
             image: "/images/writing.jpg",
             description: "Learn how to write high-scoring essays, improve your grammar, and master Task 1 and Task 2 responses.",
-            link: "/writing-tips"
+            link: "/blog/ielts-writing-tips"
         },
         {
             title: "Listening Tips",
             image: "/images/listening.jpg",
             description: "Develop effective listening strategies, note-taking skills, and techniques to excel in all question types.",
-            link: "/listening-tips"
+            link: "/blog/ielts-listening-strategies"
         },
         {
             title: "Speaking Tips",
             image: "/images/speaking.jpeg",
             description: "Build confidence, improve fluency, and learn strategies for all parts of the IELTS Speaking test.",
-            link: "/speaking-tips"
+            link: "/blog/ielts-speaking-success"
         }
     ];
 
@@ -128,7 +128,7 @@ export default function IELTSTipsPage() {
                                 </div>
                             </section>
 
-                            
+
                         </div>
 
                         {/* Sidebar - Right Side */}

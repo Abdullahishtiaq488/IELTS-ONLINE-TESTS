@@ -12,7 +12,7 @@ export default function Carousel() {
                 <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-blue-950 to-transparent"></div>
             </div>
 
-            <div className="relative h-[400px] md:h-[550px] lg:h-[600px] z-10">
+            <div className="relative h-[350px] md:h-[550px] lg:h-[600px] z-10">
                 {/* Hero Section */}
                 <div
                     className="absolute inset-0 opacity-100 translate-x-0"
@@ -35,8 +35,8 @@ export default function Carousel() {
                     </div>
 
                     <div className="absolute inset-0 bg-gradient-to-r from-blue-950/80 to-blue-950/60 backdrop-blur-[2px]">
-                        <Container className="h-full py-4 md:py-8 flex flex-col md:flex-row">
-                            <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start space-y-4 md:space-y-6 mb-6 md:mb-0 mx-auto">
+                        <Container className="h-full flex items-center justify-center md:justify-start">
+                            <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start space-y-3 md:space-y-6 mb-0 mx-auto">
                                 <div className="space-y-2 md:space-y-4 text-center md:text-left">
                                     <h2 className="text-white text-3xl md:text-5xl font-light tracking-wide">
                                         Achieve a
@@ -74,7 +74,7 @@ export default function Carousel() {
                                     </p>
                                 </div>
 
-                                <a href="/ielts-exam-library" className="mt-2 md:mt-4 relative group mb-4 md:mb-0" aria-label="Start practicing IELTS tests">
+                                <a href="/ielts-exam-library" className="mt-2 md:mt-4 relative group mb-0" aria-label="Start practicing IELTS tests">
                                     <span className="absolute inset-0 bg-gradient-to-br from-red-700 to-red-950 rounded-full opacity-80 group-hover:opacity-100 blur transition-all"></span>
                                     <span className="relative bg-gradient-to-br from-red-600 to-red-900 text-white px-6 md:px-8 py-2 md:py-3 text-sm md:text-base rounded-full font-bold inline-block transition-transform group-hover:scale-105">
                                         Start Now
