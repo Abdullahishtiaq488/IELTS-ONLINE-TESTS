@@ -79,7 +79,7 @@ export default function FaqPage() {
                         <div className="mt-16 text-center">
                             <h2 className="text-2xl font-bold text-primary-900 mb-6">Still have questions?</h2>
                             <p className="text-primary-700 mb-8">
-                                If you couldn't find the answer to your question, please feel free to contact us directly.
+                                If you couldn&apos;t find the answer to your question, please feel free to contact us directly.
                             </p>
                             <a href="/contact" className="inline-block bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-8 rounded-md transition-colors shadow-sm">
                                 Contact Support

@@ -4,7 +4,7 @@ import { Section } from '@/components/ui/section';
 
 export const metadata = {
     title: 'Terms & Conditions | The IELTS Project',
-    description: 'Terms and conditions for using The IELTS Project website and services.',
+    description: 'Read about the terms and conditions governing the use of The IELTS Project platform.',
 };
 
 export default function TermsPage() {
@@ -24,17 +24,16 @@ export default function TermsPage() {
             <Section background="white">
                 <Container>
                     <div className="max-w-4xl mx-auto prose prose-primary">
-                        <h2>1. Introduction</h2>
-                        <p>
-                            Welcome to The IELTS Project. By accessing and using our website and services, you agree to be bound by these Terms and Conditions.
+                        <p className="lead">
+                            These Terms & Conditions govern your use of The IELTS Project platform and all related services.
                             Please read them carefully before using our platform.
                         </p>
 
                         <h2>2. Definitions</h2>
                         <p>
-                            "Service" or "Platform" refers to The IELTS Project website and all related services.
-                            "User" refers to any individual who accesses or uses the Service.
-                            "Content" refers to all materials available on the Service, including text, images, audio, and interactive features.
+                            &quot;Service&quot; or &quot;Platform&quot; refers to The IELTS Project website and all related services.
+                            &quot;User&quot; refers to any individual who accesses or uses the Service.
+                            &quot;Content&quot; refers to all materials available on the Service, including text, images, audio, and interactive features.
                         </p>
 
                         <h2>3. Account Registration</h2>
@@ -74,7 +73,7 @@ export default function TermsPage() {
                         <p>
                             The IELTS Project provides educational resources and practice materials for IELTS preparation, but we do not guarantee specific
                             test results. We are not responsible for any outcomes resulting from the use of our Platform, including but not limited to
-                            IELTS test scores. The Service is provided "as is" without warranties of any kind.
+                            IELTS test scores. The Service is provided &quot;as is&quot; without warranties of any kind.
                         </p>
 
                         <h2>8. Privacy Policy</h2>

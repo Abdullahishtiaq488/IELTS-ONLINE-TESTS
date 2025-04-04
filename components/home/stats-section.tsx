@@ -1,7 +1,8 @@
 import React from 'react';
 import { Section } from '@/components/ui/section';
-import { StatCard } from '@/components/ui/stat-card';
-import { ieltsStats } from '@/data/stats';
+// StatCard and ieltsStats are no longer used since the section is commented out
+// import { StatCard } from '@/components/ui/stat-card';
+// import { ieltsStats } from '@/data/stats';
 
 export default function StatsSection() {
     return (

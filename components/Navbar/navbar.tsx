@@ -255,7 +255,7 @@ export default function Navbar() {
                                 />
                             </Link>
                         </div>
-                        <div className="flex-shrink-0">
+                        <div className="flex-shrink-0 w-full flex justify-center">
                             <Image
                                 src="/images/top-nav-horizontal.jpg"
                                 alt="The IELTS Project Banner"

@@ -5,7 +5,8 @@ import Image from 'next/image';
 import { Container } from './container';
 
 export default function Carousel() {
-    const [isAnimating, setIsAnimating] = useState(false);
+    // Since these state variables are not used, we can remove them
+    // const [isAnimating, setIsAnimating] = useState(false);
 
     return (
         <div className="relative w-full overflow-hidden" role="region" aria-roledescription="carousel" aria-label="Main promotional content">

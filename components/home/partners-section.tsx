@@ -2,13 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import { Section } from '@/components/ui/section';
 import { partnerDescription } from '@/data/partners';
-import { ieltsStats } from '@/data/stats';
-import { StatCard } from '@/components/ui/stat-card';
 
 export default function PartnersSection() {
-    // Filter to only show the first 4 stats
-    const displayStats = ieltsStats.slice(0, 4);
-
     return (
         <Section background="white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 md:py-8">
@@ -42,16 +37,30 @@ export default function PartnersSection() {
                 </div>
 
                 {/* Stats Section (moved from stats section) */}
-                {/* <div className="mt-16">
+                <div className="mt-16">
                     <h2 className="text-3xl font-bold text-primary-900 text-center mb-16">
                         Our Global Impact
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
-                        {displayStats.map((stat, index) => (
-                            <StatCard key={index} stat={stat} />
-                        ))}
+                        {/* Display stats here with custom implementation instead of using StatCard */}
+                        <div className="text-center">
+                            <p className="text-3xl font-bold text-primary-800">120+</p>
+                            <p className="text-primary-600">Countries</p>
+                        </div>
+                        <div className="text-center">
+                            <p className="text-3xl font-bold text-primary-800">50,000+</p>
+                            <p className="text-primary-600">Test Takers</p>
+                        </div>
+                        <div className="text-center">
+                            <p className="text-3xl font-bold text-primary-800">7,000,000+</p>
+                            <p className="text-primary-600">Completed Tests</p>
+                        </div>
+                        <div className="text-center">
+                            <p className="text-3xl font-bold text-primary-800">100+</p>
+                            <p className="text-primary-600">IELTS Mock Tests</p>
+                        </div>
                     </div>
-                </div> */}
+                </div>
             </div>
         </Section>
     );

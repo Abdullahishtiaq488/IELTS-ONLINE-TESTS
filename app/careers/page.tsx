@@ -80,7 +80,7 @@ export default function CareersPage() {
                         <div className="mt-8 text-center bg-primary-50 p-8 rounded-xl">
                             <h2 className="text-2xl font-bold text-primary-900 mb-4">Want to join our team?</h2>
                             <p className="text-primary-700 mb-6 max-w-2xl mx-auto">
-                                We're always looking for talented individuals to join our team. Send us your resume and tell us how you can contribute to The IELTS Project.
+                                We&apos;re always looking for talented individuals to join our team. Send us your resume and tell us how you can contribute to The IELTS Project.
                             </p>
                             <a href="mailto:careers@theieltsproject.com" className="inline-block bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-8 rounded-md transition-colors shadow-sm">
                                 Send Your Resume
