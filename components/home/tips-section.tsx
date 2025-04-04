@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function TipsSection() {
     // Make a copy of ieltsTips and ensure they have the correct links
-    const tips = ieltsTips.map((tip, index) => {
+    const tips = ieltsTips.map((tip) => {
         const updatedTip = { ...tip };
 
         // Map each category to the corresponding blog page
