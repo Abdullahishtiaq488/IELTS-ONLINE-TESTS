@@ -143,7 +143,7 @@ export default function PrivacyPolicyPage() {
                                 <div className="mb-12 border-b border-primary-100 pb-8">
                                     <h2 className="text-2xl font-bold text-primary-900 mb-6 flex items-center">
                                         <span className="bg-primary-100 text-primary-700 rounded-full w-10 h-10 flex items-center justify-center mr-4 text-xl">6</span>
-                                        Children's Privacy
+                                        Children&apos;s Privacy
                                     </h2>
                                     <p className="mb-2">
                                         Our services are not directed to children under the age of 16. We do not knowingly collect personal
