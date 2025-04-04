@@ -4,31 +4,172 @@ import { Section } from '@/components/ui/section';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export const metadata = {
-    title: 'IELTS Reading: Simple Guide to Success | The IELTS Project',
-    description: 'Learn effective strategies for IELTS Reading success. Tips for managing time, question types, and improving your score.',
+// Sample blog posts data - in a real app this would be fetched from an API or database
+const blogPosts = {
+    'ielts-reading-guide': {
+        title: 'IELTS Reading: Simple Guide to Success',
+        date: 'April 4, 2024',
+        readTime: '10 min read',
+        image: '/images/reading.jpg',
+        content: {
+            intro: 'The IELTS Reading test checks how well you understand written English. You&apos;ll face 3 sections, 40 questions, and only 60 minutes—so time and strategy matter!',
+            sections: [
+                {
+                    title: '🧾 What to Expect',
+                    type: 'list',
+                    items: [
+                        '<span class="font-medium">Academic:</span> 3 long texts from books, journals, or articles',
+                        '<span class="font-medium">General Training:</span> Everyday texts like ads, notices, and instruction manuals',
+                        '<span class="font-medium">Total time:</span> 60 minutes',
+                        '<span class="font-medium">No extra time</span> to transfer answers'
+                    ],
+                    style: 'bg-blue-50 p-6 rounded-lg'
+                },
+                {
+                    title: '📌 Common Question Types',
+                    type: 'list',
+                    items: [
+                        '✅ Multiple choice',
+                        '✅ True/False/Not Given',
+                        '✅ Matching headings',
+                        '✅ Sentence & summary completion',
+                        '✅ Diagram labeling'
+                    ],
+                    style: 'border-l-4 border-primary-600 pl-6'
+                },
+                {
+                    title: '✔️ Quick Tips',
+                    type: 'ordered-list',
+                    items: [
+                        '<span class="font-medium">Skim first,</span> scan for answers',
+                        '<span class="font-medium">Underline keywords</span> in questions',
+                        '<span class="font-medium">Don&apos;t spend too long</span> on one question',
+                        '<span class="font-medium">Don&apos;t leave blanks</span>—guess if unsure',
+                        '<span class="font-medium">Stick to what&apos;s in the text only</span>'
+                    ],
+                    style: ''
+                },
+                {
+                    title: '📚 Best Way to Improve',
+                    type: 'list',
+                    items: [
+                        'Practice daily',
+                        'Read articles and note keywords',
+                        'Use past test papers',
+                        'Learn synonyms and paraphrasing'
+                    ],
+                    style: 'bg-primary-50 p-6 rounded-lg'
+                },
+                {
+                    title: '🔗 Try This',
+                    type: 'link',
+                    link: '/ielts-exam-library',
+                    linkText: '👉 IELTS Reading Test Pdf',
+                    style: 'bg-primary-100 p-6 rounded-lg'
+                },
+                {
+                    title: 'Final Tip:',
+                    type: 'text',
+                    content: 'Stay calm, read with focus, and practice under timed conditions. With the right habits, your score will improve!',
+                    style: 'bg-primary-600 text-white p-6 rounded-lg'
+                }
+            ]
+        }
+    },
+    'ielts-listening-strategies': {
+        title: 'IELTS Listening: Essential Strategies',
+        date: 'March 14, 2024',
+        readTime: '9 min read',
+        image: '/images/listening.jpg',
+        content: {
+            intro: 'The IELTS Listening test evaluates your ability to understand spoken English in various situations. With these strategies, you can improve your performance and score higher.',
+            sections: [
+                {
+                    title: '🎧 Format Overview',
+                    type: 'list',
+                    items: [
+                        '4 sections with increasing difficulty',
+                        '40 questions in 30 minutes',
+                        'Additional 10 minutes to transfer answers',
+                        'Only played ONCE'
+                    ],
+                    style: 'bg-blue-50 p-6 rounded-lg'
+                },
+                {
+                    title: '📝 Effective Note-taking',
+                    type: 'list',
+                    items: [
+                        'Use abbreviations and symbols',
+                        'Write down numbers, dates, and names',
+                        'Listen for signpost words (firstly, finally, etc.)',
+                        'Create a shorthand system that works for you'
+                    ],
+                    style: 'border-l-4 border-primary-600 pl-6'
+                }
+            ]
+        }
+    }
 };
 
+export function generateMetadata({ params }: { params: { slug: string } }) {
+    const post = blogPosts[params.slug];
+
+    if (!post) {
+        return {
+            title: 'Blog Post Not Found | The IELTS Project',
+            description: 'The requested blog post could not be found.'
+        };
+    }
+
+    return {
+        title: `${post.title} | The IELTS Project`,
+        description: post.content.intro
+    };
+}
+
 export default function BlogDetailPage({ params }: { params: { slug: string } }) {
-    // This is a static implementation. In the future, this would fetch the blog post based on the slug parameter
+    // Get the blog post data based on the slug
+    const post = blogPosts[params.slug];
+
+    // If no post is found, display a not found message
+    if (!post) {
+        return (
+            <main className="flex-1">
+                <Section background="white">
+                    <Container>
+                        <div className="max-w-4xl mx-auto text-center py-20">
+                            <h1 className="text-3xl md:text-4xl font-bold text-primary-900 mb-4">Blog Post Not Found</h1>
+                            <p className="text-lg text-primary-700 mb-8">
+                                The blog post you&apos;re looking for doesn&apos;t exist or has been moved.
+                            </p>
+                            <Link href="/blog" className="bg-primary-600 text-white px-6 py-3 rounded-md font-medium hover:bg-primary-700 transition-colors">
+                                Back to Blog
+                            </Link>
+                        </div>
+                    </Container>
+                </Section>
+            </main>
+        );
+    }
+
     return (
         <main className="flex-1">
             <Section background="white">
                 <Container>
                     <div className="max-w-4xl mx-auto">
                         <div className="mb-8 text-center">
-                            <h1 className="text-3xl md:text-4xl font-bold text-primary-900 mb-4">IELTS Reading: Simple Guide to Success</h1>
+                            <h1 className="text-3xl md:text-4xl font-bold text-primary-900 mb-4">{post.title}</h1>
                             <div className="flex items-center justify-center gap-2 text-primary-600">
-                                <span>Published: April 4, 2024</span>
+                                <span>Published: {post.date}</span>
                                 <span className="w-1.5 h-1.5 rounded-full bg-primary-600"></span>
-                                <span>10 min read</span>
+                                <span>{post.readTime}</span>
                             </div>
                         </div>
 
                         <div className="mb-10 rounded-lg overflow-hidden shadow-md">
                             <Image
-                                src="/images/trending.jpg"
-                                alt="IELTS Reading guide"
+                                src={post.image}
+                                alt={post.title}
                                 width={800}
                                 height={450}
                                 className="w-full h-auto object-cover"
@@ -37,72 +178,48 @@ export default function BlogDetailPage({ params }: { params: { slug: string } })
 
                         <div className="prose prose-lg max-w-none">
                             <p className="lead text-xl text-primary-700 mb-8">
-                                The IELTS Reading test checks how well you understand written English. You'll face 3 sections, 40 questions, and only 60 minutes—so time and strategy matter!
+                                {post.content.intro}
                             </p>
 
-                            <div className="bg-blue-50 p-6 rounded-lg mb-8">
-                                <h2 className="text-2xl font-bold text-primary-900 mb-4">🧾 What to Expect</h2>
-                                <ul className="list-disc pl-6 space-y-2">
-                                    <li><span className="font-medium">Academic:</span> 3 long texts from books, journals, or articles</li>
-                                    <li><span className="font-medium">General Training:</span> Everyday texts like ads, notices, and instruction manuals</li>
-                                    <li><span className="font-medium">Total time:</span> 60 minutes</li>
-                                    <li><span className="font-medium">No extra time</span> to transfer answers</li>
-                                </ul>
-                            </div>
+                            {post.content.sections.map((section, index) => (
+                                <div key={index} className={`${section.style} mb-8`}>
+                                    <h2 className="text-2xl font-bold text-primary-900 mb-4">{section.title}</h2>
 
-                            <div className="border-l-4 border-primary-600 pl-6 mb-8">
-                                <h2 className="text-2xl font-bold text-primary-900 mb-4">📌 Common Question Types</h2>
-                                <ul className="space-y-2">
-                                    <li>✅ Multiple choice</li>
-                                    <li>✅ True/False/Not Given</li>
-                                    <li>✅ Matching headings</li>
-                                    <li>✅ Sentence & summary completion</li>
-                                    <li>✅ Diagram labeling</li>
-                                </ul>
-                            </div>
+                                    {section.type === 'list' && (
+                                        <ul className="list-disc pl-6 space-y-2">
+                                            {section.items.map((item, i) => (
+                                                <li key={i} dangerouslySetInnerHTML={{ __html: item }} />
+                                            ))}
+                                        </ul>
+                                    )}
 
-                            <div className="mb-8">
-                                <h2 className="text-2xl font-bold text-primary-900 mb-4">✔️ Quick Tips</h2>
-                                <ol className="list-decimal pl-6 space-y-3">
-                                    <li><span className="font-medium">Skim first,</span> scan for answers</li>
-                                    <li><span className="font-medium">Underline keywords</span> in questions</li>
-                                    <li><span className="font-medium">Don't spend too long</span> on one question</li>
-                                    <li><span className="font-medium">Don't leave blanks</span>—guess if unsure</li>
-                                    <li><span className="font-medium">Stick to what's in the text only</span></li>
-                                </ol>
-                            </div>
+                                    {section.type === 'ordered-list' && (
+                                        <ol className="list-decimal pl-6 space-y-3">
+                                            {section.items.map((item, i) => (
+                                                <li key={i} dangerouslySetInnerHTML={{ __html: item }} />
+                                            ))}
+                                        </ol>
+                                    )}
 
-                            <div className="bg-primary-50 p-6 rounded-lg mb-8">
-                                <h2 className="text-2xl font-bold text-primary-900 mb-4">📚 Best Way to Improve</h2>
-                                <ul className="list-disc pl-6 space-y-2">
-                                    <li>Practice daily</li>
-                                    <li>Read articles and note keywords</li>
-                                    <li>Use past test papers</li>
-                                    <li>Learn synonyms and paraphrasing</li>
-                                </ul>
-                            </div>
+                                    {section.type === 'text' && (
+                                        <p className="text-lg">{section.content}</p>
+                                    )}
 
-                            <div className="bg-primary-100 p-6 rounded-lg mb-8">
-                                <h2 className="text-2xl font-bold text-primary-900 mb-4">🔗 Try This</h2>
-                                <div className="flex">
-                                    <Link
-                                        href="/ielts-exam-library"
-                                        className="inline-flex items-center text-lg font-semibold text-primary-700 hover:text-primary-900"
-                                    >
-                                        👉 IELTS Reading Test Pdf
-                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                                        </svg>
-                                    </Link>
+                                    {section.type === 'link' && (
+                                        <div className="flex">
+                                            <Link
+                                                href={section.link}
+                                                className="inline-flex items-center text-lg font-semibold text-primary-700 hover:text-primary-900"
+                                            >
+                                                {section.linkText}
+                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                                </svg>
+                                            </Link>
+                                        </div>
+                                    )}
                                 </div>
-                            </div>
-
-                            <div className="bg-primary-600 text-white p-6 rounded-lg mb-8">
-                                <h2 className="text-2xl font-bold mb-4">Final Tip:</h2>
-                                <p className="text-lg">
-                                    Stay calm, read with focus, and practice under timed conditions. With the right habits, your score will improve!
-                                </p>
-                            </div>
+                            ))}
 
                             <div className="mt-12 pt-8 border-t border-gray-200">
                                 <h3 className="text-xl font-bold text-primary-900 mb-4">Share this article</h3>

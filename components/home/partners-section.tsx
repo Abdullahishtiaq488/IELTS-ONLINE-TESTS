@@ -35,46 +35,6 @@ export default function PartnersSection() {
                         </div>
                     </div>
                 </div>
-
-                {/* Stats Section (moved from stats section) */}
-                
-                 
-
-IELTS Reading: Simple Guide to Success
-The IELTS Reading test checks how well you understand written English. You’ll face 3 sections, 40 questions, and only 60 minutes—so time and strategy matter!
-________________________________________
-🧾 What to Expect
-•	Academic: 3 long texts from books, journals, or articles
-•	General Training: Everyday texts like ads, notices, and instruction manuals
-•	Total time: 60 minutes
-•	No extra time to transfer answers
-________________________________________
-📌 Common Question Types
-•	✅ Multiple choice
-•	✅ True/False/Not Given
-•	✅ Matching headings
-•	✅ Sentence & summary completion
-•	✅ Diagram labeling
-________________________________________
-✔️ Quick Tips
-1.	Skim first, scan for answers
-2.	Underline keywords in questions
-3.	Don’t spend too long on one question
-4.	Don’t leave blanks—guess if unsure
-5.	Stick to what’s in the text only
-________________________________________
-📚 Best Way to Improve
-•	Practice daily
-•	Read articles and note keywords
-•	Use past test papers
-•	Learn synonyms and paraphrasing
-________________________________________
-🔗 Try This
-👉 IELTS Reading Test Pdf
-________________________________________
-Final Tip:
-Stay calm, read with focus, and practice under timed conditions. With the right habits, your score will improve!
-
             </div>
         </Section>
     );

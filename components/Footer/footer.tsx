@@ -24,9 +24,9 @@ export default function Footer() {
                         <div className="mt-6 flex flex-col gap-3">
                             <div className="relative inline-block w-44">
                                 <label htmlFor="currency-selector" className="sr-only">Select currency</label>
-                                <select
+                                <select 
                                     id="currency-selector"
-                                    className="block appearance-none w-full bg-muted-100 border border-muted-300 text-black py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:ring-2 focus:ring-primary-500"
+                                    className="block appearance-none w-full bg-muted-100 border border-muted-300 text-black py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:ring-2 focus:ring-primary-500" 
                                 >
                                     <option>PKR ₨</option>
                                     <option>USD $</option>
@@ -42,9 +42,9 @@ export default function Footer() {
 
                             <div className="relative inline-block w-44">
                                 <label htmlFor="language-selector" className="sr-only">Select language</label>
-                                <select
+                                <select 
                                     id="language-selector"
-                                    className="block appearance-none w-full bg-muted-100 border border-muted-300 text-primary-900 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:ring-2 focus:ring-primary-500"
+                                    className="block appearance-none w-full bg-muted-100 border border-muted-300 text-primary-900 py-2 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:ring-2 focus:ring-primary-500" 
                                 >
                                     <option>English</option>
                                     <option>Español</option>

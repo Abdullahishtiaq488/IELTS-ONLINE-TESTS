@@ -16,7 +16,7 @@ const blogPosts = [
         slug: 'ielts-reading-guide',
         title: 'IELTS Reading: Simple Guide to Success',
         excerpt: 'The IELTS Reading test checks how well you understand written English. You&apos;ll face 3 sections, 40 questions, and only 60 minutes—so time and strategy matter!',
-        image: '/images/trending.jpg',
+        image: '/images/reading.jpg',
         date: 'April 4, 2024',
         readTime: '10 min read',
         author: 'IELTS Expert'
@@ -72,8 +72,8 @@ export default function BlogPage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
                         {blogPosts.map((post) => (
                             <Link key={post.id} href={`/blog/${post.slug}`} className="group">
-                                <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
-                                    <div className="relative h-52 overflow-hidden">
+                                <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 h-full flex flex-col">
+                                    <div className="relative h-48 overflow-hidden">
                                         <Image
                                             src={post.image}
                                             alt={post.title}
@@ -82,7 +82,7 @@ export default function BlogPage() {
                                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                                         />
                                     </div>
-                                    <div className="p-6">
+                                    <div className="p-6 flex-grow flex flex-col">
                                         <div className="flex items-center text-sm text-primary-600 mb-2">
                                             <span>{post.date}</span>
                                             <span className="mx-2">•</span>
@@ -91,13 +91,15 @@ export default function BlogPage() {
                                         <h2 className="text-xl font-bold text-primary-900 mb-2 group-hover:text-primary-600 transition-colors">
                                             {post.title}
                                         </h2>
-                                        <p className="text-primary-700 mb-4 line-clamp-3">
+                                        <p className="text-primary-700 mb-4 line-clamp-3 flex-grow">
                                             {post.excerpt}
                                         </p>
-                                        <div className="flex items-center">
-                                            <span className="text-primary-600 font-medium group-hover:text-primary-700 transition-colors">
+                                        <div className="flex items-center mt-auto">
+                                            <span className="text-primary-600 font-medium group-hover:text-primary-700 transition-colors flex items-center">
                                                 Read more
-                                                <span className="ml-1 group-hover:ml-2 transition-all">→</span>
+                                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                                </svg>
                                             </span>
                                         </div>
                                     </div>
@@ -106,12 +108,12 @@ export default function BlogPage() {
                         ))}
                     </div>
 
-                    <div className="max-w-2xl mx-auto text-center">
+                    <div className="max-w-2xl mx-auto text-center bg-primary-50 p-8 rounded-xl shadow-sm">
                         <h2 className="text-2xl font-bold text-primary-900 mb-4">Subscribe to Our Blog</h2>
                         <p className="text-primary-700 mb-6">
                             Get the latest IELTS tips, tricks, and resources delivered straight to your inbox.
                         </p>
-                        <div className="flex flex-col sm:flex-row gap-2 justify-center">
+                        <div className="flex flex-col sm:flex-row gap-3 justify-center">
                             <input
                                 type="email"
                                 placeholder="Enter your email"
@@ -119,7 +121,7 @@ export default function BlogPage() {
                             />
                             <button
                                 type="button"
-                                className="bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-6 rounded-md transition-colors"
+                                className="bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 px-6 rounded-md transition-colors shadow-sm"
                             >
                                 Subscribe
                             </button>
