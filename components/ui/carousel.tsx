@@ -12,10 +12,10 @@ export default function Carousel() {
                 <div className="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-blue-950 to-transparent"></div>
             </div>
 
-            <div className="relative min-h-[600px] sm:min-h-[650px] md:min-h-[550px] lg:min-h-[600px] z-10">
+            <div className="relative z-10">
                 {/* Hero Section */}
                 <div
-                    className="relative h-full w-full"
+                    className="h-auto"
                     role="group"
                     aria-roledescription="hero"
                     aria-label="Main Hero"
@@ -34,10 +34,10 @@ export default function Carousel() {
                         />
                     </div>
 
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-950/80 to-blue-950/60 backdrop-blur-[2px]">
-                        <Container className="h-full py-6 md:py-0">
-                            <div className="flex flex-col md:flex-row h-full md:items-center">
-                                <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start space-y-3 md:space-y-6 mb-6 md:mb-0">
+                    <div className="relative bg-gradient-to-r from-blue-950/80 to-blue-950/60 backdrop-blur-[2px]">
+                        <Container className="py-12 md:py-16">
+                            <div className="flex flex-col md:flex-row gap-8 md:gap-4">
+                                <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start space-y-3 md:space-y-6">
                                     <div className="space-y-2 md:space-y-4 text-center md:text-left">
                                         <h2 className="text-white text-3xl md:text-5xl font-light tracking-wide">
                                             Achieve a
