@@ -86,7 +86,7 @@ export default function Carousel() {
                                 {/* YouTube Video using iframe - hidden on mobile screens */}
                                 <div className="relative w-full max-w-[500px] aspect-video rounded-lg overflow-hidden shadow-2xl md:mr-0">
                                     <iframe
-                                        src="https://www.youtube.com/embed/483rMP3rCk8?si=BILL1M5_VdQN5Lmw&autoplay=1&mute=1&modestbranding=1&rel=0"
+                                        src="https://www.youtube.com/embed/r5eiUU3EpHE?autoplay=1&mute=1&modestbranding=1&rel=0"
                                         title="IELTS Preparation Video"
                                         allowFullScreen
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
