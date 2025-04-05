@@ -10,7 +10,7 @@ interface TestCardProps {
     link: string;
 }
 
-export function TestCard({ title, image, rating, votes, link }: TestCardProps) {
+export function TestCard({ title, image, rating, votes }: TestCardProps) {
     // Calculate full stars, half stars, and empty stars
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 >= 0.3 && rating % 1 <= 0.7;
