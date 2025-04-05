@@ -112,8 +112,8 @@ export default function Footer() {
                     </p>
 
                     <p className="mb-3">
-                        &quot;IELTS Online&quot; is the name of the online version of the official IELTS test and is in no way affiliated with this website. To find out more about the official IELTS
-                        Online please visit <a href="https://www.ielts.org/" className="underline hover:text-white focus:outline-none focus:ring-2 focus:ring-secondary-300 rounded">https://www.ielts.org/</a>.
+                        &quot;IELTS Project&quot; is a learning resource for IELTS preparation and is in no way affiliated with the official IELTS test. To find out more about the official IELTS
+                        please visit <a href="https://www.ielts.org/" className="underline hover:text-white focus:outline-none focus:ring-2 focus:ring-secondary-300 rounded">https://www.ielts.org/</a>.
                     </p>
 
                     <p className="text-center mt-6">粤ICP备2022086094号-5</p>

@@ -1,6 +1,6 @@
 # Margin and Spacing Patterns
 
-This document explains the spacing and margin patterns implemented in the IELTS Online Tests application.
+This document explains the spacing and margin patterns implemented in the IELTS Project application.
 
 ## Core Principles
 
@@ -14,6 +14,7 @@ This document explains the spacing and margin patterns implemented in the IELTS 
 ### PageWrapper Component
 
 A reusable component that wraps page content with consistent margins:
+
 - Provides responsive padding on all sides
 - Uses container utility for width constraints
 - Easy to customize through className prop
@@ -27,6 +28,7 @@ A reusable component that wraps page content with consistent margins:
 ### Component Cards
 
 Cards and UI elements follow these patterns:
+
 - Using flex-col and space-y for vertical spacing
 - Using gap utilities for grid layouts
 - Avoiding excessive margin-bottom in favor of gap utilities
@@ -40,4 +42,4 @@ Cards and UI elements follow these patterns:
 4. **Use the container** for consistent width constraints
 5. **Use responsive padding** that adjusts to different screen sizes
 
-These patterns ensure a professional, consistent layout throughout the application. 
+These patterns ensure a professional, consistent layout throughout the application.

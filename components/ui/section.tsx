@@ -4,7 +4,7 @@ import { PageWrapper } from './page-wrapper';
 interface SectionProps {
     children: React.ReactNode;
     className?: string;
-    background?: 'white' | 'gray' | 'blue' | 'blue-950';
+    background?: 'white' | 'gray' | 'blue' | 'blue-50' | 'blue-950';
 }
 
 export function Section({
@@ -16,6 +16,7 @@ export function Section({
         white: 'bg-white',
         gray: 'bg-muted-400',
         blue: 'bg-primary-50',
+        'blue-50': 'bg-blue-50',
         'blue-950': 'bg-primary-950'
     };
 

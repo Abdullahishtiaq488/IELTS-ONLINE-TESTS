@@ -16,12 +16,12 @@ export function TestCard({ title, image, rating, votes, link }: TestCardProps) {
     const fullStars = Math.floor(rating);
     const hasHalfStar = rating % 1 >= 0.3 && rating % 1 <= 0.7;
     const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
-    
+
     // Create accessible rating text
     const ratingText = `${rating.toFixed(1)} out of 5 stars, based on ${votes.toLocaleString()} votes`;
 
     return (
-        <Link href={link} className="block h-full" aria-label={`${title} - ${ratingText}`}>
+        <a href="/test.pdf" download className="block h-full" aria-label={`Download ${title} - ${ratingText}`}>
             <div className="h-full rounded-lg overflow-hidden shadow-md border border-tertiary-200 bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                 {/* Card Image */}
                 <div className="relative aspect-[4/3] w-full">
@@ -63,18 +63,18 @@ export function TestCard({ title, image, rating, votes, link }: TestCardProps) {
                             </div>
                             <span className="text-xs sm:text-sm font-medium text-tertiary-700">{rating.toFixed(1)}</span>
                         </div>
-                        
+
                         {/* Votes moved to right side */}
                         <span className="text-xs text-tertiary-500 truncate">({votes.toLocaleString()} votes)</span>
                     </div>
-                    
+
                     <div className="mt-3 sm:mt-4 text-center">
                         <span className="inline-block bg-primary-100 text-primary-700 text-xs px-3 sm:px-4 py-1 sm:py-1.5 rounded-full font-medium hover:bg-primary-200 transition-colors">
-                            Take Test
+                            Download Test
                         </span>
                     </div>
                 </div>
             </div>
-        </Link>
+        </a>
     );
 }

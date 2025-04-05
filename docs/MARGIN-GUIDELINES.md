@@ -1,6 +1,6 @@
 # Margin and Spacing Guidelines
 
-This document outlines the standardized approach to margins and spacing throughout the IELTS Online application.
+This document outlines the standardized approach to margins and spacing throughout the IELTS Project application.
 
 ## Core Components
 
@@ -9,12 +9,10 @@ This document outlines the standardized approach to margins and spacing througho
 The `Container` component is the fundamental building block for consistent margins:
 
 ```tsx
-<Container>
-  {/* Content here */}
-</Container>
+<Container>{/* Content here */}</Container>
 ```
 
-- Provides `max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8` 
+- Provides `max-w-[1140px] mx-auto px-4 sm:px-6 lg:px-8`
 - Ensures consistent horizontal margins
 - Optimized for laptop screens (HP ProBook G2 450)
 - Used throughout the app for consistent alignment
@@ -24,9 +22,7 @@ The `Container` component is the fundamental building block for consistent margi
 The `PageWrapper` builds on the Container and adds consistent vertical padding:
 
 ```tsx
-<PageWrapper>
-  {/* Page content here */}
-</PageWrapper>
+<PageWrapper>{/* Page content here */}</PageWrapper>
 ```
 
 - Adds `py-6 md:py-8` vertical padding
@@ -38,9 +34,7 @@ The `PageWrapper` builds on the Container and adds consistent vertical padding:
 The `Section` component provides a complete, standardized content section:
 
 ```tsx
-<Section background="gray">
-  {/* Section content */}
-</Section>
+<Section background="gray">{/* Section content */}</Section>
 ```
 
 - Wraps content in a properly spaced section
@@ -61,17 +55,20 @@ Container → PageWrapper → Section
 ## Spacing Guidelines
 
 1. **Use established components:**
+
    - Use `Section` for major content sections
    - Use `Container` for consistent horizontal margins
    - Use `PageWrapper` for page content without background
    - Never create arbitrary margin/padding directly
 
 2. **Use spacing utilities consistently:**
+
    - Use `space-y-{n}` for vertical spacing between elements
    - Use `gap-{n}` for grid and flex layouts
    - Use responsive variants for different screen sizes
 
 3. **Follow breakpoint patterns:**
+
    - `px-4 sm:px-6 lg:px-8` for horizontal padding
    - `py-6 md:py-8` for content vertical padding
    - `py-8 md:py-12` for section vertical padding
@@ -87,7 +84,7 @@ Container → PageWrapper → Section
 <div className="flex flex-col">
   {/* Full-width component with consistent container */}
   <Carousel />
-  
+
   {/* Content sections with consistent spacing */}
   <div className="space-y-16">
     <Section background="gray">
@@ -96,14 +93,12 @@ Container → PageWrapper → Section
         {/* Cards */}
       </div>
     </Section>
-    
+
     <Section background="white">
-      <div className="space-y-8">
-        {/* Content */}
-      </div>
+      <div className="space-y-8">{/* Content */}</div>
     </Section>
   </div>
 </div>
 ```
 
-All components, including Navbar and Carousel, use the same Container component to ensure consistent margins throughout the application that are optimized for HP ProBook G2 450 laptop screens. 
+All components, including Navbar and Carousel, use the same Container component to ensure consistent margins throughout the application that are optimized for HP ProBook G2 450 laptop screens.

@@ -38,7 +38,7 @@ export default function ContactForm() {
     };
 
     return (
-        <div className="bg-white rounded-lg shadow-md p-6 md:p-8">
+        <div className="bg-white rounded-lg shadow-md p-6 md:p-8 border border-blue-200">
             <div className="flex items-center mb-6">
                 <div className="mr-4">
                     <Image src="/images/contact-icon.svg" alt="Contact icon" width={40} height={40} />
