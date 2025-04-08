@@ -240,9 +240,9 @@ export default function Navbar() {
     return (
         <nav aria-label="Main navigation">
             {/* Top Section with Logo and Horizontal Image */}
-            <div className="hidden md:block bg-white border-b">
-                <Container>
-                    <div className="flex justify-between items-center h-24 md:h-28 lg:h-32">
+            <div className="hidden md:block bg-white border-b p-0 m-0 overflow-hidden">
+                <Container className="p-0 m-0">
+                    <div className="flex justify-between items-center p-0 m-0">
                         <div className="flex-shrink-0">
                             <Link href="/" className="flex items-center">
                                 <Image
@@ -261,7 +261,7 @@ export default function Navbar() {
                                 alt="The IELTS Project Banner"
                                 width={600}
                                 height={80}
-                                className="h-16 md:h-20 lg:h-24 w-auto"
+                                className="h-16 md:h-20 lg:h-24 w-auto m-0 p-0 -mb-1"
                             />
                         </div>
                     </div>
