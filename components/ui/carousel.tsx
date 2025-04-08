@@ -39,18 +39,18 @@ export default function Carousel() {
                             <div className="flex flex-col md:flex-row gap-8 md:gap-4">
                                 <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start space-y-3 md:space-y-6">
                                     <div className="space-y-2 md:space-y-4 text-center md:text-left">
-                                        <h2 className="text-white text-3xl md:text-5xl font-light tracking-wide">
+                                        <h2 className="text-white text-2xl md:text-5xl font-light tracking-wide">
                                             Achieve a
                                         </h2>
-                                        <h3 className="text-white text-2xl md:text-4xl font-bold tracking-wide">
+                                        <h3 className="text-white text-xl md:text-4xl font-bold tracking-wide">
                                             Higher IELTS Score
                                         </h3>
                                     </div>
 
                                     <div className="bg-blue-900/20 backdrop-blur-md py-3 md:py-4 px-4 rounded-lg border border-blue-800/30 w-full max-w-md">
                                         <p className="text-blue-100 text-sm md:text-lg text-center md:text-left">
-                                            Realistic IELTS Mock Tests <br />
-                                            <span className="font-bold text-white">Perfect for your 2025 exam strategy</span>
+                                            Realistic IELTS Mock Tests <span className="hidden md:inline">-</span>
+                                            <span className="font-bold text-white md:ml-1">Perfect for your 2025 exam strategy</span>
                                         </p>
                                     </div>
 
@@ -84,8 +84,8 @@ export default function Carousel() {
                                 </div>
 
                                 {/* Video section - now visible on all screen sizes */}
-                                <div className="w-full md:w-1/2 flex items-center justify-center">
-                                    <div className="relative w-full max-w-[95%] sm:max-w-[80%] md:max-w-[90%] aspect-video rounded-lg overflow-hidden shadow-2xl">
+                                <div className="w-full md:w-1/2 flex items-center justify-end">
+                                    <div className="relative w-full max-w-[100%] sm:max-w-[90%] md:max-w-[95%] aspect-video rounded-lg overflow-hidden shadow-2xl">
                                         <iframe
                                             src="https://www.youtube.com/embed/r5eiUU3EpHE?autoplay=1&mute=1&modestbranding=1&rel=0"
                                             title="IELTS Preparation Video"

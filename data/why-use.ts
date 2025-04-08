@@ -2,19 +2,19 @@ import { WhyUseFeature } from '@/types/data';
 
 export const whyUseFeatures: WhyUseFeature[] = [
     {
-        title: "Take recent actual IELTS Tests",
-        description: "Real IELTS Listening and IELTS Reading tests based on actual IELTS tests and following the Cambridge IELTS book format.",
+        title: "Real IELTS Practice",
+        description: "Take authentic Listening and Reading tests that match the Cambridge IELTS format.",
         image: "/images/why-section1.png"
     },
    
     {
-        title: "Comprehensive analytics tool",
-        description: "Our IELTS Analytics is a tool that allows you to set a target IELTS band score, analyse your progress and find how to improve.",
+        title: "AI Progress Tracking",
+        description: "Set your target score, track improvements and get insights to boost your performance.",
         image: "/images/why-section3.png"
     },
     {
-        title: "View IELTS Score and Answer Explanations",
-        description: "After taking our IELTS mock tests with real audio, you can check your Listening or Reading band score and view your answer sheets.",
+        title: "Instant Results & Feedback",
+        description: "Check your band score, review answers and learn from mistakes after each test.",
         image: "/images/why-section4.png"
     }
 ]; 
