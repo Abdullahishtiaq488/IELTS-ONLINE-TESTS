@@ -48,7 +48,7 @@ export default function Carousel() {
                                     </div>
 
                                     <div className="bg-blue-900/20 backdrop-blur-md py-3 md:py-4 px-4 rounded-lg border border-blue-800/30 w-full max-w-md">
-                                        <p className="text-blue-100 text-sm md:text-lg text-center md:text-left whitespace-normal lg:whitespace-nowrap">
+                                        <p className="text-blue-100 text-xs md:text-sm text-center md:text-left whitespace-normal lg:whitespace-nowrap">
                                             Realistic IELTS Mock Tests <span className="hidden md:inline">-</span>
                                             <span className="font-bold text-white md:ml-1">For your 2025 exam</span>
                                         </p>
