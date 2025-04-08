@@ -927,6 +927,16 @@ p {
   @apply cursor-pointer;
 }
 
+/* Hide scrollbar but keep functionality */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
 /* Category Tab Hover Fix */
 .category-tab-best-seller:hover {
   color: var(--primary-950) !important;

@@ -8,7 +8,7 @@ export default function PartnersSection() {
         <Section background="white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 md:py-8">
                 <div className="mb-12 text-center">
-                    <h2 className="text-3xl md:text-4xl font-bold text-primary-800 mb-4">
+                    <h2 className="text-xl md:text-4xl font-bold text-primary-800 mb-4">
                         Why Partner With Us?
                     </h2>
                     <div className="w-20 h-1 bg-accent-500 mx-auto mb-6 rounded-full"></div>

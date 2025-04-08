@@ -14,7 +14,7 @@ export default function FeaturesSection() {
     return (
         <Section background="white" >
             <div className="mb-12 text-center">
-                <h2 className="text-3xl font-bold text-primary-900">Our IELTS tests features</h2>
+                <h2 className="text-xl md:text-3xl font-bold text-primary-900">Our IELTS tests features</h2>
             </div>
 
             <div className="border border-seconday-200 rounded-md overflow-hidden shadow-sm">

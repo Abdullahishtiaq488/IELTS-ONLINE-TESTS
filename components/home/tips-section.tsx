@@ -26,7 +26,7 @@ export default function TipsSection() {
     return (
         <Section background="blue-950">
             <div className="mb-12">
-                <h2 className="text-3xl font-bold text-white">Quick IELTS Hacks for Success</h2>
+                <h2 className="text-xl text-center md:text-start md:text-3xl font-bold text-white">Quick IELTS Hacks for Success</h2>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {tips.map((tip, index) => (
