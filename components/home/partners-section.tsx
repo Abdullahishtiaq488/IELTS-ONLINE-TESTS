@@ -16,7 +16,7 @@ export default function PartnersSection() {
 
                 <div className="max-w-3xl mx-auto bg-gradient-to-br from-primary-50 to-primary-100 p-6 sm:p-8 lg:p-10 rounded-2xl shadow-xl mb-16">
                     <div className="h-full flex flex-col">
-                        <h3 className="text-2xl font-bold text-primary-900 mb-4 text-center">
+                        <h3 className="text-xl md:text-2xl font-bold text-primary-900 mb-4 text-center">
                             Join Our Global IELTS Community
                         </h3>
                         <p className="text-primary-700 leading-relaxed text-lg text-center flex-grow mb-6">
