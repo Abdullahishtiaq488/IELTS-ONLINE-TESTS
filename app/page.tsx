@@ -28,6 +28,10 @@ export default function Home() {
           <WhyUseSection />
         </section>
 
+        <section aria-labelledby="tips-heading">
+          <TipsSection />
+        </section>
+
         {/* <section aria-labelledby="stats-heading">
           <StatsSection />
         </section> */}
@@ -40,9 +44,7 @@ export default function Home() {
           <TestimonialsSection />
         </section>
 
-        <section aria-labelledby="tips-heading">
-          <TipsSection />
-        </section>
+        
 
         <section aria-labelledby="contact-heading">
           <ContactSection />
